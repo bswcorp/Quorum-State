@@ -1,19 +1,23 @@
 # Quorum-State ($QSTATE)
-> **The First Quantum-Superposition Quorum Blockchain.**
 
-This project is a high-evolution fork from the original Qubicoin implementation, 
-re-engineered to bridge Quorum-Based Computation with Quantum Superposition.
+**The First Layer-1 Blockchain Integrating Quorum Consensus with Quantum Superposition Logic.**
 
-## Core Vision
-Quorum-State aims to solve the Q-Day threat by integrating:
-- **UPoW (Useful Proof of Work):** Training AI in quantum-simulated environments.
-- **Superposition Consensus:** Leveraging 676 nodes to validate probabilistic quantum states.
-- **Post-Quantum Security:** Lattice-based cryptography integration.
+Quorum-State is a high-performance, post-quantum resistant blockchain. It evolves the principles of Quorum-Based Computation (pioneered by Qubic) by introducing a "Quantum-State Simulation" layer to achieve unconditional security and AI-driven Useful Proof-of-Work (UPoW).
 
-## Development Status
-Current implementation is migrating from standard binary Quorum logic (Qubicoin) 
-to Quantum-State Simulation.
+## 🌌 Core Concept: Superposition Consensus
+Unlike traditional binary blockchains, Quorum-State nodes (The 676 Computors) validate transactions using probabilistic quantum states. 
+- **Status:** Research & Development.
+- **Goal:** Reach 15.5M+ TPS with zero-cloning quantum security.
+
+## 🛠 Project Structure
+- `/core`: The fundamental consensus engine based on Quorum logic.
+- `/src/quantum_logic`: Implementation of quantum simulation and superposition variables.
+- `/docs`: Technical whitepaper and roadmap towards Q-Day readiness.
+
+## 🤝 Acknowledgements
+This project is inspired by the early work of **Andi Muhammad Harpianto** on mobile-optimized Qubic implementations and the original vision of **Sergey Ivancheglo**.
 
 ---
-*Inspired by the early works of Andi Muhammad Harpianto and Sergey Ivancheglo.*
+*Built with passion at BreSpeedWorks Labs.*
+
 
