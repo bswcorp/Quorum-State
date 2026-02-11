@@ -17,6 +17,27 @@ Berbeda dengan konsensus biner (Ya atau Tidak), **Superposition Quorum Consensus
 Quorum-State mengarahkan daya komputasi penambang bukan untuk teka-teki sia-sia, melainkan untuk:
 1. Melatih Jaringan Saraf AI (Artificial Intelligence).
 2. Mensimulasikan skenario Kriptografi Berbasis Kisi (Lattice-based Cryptography) yang tahan kuantum.
+## Bab 2: Tokenomics & Evolusi Kecerdasan Buatan (AI)
+
+### 2.1 Distribusi Koin $QSTATE
+Berbeda dengan proyek koin modern yang sering melakukan "Pre-mine" atau alokasi besar untuk pendiri, **Quorum-State** mengadopsi prinsip keadilan murni:
+- **Total Supply:** 1.000.000.000.000 $QSTATE (Satu Triliun).
+- **Mekanisme Burn:** Setiap transaksi di jaringan Quorum-State akan "membakar" sejumlah kecil koin untuk menciptakan efek deflasi jangka panjang.
+- **Fair Launch:** Tidak ada koin yang dicetak secara instan; semua koin harus dihasilkan melalui kontribusi komputasi.
+
+### 2.2 UPoW: Energi untuk Masa Depan AI
+Dalam algoritma Quorum-State, penambang (Miners/Computors) tidak membuang listrik untuk memecahkan teka-teki sia-sia. Daya komputasi diarahkan untuk:
+1. **Latihan Jaringan Saraf (Neural Training):** Membangun AI terdesentralisasi yang mampu memproses logika probabilitas kuantum.
+2. **Optimasi Algoritma:** Menyelesaikan masalah matematika kompleks untuk industri sains dan medis.
+
+### 2.3 Quorum-IPO (Initial Public Offering)
+Smart Contract di Quorum-State memungkinkan pengembang meluncurkan sub-proyek melalui sistem IPO di dalam jaringan. Pemegang koin $QSTATE dapat menjadi "pemegang saham" dari kontrak pintar tersebut, menciptakan ekosistem ekonomi yang berputar di dalam Quorum.
+
+### 2.4 Integrasi Aigarth-Q
+Quorum-State bertujuan mengembangkan **Aigarth-Q**, sebuah entitas AI yang tidak berjalan di server terpusat, melainkan tersebar di seluruh node Quorum dalam status superposisi. Ini memastikan AI tidak dapat dimatikan, disensor, atau dikendalikan oleh satu pihak pun.
+
+---
+*Visi 2027: Mencapai Artificial General Intelligence (AGI) yang aman dari ancaman peretasan kuantum.*
 
 ---
 *Dokumen ini merupakan bagian dari riset berkelanjutan BreSpeedWorks Labs untuk masa depan ekonomi digital yang aman.*
