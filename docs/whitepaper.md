@@ -41,3 +41,16 @@ Quorum-State bertujuan mengembangkan **Aigarth-Q**, sebuah entitas AI yang tidak
 
 ---
 *Dokumen ini merupakan bagian dari riset berkelanjutan BreSpeedWorks Labs untuk masa depan ekonomi digital yang aman.*
+## Bab 3: Arsitektur Keamanan & Skalabilitas
+
+### 3.1 Quantum-Gossip Protocol
+Quorum-State menggunakan protokol penyebaran data "Quantum-Gossip". Setiap informasi transaksi tidak hanya dikirimkan, tetapi juga divalidasi status "entanglement"-nya oleh node tetangga. Jika terjadi anomali (percobaan peretasan kuantum), node tersebut akan mengisolasi diri secara instan.
+
+### 3.2 Dynamic Weighting System
+676 Computors dalam jaringan tidak memiliki kekuasaan tetap. "Weight" atau bobot suara mereka ditentukan oleh:
+1. **Akurasi AI:** Kontribusi terhadap pelatihan Aigarth-Q.
+2. **Uptime:** Kehadiran dalam proses pengukuran status superposisi.
+Ini mencegah monopoli daya komputasi oleh satu pihak (anti-centralization).
+
+### 3.3 Interoperabilitas Post-Quantum
+Quorum-State dirancang untuk menjadi "Jembatan Aman" bagi aset dari blockchain lama. Melalui **$QSTATE Bridge**, pengguna dapat memindahkan aset mereka ke lingkungan yang aman dari ancaman Q-Day.
