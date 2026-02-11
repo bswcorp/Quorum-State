@@ -19,5 +19,26 @@ This project is inspired by the early work of **Andi Muhammad Harpianto** on mob
 
 ---
 *Built with passion at BreSpeedWorks Labs.*
+## 🚀 Roadmap 2026-2027
+
+### Q1 2026: Genesis Phase (CURRENT)
+- [x] Inisialisasi Protokol Quorum-State.
+- [x] Publikasi Whitepaper Bab 1 & 2.
+- [x] Simulasi Superposition Engine & Quantum Shield.
+
+### Q2 2026: Infrastructure & Testnet
+- [ ] Implementasi ML-DSA (Dilithium) Signature secara penuh.
+- [ ] Peluncuran Testnet "Quorum-Alpha" untuk 676 node simulasi.
+- [ ] Integrasi Submodule Legacy-Qubic untuk stabilitas jaringan.
+
+### Q3 2026: AI Integration (Aigarth-Q)
+- [ ] Peluncuran modul pelatihan AI berbasis UPoW.
+- [ ] Audit Keamanan oleh pihak ketiga untuk ketahanan pasca-kuantum.
+
+### 2027: The Sovereign Era
+- [ ] Mainnet Launch: Transisi ke koin $QSTATE asli.
+- [ ] Target 15.5M+ TPS dengan Quantum-State Validation.
+- [ ] Pencapaian AGI (Artificial General Intelligence) terdesentralisasi.
+
 
 
