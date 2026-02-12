@@ -64,3 +64,19 @@ Dengan sistem Quorum, serangan 51% secara matematis jauh lebih sulit dilakukan d
 
 ---
 *Status Jaringan: In-Development Simulation Phase.*
+
+## Bab 4: Mekanisme Kelangkaan & Staking Quantum
+
+### 4.1 Proof-of-Burn (PoB) Transaksional
+Setiap interaksi dengan smart contract atau transfer aset di jaringan Quorum-State akan memicu pembakaran (burn) otomatis sebesar 0,5% dari biaya transaksi. Koin yang terbakar akan dikirim ke "Null Address" yang tidak dapat diakses oleh siapa pun, menciptakan tekanan deflasi yang konstan.
+
+### 4.2 Quantum Staking (Q-Staking)
+Pemegang koin dapat mengunci (stake) aset mereka untuk mendukung likuiditas jaringan. Sebagai imbalannya, mereka akan menerima:
+- **Rewards:** Sebagian dari emisi koin baru yang dihasilkan oleh penambang UPoW.
+- **Voting Power:** Hak suara dalam menentukan arah pengembangan protokol melalui sistem Quorum DAO.
+
+### 4.3 Integrasi Oracle untuk Valuasi Real-Time
+Quorum-State akan menggunakan oracle terdesentralisasi untuk menyesuaikan tingkat kesulitan penambangan dan biaya transaksi berdasarkan beban jaringan dan nilai pasar koin, memastikan ekosistem tetap stabil secara ekonomi.
+
+---
+*Strategi: Mengubah daya komputasi menjadi nilai aset yang nyata dan langka.*
