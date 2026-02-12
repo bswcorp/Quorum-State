@@ -1,4 +1,5 @@
 ![Quorum-State Logo](docs/assets/logo.png)
+"Where Quorum Meets Quantum. The Last Safe Haven Before Q-Day."
 # Quorum-State ($QSTATE)
 **The First Layer-1 Blockchain Integrating Quorum Consensus with Quantum Superposition Logic.**
 
