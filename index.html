@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quorum-State | The Last Safe Haven Before Q-Day</title>
+    <style>
+        body { background: #000428; color: white; font-family: 'Orbitron', sans-serif; text-align: center; margin: 0; padding: 0; overflow-x: hidden; }
+        .hero { padding: 80px 20px; }
+        img { width: 280px; filter: drop-shadow(0 0 20px #9D50BB); margin-bottom: 20px; }
+        h1 { font-size: 3.5em; margin: 10px 0; color: #00D2FF; text-transform: uppercase; letter-spacing: 5px; }
+        p { font-size: 1.2em; color: #9D50BB; max-width: 700px; margin: 20px auto; line-height: 1.6; }
+        
+        /* Countdown Styles */
+        .timer-container { background: rgba(0, 210, 255, 0.1); border: 1px solid #00D2FF; padding: 30px; border-radius: 15px; display: inline-block; margin-top: 40px; }
+        .timer-label { font-size: 0.8em; color: #00D2FF; letter-spacing: 3px; margin-bottom: 15px; }
+        #countdown { font-size: 2.5em; font-weight: bold; color: #fff; text-shadow: 0 0 10px #00D2FF; }
+        
+        .btn { background: linear-gradient(45deg, #9D50BB, #6E48AA); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; display: inline-block; margin-top: 40px; font-weight: bold; transition: 0.3s; border: 1px solid #9D50BB; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px #9D50BB; }
+    </style>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <img src="docs/assets/logo.png" alt="Quorum-State Logo">
+        <h1>Quorum-State</h1>
+        <p>Infrastruktur Kedaulatan Digital Melawan Ancaman Kuantum.</p>
+        
+        <div class="timer-container">
+            <div class="timer-label">ESTIMASI MENUJU Q-DAY (ENCRYPTION COLLAPSE)</div>
+            <div id="countdown">Memuat Data Kuantum...</div>
+        </div>
+
+        <br>
+        <a href="https://github.com" class="btn">LIHAT REPOSITORI GENESIS</a>
+    </div>
+
+    <script>
+        // Set target date (Contoh: 1 Januari 2029 sebagai simulasi Q-Day)
+        const targetDate = new Date("Jan 1, 2029 00:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "THE QUANTUM ERA IS HERE";
+            }
+        }, 1000);
+    </script>
+<!-- Roadmap Visual Section -->
+<style>
+    .roadmap-section { padding: 60px 20px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; }
+    .roadmap-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: auto; }
+    .roadmap-card { background: rgba(157, 80, 187, 0.1); border: 1px solid #9D50BB; border-radius: 15px; padding: 25px; width: 250px; text-align: left; transition: 0.3s; }
+    .roadmap-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(157, 80, 187, 0.3); }
+    .roadmap-card h3 { color: #00D2FF; margin-top: 0; font-size: 1.1em; }
+    .roadmap-card ul { padding-left: 20px; font-size: 0.9em; color: #ccc; }
+    .roadmap-card.active { border-color: #00D2FF; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
+</style>
+
+<div class="roadmap-section">
+    <h2 style="color: #fff; letter-spacing: 5px; margin-bottom: 40px;">STRATEGIC ROADMAP</h2>
+    <div class="roadmap-container">
+        <div class="roadmap-card active">
+            <h3>PHASE 1: GENESIS</h3>
+            <ul>
+                <li>Quorum-State Protocol Init</li>
+                <li>Whitepaper Publication</li>
+                <li>Logo & Branding Launch</li>
+            </ul>
+        </div>
+        <div class="roadmap-card">
+            <h3>PHASE 2: INFRASTRUCTURE</h3>
+            <ul>
+                <li>Testnet "Quorum-Alpha"</li>
+                <li>Quantum Shield Integration</li>
+                <li>Post-Quantum Signatures</li>
+            </ul>
+        </div>
+        <div class="roadmap-card">
+            <h3>PHASE 3: AI EVOLUTION</h3>
+            <ul>
+                <li>Aigarth-Q Training Lab</li>
+                <li>UPoW Implementation</li>
+                <li>Security Audit</li>
+            </ul>
+        </div>
+        <div class="roadmap-card">
+            <h3>PHASE 4: SOVEREIGNTY</h3>
+            <ul>
+                <li>Mainnet Launch</li>
+                <li>$QSTATE Token Exchange</li>
+                <li>Decentralized AGI</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
