@@ -1,5 +1,5 @@
 # Quorum-State ($QSTATE)
-
+![Quorum-State Logo](docs/assets/logo.png)
 **The First Layer-1 Blockchain Integrating Quorum Consensus with Quantum Superposition Logic.**
 
 Quorum-State is a high-performance, post-quantum resistant blockchain. It evolves the principles of Quorum-Based Computation (pioneered by Qubic) by introducing a "Quantum-State Simulation" layer to achieve unconditional security and AI-driven Useful Proof-of-Work (UPoW).
