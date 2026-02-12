@@ -80,3 +80,25 @@ Quorum-State akan menggunakan oracle terdesentralisasi untuk menyesuaikan tingka
 
 ---
 *Strategi: Mengubah daya komputasi menjadi nilai aset yang nyata dan langka.*
+## Bab 5: Tata Kelola & Quorum DAO (Decentralized Autonomous Organization)
+
+### 5.1 Kedaulatan Pemegang Saham (Governance)
+Quorum-State beroperasi melalui sistem **Quorum DAO**, di mana setiap pemegang koin $QSTATE memiliki hak suara dalam pengembangan jaringan. Keputusan besar, seperti pembaruan protokol atau alokasi dana cadangan (Treasury), harus melalui proses voting yang divalidasi oleh 676 Computors.
+
+### 5.2 Mekanisme Voting Probabilistik
+Berbeda dengan DAO tradisional yang rentan terhadap manipulasi "paus" (whales), Quorum-State menggunakan **Probabilistic Voting**:
+- Suara dihitung berdasarkan bobot koin yang di-*stake*.
+- Hasil akhir harus mencapai kuorum minimal 67% untuk dianggap valid.
+- Pengambilan keputusan dilakukan secara transparan di atas jaringan utama (*on-chain*).
+
+### 5.3 Treasury & Dana Inovasi
+Sebagian dari biaya transaksi yang tidak dibakar (burn) akan dialokasikan ke **Quantum Treasury**. Dana ini digunakan untuk:
+1. Memberikan hibah (grants) kepada developer yang membangun dApps di atas Quorum-State.
+2. Mendanai riset berkelanjutan dalam bidang AI terdesentralisasi (Aigarth-Q).
+3. Pemeliharaan infrastruktur node bagi para Computors.
+
+### 5.4 Roadmap Menuju Full Autonomy
+Target kami pada akhir 2027 adalah menyerahkan seluruh kendali jaringan kepada kode (Code is Law). Quorum-State akan menjadi entitas mandiri yang tidak bergantung pada individu atau organisasi tunggal, menjadikannya protokol yang benar-benar milik komunitas global.
+
+---
+*Visi: Membangun demokrasi digital yang adil, cepat, dan aman dari peretasan masa depan.*
