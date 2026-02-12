@@ -102,3 +102,20 @@ Target kami pada akhir 2027 adalah menyerahkan seluruh kendali jaringan kepada k
 
 ---
 *Visi: Membangun demokrasi digital yang adil, cepat, dan aman dari peretasan masa depan.*
+## Bab 6: Road to Mainnet & Masa Depan Ekosistem
+
+### 6.1 Fase Testnet "Quorum-Alpha"
+Sebelum peluncuran penuh, jaringan akan melalui fase uji coba intensif. Pada fase ini, 676 node Computors terpilih akan menjalankan simulasi transaksi masif untuk menguji ketahanan "Quantum Shield" terhadap serangan simulasi kuantum.
+
+### 6.2 Migrasi & Peluncuran Mainnet
+Peluncuran Mainnet Quorum-State menandai transisi dari simulasi ke aset digital yang memiliki nilai nyata. Mekanisme "Genesis Block" akan mencatat distribusi awal koin $QSTATE berdasarkan kontribusi penambang UPoW selama fase testnet.
+
+### 6.3 Interoperabilitas Cross-Chain
+Quorum-State dirancang untuk tidak terisolasi. Melalui protokol "Quantum Bridge", $QSTATE akan dapat berinteraksi dengan blockchain lain (seperti Ethereum atau Qubic asli) melalui pembungkus token (wrapped tokens) yang tetap terlindungi oleh enkripsi pasca-kuantum.
+
+### 6.4 Visi 2030: Pelabuhan Aman Terakhir
+Saat Q-Day tiba dan banyak blockchain klasik mengalami kegagalan keamanan, Quorum-State akan berdiri sebagai standar baru dalam ekonomi digital dunia. Kami bertujuan menjadi infrastruktur utama bagi perbankan nasional, data medis sensitif, dan identitas digital global yang berdaulat.
+
+---
+*Status: Preparing for Alpha Testing Phase.*
+
