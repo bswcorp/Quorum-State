@@ -54,3 +54,13 @@ Ini mencegah monopoli daya komputasi oleh satu pihak (anti-centralization).
 
 ### 3.3 Interoperabilitas Post-Quantum
 Quorum-State dirancang untuk menjadi "Jembatan Aman" bagi aset dari blockchain lama. Melalui **$QSTATE Bridge**, pengguna dapat memindahkan aset mereka ke lingkungan yang aman dari ancaman Q-Day.
+## Bab 3: Topologi Jaringan & Keamanan Quantum-Resistance
+
+### 3.1 Struktur 676 Computors
+Jaringan Quorum-State dijaga oleh 676 node terpilih (Computors) yang bertanggung jawab atas validitas transaksi. Setiap node terhubung melalui jalur terenkripsi menggunakan protokol **Quantum Key Distribution (QKD)** terkelola.
+
+### 3.2 Resilience Against 51% Attack
+Dengan sistem Quorum, serangan 51% secara matematis jauh lebih sulit dilakukan dibandingkan sistem Proof of Work tradisional. Penyerang harus menguasai lebih dari 451 node Computors secara bersamaan, yang mana identitas setiap node dilindungi oleh **Quantum Shield** (Lattice-based cryptography).
+
+---
+*Status Jaringan: In-Development Simulation Phase.*
