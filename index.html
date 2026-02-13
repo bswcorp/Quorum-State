@@ -108,7 +108,41 @@
         </div>
     </div>
 </div>
+<!-- Investment Simulation Section -->
+<style>
+    .invest-section { padding: 60px 20px; background: rgba(0, 210, 255, 0.05); border-top: 1px solid #00D2FF; margin-top: 50px; }
+    .calc-container { max-width: 600px; margin: auto; background: rgba(0, 0, 0, 0.4); padding: 30px; border-radius: 20px; border: 1px solid #9D50BB; }
+    .calc-input { width: 80%; padding: 15px; border-radius: 10px; border: none; font-size: 1.2em; text-align: center; margin-bottom: 20px; }
+    .result-box { margin-top: 20px; font-size: 1.5em; color: #00D2FF; }
+    .profit-label { color: #9D50BB; font-size: 0.8em; margin-top: 10px; }
+</style>
+
+<div class="invest-section">
+    <h2 style="color: #fff; letter-spacing: 3px;">SIMULASI POTENSI INVESTASI</h2>
+    <p style="color: #ccc;">Berapa banyak $QSTATE yang ingin Anda miliki?</p>
+    
+    <div class="calc-container">
+        <input type="number" id="usdtAmount" class="calc-input" placeholder="Masukkan Modal (USDT)" oninput="calculateTokens()">
+        <div class="result-box">
+            <span id="tokenResult">0</span> $QSTATE
+        </div>
+        <div class="profit-label">Estimasi Nilai Saat Listing (x10 Profit): <span id="profitResult">$0</span></div>
+    </div>
+</div>
+
+<script>
+    function calculateTokens() {
+        const usdt = document.getElementById('usdtAmount').value;
+        const price = 0.00001; // Harga penawaran awal sesuai kesepakatan
+        const tokens = usdt / price;
+        const profit = (usdt * 10).toLocaleString();
+        
+        document.getElementById('tokenResult').innerHTML = tokens.toLocaleString();
+        document.getElementById('profitResult').innerHTML = "$" + profit;
+    }
+</script>
 
 </body>
 </html>
+
 
