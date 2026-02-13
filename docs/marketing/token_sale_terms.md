@@ -11,6 +11,17 @@ Penjualan awal bertujuan untuk pendanaan infrastruktur jaringan dan audit keaman
 *   **Alokasi Penjualan Privat:** 10% dari total suplai.
 *   **Harga Penawaran Awal:** [Tentukan Harga, misal: $0.00001] per $QSTATE.
 *   **Minimum Kontribusi:** [Tentukan Minimal, misal: 1000 USDT].
+  ### Tabel Simulasi Investasi (Asumsi Harga Awal $0.00001)
+
+| Modal Investasi (USDT) | Jumlah Token $QSTATE | Potensi Nilai jika Harga Naik 10x ($0.0001) |
+| :--- | :--- | :--- |
+| **$1,000** | 100,000,000 | **$10,000** |
+| **$5,000** | 500,000,000 | **$50,000** |
+| **$10,000** | 1,000,000,000 | **$100,000** |
+| **$50,000** | 5,000,000,000 | **$500,000** |
+
+*Catatan: Ini adalah simulasi matematis. Investasi aset digital memiliki risiko pasar.*
+
 
 ## 2. Jadwal Vesting (Penguncian Token)
 Untuk menjaga stabilitas harga saat listing di bursa, token investor awal akan didistribusikan secara bertahap:
