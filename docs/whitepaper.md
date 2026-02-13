@@ -118,4 +118,21 @@ Saat Q-Day tiba dan banyak blockchain klasik mengalami kegagalan keamanan, Quoru
 
 ---
 *Status: Preparing for Alpha Testing Phase.*
+## Bab 7: Pernyataan Penyangkalan (Legal Disclaimer)
+
+### 7.1 Bukan Penasihat Keuangan
+Informasi yang terkandung dalam Whitepaper ini bertujuan untuk memberikan gambaran teknis mengenai proyek Quorum-State dan bukan merupakan nasihat investasi, keuangan, atau perdagangan. Keputusan untuk memiliki koin $QSTATE adalah tanggung jawab pribadi masing-masing individu.
+
+### 7.2 Risiko Teknologi Kuantum
+Meskipun Quorum-State dirancang untuk ketahanan pasca-kuantum (Post-Quantum Resistance), perkembangan komputasi kuantum adalah bidang yang terus berevolusi. BreSpeedWorks Labs tidak memberikan jaminan mutlak terhadap kerentanan teknologi yang belum ditemukan di masa depan, namun kami berkomitmen untuk pembaruan protokol secara berkelanjutan.
+
+### 3.3 Kepatuhan Regulasi (Compliance)
+Pengguna dan investor bertanggung jawab penuh untuk memastikan bahwa partisipasi mereka dalam ekosistem $QSTATE mematuhi hukum dan regulasi di wilayah hukum masing-masing. $QSTATE adalah token utilitas (utility token) yang digunakan untuk operasional jaringan dan akses ke layanan AI Aigarth-Q.
+
+### 7.4 Pernyataan Berorientasi Masa Depan
+Whitepaper ini berisi rencana masa depan (Roadmap) yang dapat berubah sewaktu-waktu berdasarkan perkembangan teknis, audit keamanan, dan keputusan Quorum DAO. Hasil nyata di masa depan mungkin berbeda dari estimasi yang diberikan dalam dokumen ini.
+
+---
+*© 2026 BreSpeedWorks Labs. All Rights Reserved.*
+
 
