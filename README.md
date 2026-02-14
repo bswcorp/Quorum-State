@@ -41,5 +41,20 @@ This project is inspired by the early work of **Andi Muhammad Harpianto** on mob
 - [ ] Target 15.5M+ TPS dengan Quantum-State Validation.
 - [ ] Pencapaian AGI (Artificial General Intelligence) terdesentralisasi.
 
+---
+
+## 📖 Whitepaper & Documentation
+Jelajahi visi dan teknologi di balik Quorum-State melalui dokumen resmi kami:
+
+*   **[Executive Summary (Master Document)](./docs/whitepaper/whitepaper.md)** - Ringkasan Bab 1 - 7.
+*   **[Bab 1: Tokenomics](./docs/whitepaper/whitepaper_v1.md)** - Ekonomi 200 Triliun & Emisi.
+*   **[Bab 2: Konsensus Superposisi](./docs/whitepaper/whitepaper_v2.md)** - Mekanisme Quorum 676.
+*   **[Bab 3: Quantum Shield](./docs/whitepaper/whitepaper_v3.md)** - Keamanan Post-Quantum & Anti-Shor.
+
+> *Untuk catatan riset terdahulu dan dokumen sejarah, silakan kunjungi folder [Arsip](./docs/arsip).*
+
+---
+
+
 
 
