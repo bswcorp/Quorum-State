@@ -1,17 +1,17 @@
 import hashlib
-import time
+from quorum_logic import QuorumConsensus
 
 class QuorumStateCore:
     def __init__(self):
         self.ledger = {}
-        # Menetapkan MAX_SUPPLY: 200 Triliun koin (sesuai visi Qubic)
         self.MAX_SUPPLY = 200_000_000_000_000 
         self.total_supply = 0
         self.shield_active = True
-        self.computors_count = 676  # Jumlah node validator utama
+        # Inisialisasi Otak Konsensus (676 Computors)
+        self.consensus = QuorumConsensus(total_computors=676)
 
     def mint(self, address, amount):
-        """Fungsi Minting dengan pengecekan batas maksimal suplai"""
+        """Minting hanya jika dalam batas Max Supply"""
         if self.total_supply + amount <= self.MAX_SUPPLY:
             if amount > 0:
                 self.ledger[address] = self.ledger.get(address, 0) + amount
@@ -20,21 +20,35 @@ class QuorumStateCore:
         return False
 
     def distribute_rewards(self, epoch_reward):
-        """
-        Membagikan hadiah koin ke 676 Computors (Validator).
-        Ini mensimulasikan sistem distribusi emisi mingguan.
-        """
+        """Membagikan hadiah ke 676 Computors setelah validasi"""
         if self.total_supply + epoch_reward > self.MAX_SUPPLY:
             return "[ERROR] Reward melebihi MAX_SUPPLY"
 
-        reward_per_node = epoch_reward // self.computors_count
-        
-        # Simulasi pembagian ke semua node (kita gunakan loop sederhana)
-        for i in range(self.computors_count):
+        reward_per_node = epoch_reward // self.consensus.total_computors
+        for i in range(self.consensus.total_computors):
             node_address = f"COMPUTOR-{i:03d}"
             self.mint(node_address, reward_per_node)
             
-        return f"[SUCCESS] {epoch_reward} $QSTATE didistribusikan ke {self.computors_count} node."
+        return f"[SUCCESS] {epoch_reward} $QSTATE didistribusikan via Quorum."
+
+    def execute_transaction(self, sender, receiver, amount):
+        """
+        Menjalankan transaksi HANYA jika disetujui oleh minimal 453 Computors.
+        """
+        tx_id = hashlib.sha256(f"{sender}{receiver}{amount}".encode()).hexdigest()
+        
+        # 1. Kumpulkan suara dari Quorum
+        self.consensus.collect_votes(tx_id)
+        
+        # 2. Verifikasi apakah Quorum tercapai (Min 453 Yes)
+        is_valid, message = self.consensus.verify_quorum(tx_id)
+        
+        if is_valid and self.get_balance(sender) >= amount:
+            self.ledger[sender] -= amount
+            self.ledger[receiver] = self.ledger.get(receiver, 0) + amount
+            return True, f"TX Valid: {message}"
+        else:
+            return False, f"TX Rejected: {message}"
 
     def get_balance(self, address):
         return self.ledger.get(address, 0)
@@ -44,10 +58,3 @@ class QuorumStateCore:
             shield_hash = hashlib.sha3_256(f"QS-{transaction_data}".encode()).hexdigest()
             return f"SHIELDED-{shield_hash[:16]}"
         return transaction_data
-
-    def execute_contract(self, sender, receiver, amount, condition_met=True):
-        if condition_met and self.get_balance(sender) >= amount:
-            self.ledger[sender] -= amount
-            self.ledger[receiver] = self.ledger.get(receiver, 0) + amount
-            return True
-        return False
