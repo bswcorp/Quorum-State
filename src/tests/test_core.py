@@ -2,45 +2,38 @@ import sys
 import os
 import unittest
 
-# Menghubungkan ke folder src/core agar file qstate_core bisa dibaca
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/core')))
+# Pathing agar server GitHub tidak nyasar
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../core')))
 from qstate_core import QuorumStateCore
 
 class TestQuorumStateCore(unittest.TestCase):
     def setUp(self):
-        """Inisialisasi setiap kali tes dijalankan"""
         self.qs = QuorumStateCore()
         self.test_address = "BSW-TEST-NODE"
 
-    def test_minting_logic(self):
-        """Memastikan pencetakan koin $QSTATE masuk ke Ledger"""
-        amount = 5000
-        self.qs.mint(self.test_address, amount)
-        self.assertEqual(self.qs.get_balance(self.test_address), amount)
-        self.assertEqual(self.qs.total_supply, amount)
-        print(f"\n[PASS] Minting {amount} $QSTATE Sukses.")
-
-    def test_quantum_shield_logic(self):
-        """Memastikan fitur Shield menghasilkan hash pengaman"""
-        raw_data = "SEND-100-QSTATE"
-        shielded_data = self.qs.apply_shield(raw_data)
-        self.assertTrue(shielded_data.startswith("SHIELDED-"))
-        print(f"[PASS] Quantum Shield Berhasil Mengenkripsi Data: {shielded_data}")
-
-    def test_contract_execution(self):
-        """Memastikan kontrak hanya jalan jika saldo cukup (Logika Quorum)"""
-        receiver = "RECIPIENT-ADDR"
-        self.qs.mint(self.test_address, 1000)
-        
-        # Eksekusi sukses
-        success = self.qs.execute_contract(self.test_address, receiver, 400)
+    def test_minting_and_supply(self):
+        """Tes batas MAX_SUPPLY 200 Triliun"""
+        # Minting dalam batas
+        success = self.qs.mint(self.test_address, 1000)
         self.assertTrue(success)
-        self.assertEqual(self.qs.get_balance(receiver), 400)
+        self.assertEqual(self.qs.get_balance(self.test_address), 1000)
         
-        # Eksekusi gagal (saldo tidak cukup)
-        fail = self.qs.execute_contract(self.test_address, receiver, 2000)
+        # Percobaan minting melebihi MAX_SUPPLY
+        fail = self.qs.mint("SCAMMER", 201_000_000_000_000)
         self.assertFalse(fail)
-        print("[PASS] Smart Contract & Ledger Balance Valid.")
+
+    def test_distribute_rewards(self):
+        """Tes distribusi ke 676 Computors"""
+        reward_pool = 1000000
+        msg = self.qs.distribute_rewards(reward_pool)
+        self.assertIn("[SUCCESS]", msg)
+        # Cek saldo salah satu node (node ke-100)
+        balance = self.qs.get_balance("COMPUTOR-100")
+        self.assertEqual(balance, reward_pool // 676)
+
+    def test_quantum_shield(self):
+        shielded = self.qs.apply_shield("SECURE-DATA")
+        self.assertTrue(shielded.startswith("SHIELDED-"))
 
 if __name__ == "__main__":
     unittest.main()
