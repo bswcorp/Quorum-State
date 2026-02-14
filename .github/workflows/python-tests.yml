@@ -15,3 +15,7 @@ jobs:
       run: |
         export PYTHONPATH=$PYTHONPATH:$(pwd)/src/core
         python tests/test_core.py
+    - name: Run Quorum-State Core Tests
+      run: |
+        export PYTHONPATH=$PYTHONPATH:$(pwd)/src/core
+        python src/tests/test_core.py
