@@ -3,47 +3,51 @@ import time
 
 class QuorumStateCore:
     def __init__(self):
-        self.ledger = {}          # Saldo akun
-        self.total_supply = 0      # Jumlah koin yang di-minting
-        self.shield_active = True  # Quantum Resistance Shield
-        self.computors = 676       # Standar Quorum Qubic
+        self.ledger = {}
+        # Menetapkan MAX_SUPPLY: 200 Triliun koin (sesuai visi Qubic)
+        self.MAX_SUPPLY = 200_000_000_000_000 
+        self.total_supply = 0
+        self.shield_active = True
+        self.computors_count = 676  # Jumlah node validator utama
 
-    # --- MODUL MINTING (Pencetakan Koin) ---
     def mint(self, address, amount):
-        """Minting berbasis UPoW (Useful Proof of Work)"""
-        if amount > 0:
-            self.ledger[address] = self.ledger.get(address, 0) + amount
-            self.total_supply += amount
-            return f"[MINT] {amount} $QSTATE dikirim ke {address}"
-        return "[ERROR] Jumlah minting tidak valid."
+        """Fungsi Minting dengan pengecekan batas maksimal suplai"""
+        if self.total_supply + amount <= self.MAX_SUPPLY:
+            if amount > 0:
+                self.ledger[address] = self.ledger.get(address, 0) + amount
+                self.total_supply += amount
+                return True
+        return False
 
-    # --- MODUL LEDGER (Cek Saldo) ---
+    def distribute_rewards(self, epoch_reward):
+        """
+        Membagikan hadiah koin ke 676 Computors (Validator).
+        Ini mensimulasikan sistem distribusi emisi mingguan.
+        """
+        if self.total_supply + epoch_reward > self.MAX_SUPPLY:
+            return "[ERROR] Reward melebihi MAX_SUPPLY"
+
+        reward_per_node = epoch_reward // self.computors_count
+        
+        # Simulasi pembagian ke semua node (kita gunakan loop sederhana)
+        for i in range(self.computors_count):
+            node_address = f"COMPUTOR-{i:03d}"
+            self.mint(node_address, reward_per_node)
+            
+        return f"[SUCCESS] {epoch_reward} $QSTATE didistribusikan ke {self.computors_count} node."
+
     def get_balance(self, address):
         return self.ledger.get(address, 0)
 
-    # --- MODUL SHIELD (Keamanan Quantum) ---
     def apply_shield(self, transaction_data):
-        """Mengamankan transaksi dengan simulasi Lattice-based Signature"""
         if self.shield_active:
-            # Simulasi pengamanan data sebelum diproses Quorum
             shield_hash = hashlib.sha3_256(f"QS-{transaction_data}".encode()).hexdigest()
             return f"SHIELDED-{shield_hash[:16]}"
         return transaction_data
 
-    # --- MODUL CONTRACT (Smart Contract Sederhana) ---
     def execute_contract(self, sender, receiver, amount, condition_met=True):
-        """Eksekusi kontrak jika 453/676 Computors setuju (Quorum 2/3)"""
-        if condition_met and self.ledger.get(sender, 0) >= amount:
+        if condition_met and self.get_balance(sender) >= amount:
             self.ledger[sender] -= amount
             self.ledger[receiver] = self.ledger.get(receiver, 0) + amount
             return True
         return False
-
-# Inisialisasi Testing
-if __name__ == "__main__":
-    qs = QuorumStateCore()
-    # Contoh Minting Awal
-    print(qs.mint("BSW-LABS-GENESIS", 1000000))
-    # Simulasi Transaksi Berperisai
-    tx_status = qs.apply_shield("TX-SEND-100-TO-ANDI")
-    print(f"Status Transaksi: {tx_status}")
