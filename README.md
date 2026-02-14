@@ -50,7 +50,7 @@ Jelajahi visi dan teknologi di balik Quorum-State melalui dokumen resmi kami:
 *   **[Bab 1: Tokenomics](./docs/whitepaper/whitepaper_v1.md)** - Ekonomi 200 Triliun & Emisi.
 *   **[Bab 2: Konsensus Superposisi](./docs/whitepaper/whitepaper_v2.md)** - Mekanisme Quorum 676.
 *   **[Bab 3: Quantum Shield](./docs/whitepaper/whitepaper_v3.md)** - Keamanan Post-Quantum & Anti-Shor.
-
+*   **[Bab 4: Smart Contract](./docs/whitepaper/whitepaper_v4.md)** - Smart Contract
 > *Untuk catatan riset terdahulu dan dokumen sejarah, silakan kunjungi folder [Arsip](./docs/arsip).*
 
 ---
