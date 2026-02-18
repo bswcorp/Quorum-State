@@ -1,0 +1,15 @@
+[Unit]
+Description=Quorum-State Genesis Node Service
+After=network.target
+
+[Service]
+# Sesuaikan 'user' dengan nama user di IBM x3650 Anda
+User=capo
+WorkingDirectory=/home/capo/Quorum-State
+# Menjalankan monitor kesehatan dan node secara otomatis
+ExecStart=/usr/bin/python3 src/server_monitor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
