@@ -178,9 +178,54 @@
         document.getElementById('profitResult').innerHTML = "$" + profit;
     }
 </script>
+<!-- Live Network Statistics Section -->
+<style>
+    .stats-section { padding: 60px 20px; background: rgba(0, 0, 0, 0.3); border-top: 1px solid #9D50BB; margin-top: 50px; }
+    .stats-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto; }
+    .stat-card { background: rgba(157, 80, 187, 0.05); border: 1px solid #9D50BB; padding: 20px; border-radius: 15px; width: 200px; }
+    .stat-value { font-size: 2em; color: #00D2FF; font-weight: bold; margin: 10px 0; }
+    .stat-label { font-size: 0.8em; color: #ccc; text-transform: uppercase; letter-spacing: 2px; }
+    .live-pulse { width: 10px; height: 10px; background: #00FF00; border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px #00FF00; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+</style>
+
+<div class="stats-section">
+    <h2 style="color: #fff; letter-spacing: 3px; margin-bottom: 40px;">
+        <span class="live-pulse"></span> LIVE NETWORK STATISTICS
+    </h2>
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-label">Total Ticks</div>
+            <div id="tickCount" class="stat-value">1,245,678</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Active Nodes</div>
+            <div class="stat-value">676</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">TPS (Peak)</div>
+            <div class="stat-value">15.5M</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Security State</div>
+            <div class="stat-value" style="font-size: 1.2em; color: #9D50BB;">QUANTUM_STABLE</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simulasi penambahan Tick secara real-time
+    let currentTicks = 1245678;
+    setInterval(() => {
+        currentTicks += Math.floor(Math.random() * 5) + 1;
+        document.getElementById('tickCount').innerText = currentTicks.toLocaleString();
+    }, 2000);
+</script>
+    
 
 </body>
 </html>
+
 
 
 
