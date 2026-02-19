@@ -132,6 +132,14 @@ Pengguna dan investor bertanggung jawab penuh untuk memastikan bahwa partisipasi
 ### 7.4 Pernyataan Berorientasi Masa Depan
 Whitepaper ini berisi rencana masa depan (Roadmap) yang dapat berubah sewaktu-waktu berdasarkan perkembangan teknis, audit keamanan, dan keputusan Quorum DAO. Hasil nyata di masa depan mungkin berbeda dari estimasi yang diberikan dalam dokumen ini.
 
+## Bab 9: Infrastruktur Pembayaran & Integrasi QRIS
+
+### 9.1 Transaksi Tanpa Batas
+Quorum-State mendukung sistem pembayaran retail yang kompatibel dengan standar QRIS global. Dengan biaya transaksi mendekati nol ($0.0001), $QSTATE menjadi alat pertukaran nilai yang paling efisien di era digital.
+
+### 9.2 Keamanan Berlapis (Secure & Save)
+Setiap transaksi QR dienkripsi menggunakan 'Lattice-based cryptography'. Hal ini menjamin bahwa meskipun data transaksi dicegat, ia tetap mustahil didekripsi oleh komputer kuantum.
+
 ---
 *© 2026 BreSpeedWorks Labs. All Rights Reserved.*
 # 🧊 THE MASTER MANIFESTO: QUORUM-STATE ($QSTATE)
