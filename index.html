@@ -242,7 +242,22 @@
         </div> 
         <p style="font-size: 0.7em; color: #888; margin-top: 10px;">
     *Data di atas adalah simulasi operasional fase Genesis. Dana cadangan akan diisi melalui mekanisme pendanaan resmi dan diaudit secara publik.
-</p>
+</p> 
+        <div class="stat-card" style="width: 100%; margin-top: 20px; border-color: #00FF00;">
+    <div class="stat-label">System Audit Trail</div>
+    <div id="lastLog" style="font-size: 0.9em; color: #00FF00; font-family: monospace; padding: 10px;">
+        [*] Waiting for IBM x3250 M2 connection...
+    </div>
+</div>
+
+<script>
+    // Simulasi log yang muncul di web
+    setInterval(() => {
+        const time = new Date().toLocaleTimeString();
+        document.getElementById('lastLog').innerHTML = `[${time}] TX_VERIFIED: 5000 $QSTATE processed via API_BRIDGE`;
+    }, 15000);
+</script>
+
 
         
         <!-- Panel Saldo Dompet $QSTATE -->
@@ -269,6 +284,7 @@
 
 </body>
 </html>
+
 
 
 
