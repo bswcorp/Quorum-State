@@ -1,7 +1,7 @@
 <p align="center">
   <img src="docs/assets/logo.png" width="350" alt="Quorum-State Logo">
 </p>
-> "Kami tidak menjanjikan kekayaan instan; kami menawarkan kepemilikan dalam infrastruktur keamanan masa depan. Integritas adalah algoritma konsensus utama kami."
+"Kami tidak menjanjikan kekayaan instan; kami menawarkan kepemilikan dalam infrastruktur keamanan masa depan. Integritas adalah algoritma konsensus utama kami."
 
 # Quorum-State ($QSTATE)
 > **The Last Safe Haven Before Q-Day.**
