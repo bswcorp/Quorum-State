@@ -132,6 +132,17 @@ Pengguna dan investor bertanggung jawab penuh untuk memastikan bahwa partisipasi
 ### 7.4 Pernyataan Berorientasi Masa Depan
 Whitepaper ini berisi rencana masa depan (Roadmap) yang dapat berubah sewaktu-waktu berdasarkan perkembangan teknis, audit keamanan, dan keputusan Quorum DAO. Hasil nyata di masa depan mungkin berbeda dari estimasi yang diberikan dalam dokumen ini.
 
+## Bab 8: Mekanisme Bank Reserve & Stabilitas Likuiditas
+
+### 8.1 Quantum Treasury Vault
+Quorum-State mengalokasikan 10% dari hasil pendanaan awal ke dalam **Quantum Treasury Vault**. Dana ini disimpan dalam bentuk aset stabil (USDT/USDC) untuk menjamin likuiditas jaringan dan nilai tukar koin $QSTATE.
+
+### 8.2 Rasio Agunan (Collateralization)
+Setiap koin $QSTATE didukung oleh nilai teknologi dari hasil pelatihan AI (UPoW) dan cadangan kas di Treasury. Sistem 'Superposition Reserve' memastikan bahwa cadangan kas selalu tervalidasi secara real-time di atas ledger IBM x3250 M2.
+
+### 8.3 Intervensi Pasar Otomatis
+Jika terjadi fluktuasi harga yang ekstrem, Quorum DAO dapat mengaktifkan protokol intervensi untuk menjaga stabilitas daya beli pengguna melalui dana cadangan bank.
+
 ## Bab 9: Infrastruktur Pembayaran & Integrasi QRIS
 
 ### 9.1 Transaksi Tanpa Batas
