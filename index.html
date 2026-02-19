@@ -222,9 +222,50 @@
     }, 2000);
 </script>
     
+<!-- Financial Reserve & Wallet Section -->
+<style>
+    .finance-section { padding: 60px 20px; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(157, 80, 187, 0.1) 100%); border-top: 1px solid #9D50BB; margin-top: 50px; }
+    .finance-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto; }
+    .finance-card { background: #000; border: 2px solid #00D2FF; padding: 25px; border-radius: 15px; width: 300px; box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); }
+    .amount { font-size: 2.2em; color: #fff; font-weight: bold; margin: 15px 0; }
+    .currency { color: #00D2FF; font-size: 0.5em; margin-left: 10px; }
+</style>
+
+<div class="finance-section">
+    <h2 style="color: #fff; letter-spacing: 3px; margin-bottom: 40px;">🏦 QUANTUM BANK RESERVE</h2>
+    <div class="finance-container">
+        <!-- Panel Dana Cadangan (USDT) -->
+        <div class="finance-card">
+            <div class="stat-label">Total Bank Reserve</div>
+            <div class="amount" id="reserveFund">50,000<span class="currency">USDT</span></div>
+            <div class="stat-label" style="color: #00FF00;">STATUS: SECURED (RAID 1 IBM M3)</div>
+        </div>
+        
+        <!-- Panel Saldo Dompet $QSTATE -->
+        <div class="finance-card" style="border-color: #9D50BB;">
+            <div class="stat-label">Your Wallet Balance</div>
+            <div class="amount" id="userWallet" style="color: #9D50BB;">1,000,000<span class="currency">$QSTATE</span></div>
+            <div class="stat-label">TYPE: GENESIS ALLOCATION</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simulasi update saldo jika ada airdrop atau transaksi
+    function updateFinance() {
+        // Contoh: simulasi dana cadangan bertambah dari investor
+        let currentReserve = 50000;
+        setInterval(() => {
+            currentReserve += (Math.random() * 10);
+            document.getElementById('reserveFund').innerHTML = Math.floor(currentReserve).toLocaleString() + '<span class="currency">USDT</span>';
+        }, 5000);
+    }
+    updateFinance();
+</script>
 
 </body>
 </html>
+
 
 
 
