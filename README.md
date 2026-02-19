@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="docs/assets/logo.png" width="350" alt="Quorum-State Logo">
+</p>
+
+# Quorum-State ($QSTATE)
+> **The Last Safe Haven Before Q-Day.**
+
 ![Quorum-State Logo](docs/assets/logo.png)
 "Where Quorum Meets Quantum. The Last Safe Haven Before Q-Day."
 # Quorum-State ($QSTATE)
