@@ -6,6 +6,8 @@
 > **The Last Safe Haven Before Q-Day.**
 "Where Quorum Meets Quantum. The Last Safe Haven Before Q-Day."
 **The First Layer-1 Blockchain Integrating Quorum Consensus with Quantum Superposition Logic.**
+> > "Kami tidak menjanjikan kekayaan instan; kami menawarkan kepemilikan dalam infrastruktur keamanan masa depan. Integritas adalah algoritma konsensus utama kami."
+
 
 Quorum-State is a high-performance, post-quantum resistant blockchain. It evolves the principles of Quorum-Based Computation (pioneered by Qubic) by introducing a "Quantum-State Simulation" layer to achieve unconditional security and AI-driven Useful Proof-of-Work (UPoW).
 
