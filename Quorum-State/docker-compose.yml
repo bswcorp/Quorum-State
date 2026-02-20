@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  qstate-node:
+    image: python:3.10-slim
+    container_name: qstate_genesis_node
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - qstate-network
+    command: python3 src/server_monitor.py
+    restart: always
+
+  qstate-backup:
+    image: python:3.10-slim
+    container_name: qstate_backup_service
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - qstate-network
+    command: python3 src/ledger_backup.py
+    restart: always
+
+networks:
+  qstate-network:
+    driver: bridge
