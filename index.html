@@ -269,7 +269,42 @@
         </div>
     </div>
 </div>
+<!-- Universal Sovereign Wallet Dashboard -->
+<style>
+    .wallet-section { padding: 60px 20px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); border: 2px solid #9D50BB; border-radius: 30px; margin: 50px auto; max-width: 1000px; box-shadow: 0 0 30px rgba(157, 80, 187, 0.3); }
+    .wallet-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 20px; }
+    .balance-box { text-align: left; }
+    .balance-amount { font-size: 2.5em; color: #00FF00; text-shadow: 0 0 10px #00FF00; }
+    .banking-integration { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+    .bank-btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+    .btn-transfer { background: #9D50BB; color: #fff; }
+    .btn-bank { background: #00D2FF; color: #000; }
+    .status-text { font-size: 0.8em; color: #aaa; margin-top: 15px; }
+</style>
 
+<div class="wallet-section">
+    <div class="wallet-header">
+        <div class="balance-box">
+            <div style="color: #9D50BB; letter-spacing: 2px; font-weight: bold;">TOTAL KEDAULATAN ANDA</div>
+            <div class="balance-amount">5,750.00 <span style="font-size: 0.4em;">$QSTATE</span></div>
+        </div>
+        <div style="text-align: right;">
+            <div style="color: #00D2FF;">ID: Q-SOVEREIGN-ID-2026</div>
+            <div style="font-size: 0.7em; color: #555;">Verified by BreSpeedWorks Lab</div>
+        </div>
+    </div>
+
+    <div class="banking-integration">
+        <button class="bank-btn btn-transfer">🚀 Kirim Antar-Galaxy</button>
+        <button class="bank-btn btn-bank">🏦 Transfer ke Bank (BI-FAST/SWIFT)</button>
+        <button class="bank-btn btn-bank" style="background: #FFD700;">💳 Top-Up via Visa/Mastercard</button>
+    </div>
+
+    <div class="status-text">
+        <span class="live-pulse" style="width:8px; height:8px;"></span> 
+        Sistem Terhubung: **RIPE-Atlas Network** | **Quantum Banking Gateway Active**
+    </div>
+</div>
 <script>
     // Simulasi update saldo jika ada airdrop atau transaksi
     function updateFinance() {
@@ -409,6 +444,7 @@ function checkCompliance() {
     
 </body>
 </html>
+
 
 
 
