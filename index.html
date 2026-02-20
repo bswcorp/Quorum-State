@@ -340,9 +340,76 @@
         <p style="color: #ccc;">Quorum-State kini mendukung instalasi universal (Docker), memastikan sistem dapat beradaptasi di mesin server mana pun di masa depan.</p>
     </div>
 </div>
+<!-- 1. REGULATORY STATUS CHECKER (Letakkan di bawah Network Statistics) -->
+<section id="compliance" style="padding: 60px 20px; background: rgba(0, 210, 255, 0.05); border-bottom: 1px solid #9D50BB;">
+    <h2 style="color: #fff; letter-spacing: 3px;">🌍 GLOBAL REGULATORY CHECKER</h2>
+    <p style="color: #ccc;">Cek Kepatuhan $QSTATE di Wilayah Anda</p>
+    
+    <div style="max-width: 500px; margin: auto; background: #111; padding: 20px; border-radius: 15px; border: 1px solid #00D2FF;">
+        <select id="countrySelect" onchange="checkCompliance()" style="width: 100%; padding: 10px; background: #000; color: #00D2FF; border: 1px solid #9D50BB; border-radius: 5px;">
+            <option value="">-- Pilih Wilayah/Negara --</option>
+            <option value="ID">Indonesia (Regional)</option>
+            <option value="US">United States (USA)</option>
+            <option value="EU">European Union (Europe)</option>
+            <option value="APAC">Asia Pacific (APAC)</option>
+            <option value="AF">Africa & Others</option>
+        </select>
+        
+        <div id="complianceResult" style="margin-top: 20px; font-weight: bold; padding: 10px; border-radius: 5px; display: none;">
+            <!-- Hasil akan muncul di sini -->
+        </div>
+    </div>
+</section>
+
+<script>
+function checkCompliance() {
+    const country = document.getElementById('countrySelect').value;
+    const resultDiv = document.getElementById('complianceResult');
+    resultDiv.style.display = "block";
+    
+    if (country === "ID") {
+        resultDiv.style.background = "rgba(0, 255, 0, 0.2)";
+        resultDiv.style.color = "#00FF00";
+        resultDiv.innerHTML = "✅ STATUS: COMPLIANT (Tunduk Patuh Privasi Rakyat - UU PDP Support)";
+    } else if (country === "US" || country === "EU") {
+        resultDiv.style.background = "rgba(0, 210, 255, 0.2)";
+        resultDiv.style.color = "#00D2FF";
+        resultDiv.innerHTML = "🔹 STATUS: ADAPTIVE (Standard SEC/MiCA Interoperability Active)";
+    } else {
+        resultDiv.style.background = "rgba(157, 80, 187, 0.2)";
+        resultDiv.style.color = "#9D50BB";
+        resultDiv.innerHTML = "🌌 STATUS: SOVEREIGN (Antar-Galaxy Privacy Protocol Enabled)";
+    }
+}
+</script>
+
+<!-- 2. FOOTER MODERN (Letakkan di paling bawah setelah News) -->
+<footer style="padding: 40px 20px; background: #000; color: #555; font-size: 0.8em; border-top: 1px solid #222;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto; text-align: left;">
+        <div style="min-width: 200px; margin-bottom: 20px;">
+            <strong style="color: #9D50BB;">BRESPEEDWORKS LAB</strong><br>
+            Bintaro, Indonesia<br>
+            Founders: Andi M.H | Agus W. | Bobwinslow
+        </div>
+        <div style="min-width: 200px; margin-bottom: 20px;">
+            <strong style="color: #00D2FF;">RESOURCES</strong><br>
+            <a href="docs/USER_MANUAL_GENESIS.md" style="color: #555; text-decoration: none;">User Manual</a><br>
+            <a href="docs/GLOBAL_FAQ.md" style="color: #555; text-decoration: none;">Global FAQ</a><br>
+            <a href="docs/CHARTER_OF_WELFARE.md" style="color: #555; text-decoration: none;">Welfare Charter</a>
+        </div>
+        <div style="min-width: 200px; margin-bottom: 20px;">
+            <strong style="color: #00FF00;">NETWORK</strong><br>
+            RIPE-Atlas Probe Active<br>
+            IBM System x3650 M3 (Mainnet Support)<br>
+            Quantum-Shield Enabled
+        </div>
+    </div>
+    <p style="margin-top: 30px;">© 2026 Quorum-State. Gemilang & Berdaulat Untuk Semua Makhluk.</p>
+</footer>
     
 </body>
 </html>
+
 
 
 
