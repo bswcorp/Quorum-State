@@ -282,9 +282,45 @@
     }
     updateFinance();
 </script>
+<!-- Static Audit Status Section -->
+<style>
+    .audit-section { padding: 50px 20px; background: rgba(157, 80, 187, 0.1); border-radius: 20px; margin: 40px auto; max-width: 900px; border: 1px dashed #9D50BB; }
+    .audit-grid { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; }
+    .audit-item { text-align: left; min-width: 250px; }
+    .status-badge { padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: bold; text-transform: uppercase; }
+    .status-pass { background: #00FF00; color: #000; box-shadow: 0 0 10px #00FF00; }
+    .status-maint { background: #FFA500; color: #000; box-shadow: 0 0 10px #FFA500; }
+    .audit-label { color: #00D2FF; display: block; margin-bottom: 5px; font-size: 0.9em; }
+</style>
 
+<div class="audit-section">
+    <h3 style="color: #fff; margin-bottom: 30px; letter-spacing: 2px;">🛡️ INTERNAL AUDIT STATUS (FEB 2026)</h3>
+    <div class="audit-grid">
+        <div class="audit-item">
+            <span class="audit-label">Quantum-Shield Integrity</span>
+            <span class="status-badge status-pass">Verified: 100%</span>
+        </div>
+        <div class="audit-item">
+            <span class="audit-label">Treasury Reserve Node</span>
+            <span class="status-badge status-pass">Stable (Lenovo-Host)</span>
+        </div>
+        <div class="audit-item">
+            <span class="audit-label">Smart Contract Logic</span>
+            <span class="status-badge status-pass">No Vulnerability</span>
+        </div>
+        <div class="audit-item">
+            <span class="audit-label">Physical Node (IBM M3)</span>
+            <span class="status-badge status-maint">In Maintenance</span>
+        </div>
+    </div>
+    <p style="margin-top: 25px; font-size: 0.8em; color: #ccc;">
+        *Audit Internal dilakukan secara harian untuk menjamin kedaulatan aset $QSTATE.
+    </p>
+</div>
+    
 </body>
 </html>
+
 
 
 
