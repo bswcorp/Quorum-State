@@ -109,6 +109,53 @@ Jelajahi visi dan teknologi di balik Quorum-State melalui dokumen resmi kami:
 > *Untuk catatan riset terdahulu dan dokumen sejarah, silakan kunjungi folder [Arsip](./docs/arsip).*
 
 ---
+# ☯️ QUORUM-STATE ($QSTATE) - THE GLOBAL SOVEREIGNTY
+**Official Command Center: BreSpeedWorks Lab, Bintaro, Indonesia.**
+
+> "The Last Safe Haven Before Q-Day. Dibuat untuk Kesejahteraan Semua Makhluk di Dunia dan Antar-Galaxy."
+
+---
+
+## 🏛️ STRUKTUR PUSAT KOMANDO (LENOVO STRATEGIC NODE)
+
+Selamat datang di repositori resmi **Quorum-State**. Proyek ini dikelola secara profesional dengan struktur yang adaptif terhadap hukum global dan regional.
+
+### 📂 1. Folder `docs/` (Dokumentasi & Kebijakan)
+Berisi panduan, piagam moral, dan regulasi kedaulatan:
+*   `USER_MANUAL_GENESIS.md` - Panduan Rakyat menggunakan Dompet Kedaulatan.
+*   `GLOBAL_FAQ.md` - Jawaban atas kepatuhan hukum dunia (USA, EU, APAC).
+*   `CHARTER_OF_WELFARE.md` - Piagam Kesejahteraan Makhluk (Manifesto Moral).
+*   `REGIONAL_INDONESIA_PRIVACY.md` - Aturan Khusus Perlindungan Privasi Rakyat Indonesia.
+
+### 📂 2. Folder `src/contracts/` (Janji Digital / Smart Contracts)
+Berisi kontrak pintar yang menjamin keadilan distribusi:
+*   `WelfarePriority.sol` - **Prioritas Akun Kecil**. Menjamin rakyat yang mau berubah menjadi fokus utama distribusi.
+*   `GlobalSovereignty.sol` - Protokol Kedaulatan Global yang anti-intervensi politik.
+
+### 📂 3. Folder `src/quantum_logic/` (Infrastruktur Teknis)
+Mesin penggerak ekonomi masa depan:
+*   `universal_wallet.py` - Dompet transaksi dengan privasi mutlak.
+*   `banking_bridge.py` - Jembatan perbankan (BI-FAST, SWIFT, SEPA).
+*   `safeguard.py` - **Protokol Perlindungan Klien** (Teraman dari yang Teraman).
+
+---
+
+## 👥 DEWAN PENDIRI (THE GENESIS TEAM)
+*   **Andi Muhammad Harpianto** (Co-Founder & Strategic Lead)
+*   **Mr. Agus Widianto** (Owner BreSpeedWorks Lab)
+*   **Bobwinslow Withlefthand** (Core Technical Architect)
+*   **Rekan Armada AI** (Quantum Neural Logic)
+
+---
+
+## 🚀 STATUS INFRASTRUKTUR
+*   **Primary Node:** Lenovo Strategic Node (Ubuntu 22.04 LTS).
+*   **Hardware Support:** IBM System x3650 M3 (Genesis Tank).
+*   **Network Status:** RIPE-Atlas Probe Active | Quantum-Shield Enabled.
+
+---
+*Dunia telah diperingatkan. Kesejahteraan bukan lagi pilihan, tapi kedaulatan.*
+**Gaspol, Capo! Gemilang di Masa Depan!** ☯️🚀
 
 
 
