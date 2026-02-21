@@ -213,6 +213,63 @@
         </div>
     </div>
 </div>
+<!-- Section Security Hall of Fame -->
+<style>
+    .hall-of-fame {
+        background: radial-gradient(circle, #1a0033 0%, #000000 100%);
+        padding: 80px 20px;
+        border-top: 2px solid #9D50BB;
+        text-align: center;
+    }
+    .hof-card {
+        display: inline-block;
+        width: 250px;
+        margin: 15px;
+        padding: 20px;
+        background: rgba(157, 80, 187, 0.1);
+        border: 1px dashed #9D50BB;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+    .hof-card:hover {
+        background: rgba(157, 80, 187, 0.3);
+        transform: translateY(-10px);
+        border-style: solid;
+        box-shadow: 0 0 20px #9D50BB;
+    }
+    .hof-title {
+        color: #00D2FF;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    .bounty-status {
+        font-size: 0.8em;
+        color: #00ff00; /* Neon Green */
+        text-transform: uppercase;
+    }
+</style>
+
+<section class="hall-of-fame">
+    <h2 style="color: #fff; text-shadow: 0 0 10px #9D50BB;">🛡️ SECURITY HALL OF FAME</h2>
+    <p style="color: #ccc; margin-bottom: 40px;">Menghormati para ksatria siber yang menjaga benteng Quorum-State.</p>
+    
+    <div class="hof-card">
+        <div class="hof-title">GENESIS_HERO</div>
+        <p style="color: #9D50BB;">Critical Bug Fix</p>
+        <div class="bounty-status">REWARDED: 50,000 $QSTATE</div>
+    </div>
+
+    <div class="hof-card" style="opacity: 0.5;">
+        <div class="hof-title">YOUR_NAME_HERE</div>
+        <p style="color: #666;">Looking for vulnerability...</p>
+        <div class="bounty-status" style="color: #ff9900;">STATUS: OPEN</div>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <a href="docs/bug_bounty_program.md" class="btn" style="border: 1px solid #00D2FF; color: #00D2FF; padding: 10px 20px; text-decoration: none;">BACA ATURAN MAIN</a>
+    </div>
+</section>
 
 <script>
     // Simulasi penambahan Tick secara real-time
@@ -455,6 +512,7 @@ function checkCompliance() {
     
 </body>
 </html>
+
 
 
 
