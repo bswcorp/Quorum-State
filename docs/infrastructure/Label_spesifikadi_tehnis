@@ -1,0 +1,7 @@
+### 🛠️ TECHNICAL SPECIFICATIONS (POST-UPGRADE)
+*   **CPU:** Dual Intel Xeon X5690 (24 vCPU Threads)
+*   **RAM:** 192GB DDR3 ECC Registered PC3L
+*   **SSD:** 2x 480GB Enterprise (RAID 1 - OS)
+*   **GPU:** NVIDIA Quadro K2000 (PQC Acceleration)
+*   **OS:** Ubuntu Server 22.04 LTS (NIST Kernel)
+*   **LAST SERVICE:** February 23, 2026
