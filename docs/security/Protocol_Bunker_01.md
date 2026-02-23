@@ -17,7 +17,7 @@ Sistem penyimpanan koin dan data "Genesis" yang kebal terhadap Super Server:
 2.  **Multi-Signature (Multi-Sig):** Transaksi perbendaharaan di atas 1.000 $QSTATE wajib mendapatkan persetujuan (Sign) dari 3 Node Validator yang berbeda.
 3.  **NIST Shielding:** Seluruh aset di perbendaharaan dibungkus dengan algoritma **CRYSTALS-Kyber**. Penyerang butuh waktu jutaan tahun untuk menembusnya, bahkan dengan komputer kuantum. [NIST PQC Standards](https://csrc.nist.gov).
 
-## III. PROTOKOL "PERANG BINATANG" (FAIL-SAFE) 🚨
+## III. PROTOKOL "PERANG BINTANG" (FAIL-SAFE) 🚨
 Jika Bunker diserang secara fisik atau digital secara masif:
 *   **Protokol Scorched Earth:** Server otomatis menghapus data sensitif (Wiping) dan memindahkannya ke "Ghost Node" di luar angkasa (Cloud Encrypted) sebelum musuh masuk.
 *   **Tsunami Noise:** Meluncurkan serangan balik data kosong untuk melumpuhkan jaringan penyerang.
