@@ -3,530 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quorum-State | The Last Safe Haven Before Q-Day</title>
-    <style>
-        body { background: #000428; color: white; font-family: 'Orbitron', sans-serif; text-align: center; margin: 0; padding: 0; overflow-x: hidden; }
-        .hero { padding: 80px 20px; }
-        img { width: 280px; filter: drop-shadow(0 0 20px #9D50BB); margin-bottom: 20px; }
-        h1 { font-size: 3.5em; margin: 10px 0; color: #00D2FF; text-transform: uppercase; letter-spacing: 5px; }
-        p { font-size: 1.2em; color: #9D50BB; max-width: 700px; margin: 20px auto; line-height: 1.6; }
-        
-        /* Countdown Styles */
-        .timer-container { background: rgba(0, 210, 255, 0.1); border: 1px solid #00D2FF; padding: 30px; border-radius: 15px; display: inline-block; margin-top: 40px; }
-        .timer-label { font-size: 0.8em; color: #00D2FF; letter-spacing: 3px; margin-bottom: 15px; }
-        #countdown { font-size: 2.5em; font-weight: bold; color: #fff; text-shadow: 0 0 10px #00D2FF; }
-        
-        .btn { background: linear-gradient(45deg, #9D50BB, #6E48AA); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; display: inline-block; margin-top: 40px; font-weight: bold; transition: 0.3s; border: 1px solid #9D50BB; }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px #9D50BB; }
-    </style>
+    <title>QUORUM-STATE | Kedaulatan Digital Pasca-Kuantum</title>
+    <!-- Gahar Fonts & Icons -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        :root {
+            --neon-purple: #9d50bb;
+            --deep-black: #050505;
+            --cyber-cyan: #00f2ff;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Background Glitch Effect */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(157, 80, 187, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(157, 80, 187, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, rgba(157,80,187,0.2) 0%, rgba(5,5,5,1) 70%);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 10px;
+            margin: 0;
+            background: linear-gradient(to right, var(--neon-purple), var(--cyber-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--cyber-cyan);
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        .status-box {
+            border: 1px solid var(--neon-purple);
+            padding: 20px;
+            margin-top: 30px;
+            background: rgba(157, 80, 187, 0.1);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+            width: 300px;
+        }
+
+        .btn-genesis {
+            margin-top: 40px;
+            padding: 15px 40px;
+            border: 2px solid var(--cyber-cyan);
+            background: transparent;
+            color: var(--cyber-cyan);
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-genesis:hover {
+            background: var(--cyber-cyan);
+            color: black;
+            box-shadow: 0 0 20px var(--cyber-cyan);
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border-left: 5px solid var(--neon-purple);
+            background: #111;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: #1a1a1a;
+            transform: translateX(10px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            border-top: 1px solid #333;
+            color: var(--text-gray);
+        }
+    </style>
 </head>
 <body>
-    <div class="hero">
-        <img src="docs/assets/logo.png" alt="Quorum-State Logo">
-        <h1>Quorum-State</h1>
-        <p>Infrastruktur Kedaulatan Digital Melawan Ancaman Kuantum.</p>
-        
-        <div class="timer-container">
-            <div class="timer-label">ESTIMASI MENUJU Q-DAY (ENCRYPTION COLLAPSE)</div>
-            <div id="countdown">Memuat Data Kuantum...</div>
+    <div class="grid-bg"></div>
+
+    <header>
+        <h1 data-aos="fade-up">QUORUM-STATE</h1>
+        <div class="tagline">POST-QUANTUM SOVEREIGNTY</div>
+        <div class="status-box">
+            <i class="fas fa-microchip"></i> GENESIS NODE: <strong>ACTIVE</strong><br>
+            <i class="fas fa-shield-alt"></i> ENCRYPTION: <strong>NIST FIPS 204</strong>
         </div>
+        <a href="https://github.com" class="btn-genesis">ACCESS REPOSITORY</a>
+    </header>
 
-        <br>
-        <a href="https://github.com" class="btn">LIHAT REPOSITORI GENESIS</a>
-        <!-- Tambahkan di bawah tombol Explore Repository -->
-        <a href="https://github.com/bswcorp/Quorum-State/blob/main/docs/whitepaper/whitepaper.md"class="btn" style="background: transparent; border: 1px solid #00D2FF; margin-left: 10px;">BACA WHITEPAPER</a>
-        <!-- Tambahkan di samping tombol Baca Whitepaper -->
-        <a href="https://github.com" class="btn" style="background: transparent; border: 1px solid #9D50BB; margin-left: 10px;">GABUNG KOMUNITAS</a>
-      
-      
-    </div>
-
-    <script>
-        // Set target date (Contoh: 1 Januari 2029 sebagai simulasi Q-Day)
-        const targetDate = new Date("Jan 1, 2029 00:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "THE QUANTUM ERA IS HERE";
-            }
-        }, 1000);
-    </script>
-   <!-- Live Network Statistics Section -->
-<style>
-    .stats-section { padding: 40px 20px; background: rgba(0, 210, 255, 0.1); border-bottom: 1px solid #9D50BB; margin-top: 30px; }
-    .stats-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-    .stat-item { background: #000428; border: 1px solid #00D2FF; padding: 20px; border-radius: 15px; width: 200px; }
-    .stat-value { font-size: 2em; color: #fff; text-shadow: 0 0 10px #00D2FF; display: block; }
-    .stat-label { font-size: 0.8em; color: #9D50BB; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
-</style>
-
-<div class="stats-section">
-    <div class="stats-container">
-        <div class="stat-item">
-            <span id="tickCount" class="stat-value">0</span>
-            <div class="stat-label">Total Ticks Captured</div>
+    <section id="mission">
+        <h2 style="color: var(--neon-purple);">// THE MISSION</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>🛡️ NIST PQC COMPLIANT</h3>
+                <p>Implementasi algoritma Kyber & Dilithium untuk melindungi aset dari ancaman komputer kuantum.</p>
+            </div>
+            <div class="card">
+                <h3>⚡ SUB-3s FINALITY</h3>
+                <p>Validasi transaksi instan melalui jaringan 676 Computors berdaulat.</p>
+            </div>
+            <div class="card">
+                <h3>🤝 SOCIAL CONTRACT</h3>
+                <p>Teknologi yang didedikasikan untuk kesejahteraan umat manusia dan generasi masa depan.</p>
+            </div>
         </div>
-        <div class="stat-item">
-            <span class="stat-value">676</span>
-            <div class="stat-label">Active Computors</div>
-        </div>
-        <div class="stat-item">
-            <span class="stat-value">1</span>
-            <div class="stat-label">Genesis Node (IBM M3)</div>
-        </div>
-    </div>
-</div>
+    </section>
 
-<script>
-    // Simulasi penambahan tick secara real-time dari IBM Server
-    let ticks = 1245000;
-    setInterval(function() {
-        ticks += Math.floor(Math.random() * 3);
-        document.getElementById('tickCount').innerHTML = ticks.toLocaleString();
-    }, 2000);
-</script>
- 
-<!-- Roadmap Visual Section -->
-<style>
-    .roadmap-section { padding: 60px 20px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; }
-    .roadmap-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: auto; }
-    .roadmap-card { background: rgba(157, 80, 187, 0.1); border: 1px solid #9D50BB; border-radius: 15px; padding: 25px; width: 250px; text-align: left; transition: 0.3s; }
-    .roadmap-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(157, 80, 187, 0.3); }
-    .roadmap-card h3 { color: #00D2FF; margin-top: 0; font-size: 1.1em; }
-    .roadmap-card ul { padding-left: 20px; font-size: 0.9em; color: #ccc; }
-    .roadmap-card.active { border-color: #00D2FF; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
-</style>
-
-<div class="roadmap-section">
-    <h2 style="color: #fff; letter-spacing: 5px; margin-bottom: 40px;">STRATEGIC ROADMAP</h2>
-    <div class="roadmap-container">
-        <div class="roadmap-card active">
-            <h3>PHASE 1: GENESIS</h3>
-            <ul>
-                <li>Quorum-State Protocol Init</li>
-                <li>Whitepaper Publication</li>
-                <li>Logo & Branding Launch</li>
-            </ul>
-        </div>
-        <div class="roadmap-card">
-            <h3>PHASE 2: INFRASTRUCTURE</h3>
-            <ul>
-                <li>Testnet "Quorum-Alpha"</li>
-                <li>Quantum Shield Integration</li>
-                <li>Post-Quantum Signatures</li>
-            </ul>
-        </div>
-        <div class="roadmap-card">
-            <h3>PHASE 3: AI EVOLUTION</h3>
-            <ul>
-                <li>Aigarth-Q Training Lab</li>
-                <li>UPoW Implementation</li>
-                <li>Security Audit</li>
-            </ul>
-        </div>
-        <div class="roadmap-card">
-            <h3>PHASE 4: SOVEREIGNTY</h3>
-            <ul>
-                <li>Mainnet Launch</li>
-                <li>$QSTATE Token Exchange</li>
-                <li>Decentralized AGI</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Investment Simulation Section -->
-<style>
-    .invest-section { padding: 60px 20px; background: rgba(0, 210, 255, 0.05); border-top: 1px solid #00D2FF; margin-top: 50px; }
-    .calc-container { max-width: 600px; margin: auto; background: rgba(0, 0, 0, 0.4); padding: 30px; border-radius: 20px; border: 1px solid #9D50BB; }
-    .calc-input { width: 80%; padding: 15px; border-radius: 10px; border: none; font-size: 1.2em; text-align: center; margin-bottom: 20px; }
-    .result-box { margin-top: 20px; font-size: 1.5em; color: #00D2FF; }
-    .profit-label { color: #9D50BB; font-size: 0.8em; margin-top: 10px; }
-</style>
-
-<div class="invest-section">
-    <h2 style="color: #fff; letter-spacing: 3px;">SIMULASI POTENSI INVESTASI</h2>
-    <p style="color: #ccc;">Berapa banyak $QSTATE yang ingin Anda miliki?</p>
-    
-    <div class="calc-container">
-        <input type="number" id="usdtAmount" class="calc-input" placeholder="Masukkan Modal (USDT)" oninput="calculateTokens()">
-        <div class="result-box">
-            <span id="tokenResult">0</span> $QSTATE
-        </div>
-        <div class="profit-label">Estimasi Nilai Saat Listing (x10 Profit): <span id="profitResult">$0</span></div>
-    </div>
-</div>
-
-<script>
-    function calculateTokens() {
-        const usdt = document.getElementById('usdtAmount').value;
-        const price = 0.00001; // Harga penawaran awal sesuai kesepakatan
-        const tokens = usdt / price;
-        const profit = (usdt * 10).toLocaleString();
-        
-        document.getElementById('tokenResult').innerHTML = tokens.toLocaleString();
-        document.getElementById('profitResult').innerHTML = "$" + profit;
-    }
-</script>
-<!-- Live Network Statistics Section -->
-<style>
-    .stats-section { padding: 60px 20px; background: rgba(0, 0, 0, 0.3); border-top: 1px solid #9D50BB; margin-top: 50px; }
-    .stats-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto; }
-    .stat-card { background: rgba(157, 80, 187, 0.05); border: 1px solid #9D50BB; padding: 20px; border-radius: 15px; width: 200px; }
-    .stat-value { font-size: 2em; color: #00D2FF; font-weight: bold; margin: 10px 0; }
-    .stat-label { font-size: 0.8em; color: #ccc; text-transform: uppercase; letter-spacing: 2px; }
-    .live-pulse { width: 10px; height: 10px; background: #00FF00; border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px #00FF00; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
-</style>
-
-<div class="stats-section">
-    <h2 style="color: #fff; letter-spacing: 3px; margin-bottom: 40px;">
-        <span class="live-pulse"></span> LIVE NETWORK STATISTICS
-    </h2>
-    <div class="stats-container">
-        <div class="stat-card">
-            <div class="stat-label">Total Ticks</div>
-            <div id="tickCount" class="stat-value">1,245,678</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Active Nodes</div>
-            <div class="stat-value">676</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">TPS (Peak)</div>
-            <div class="stat-value">15.5M</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Security State</div>
-            <div class="stat-value" style="font-size: 1.2em; color: #9D50BB;">QUANTUM_STABLE</div>
-        </div>
-    </div>
-</div>
-<!-- Section Security Hall of Fame -->
-<style>
-    .hall-of-fame {
-        background: radial-gradient(circle, #1a0033 0%, #000000 100%);
-        padding: 80px 20px;
-        border-top: 2px solid #9D50BB;
-        text-align: center;
-    }
-    .hof-card {
-        display: inline-block;
-        width: 250px;
-        margin: 15px;
-        padding: 20px;
-        background: rgba(157, 80, 187, 0.1);
-        border: 1px dashed #9D50BB;
-        border-radius: 10px;
-        transition: 0.3s;
-    }
-    .hof-card:hover {
-        background: rgba(157, 80, 187, 0.3);
-        transform: translateY(-10px);
-        border-style: solid;
-        box-shadow: 0 0 20px #9D50BB;
-    }
-    .hof-title {
-        color: #00D2FF;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: bold;
-        letter-spacing: 2px;
-    }
-    .bounty-status {
-        font-size: 0.8em;
-        color: #00ff00; /* Neon Green */
-        text-transform: uppercase;
-    }
-</style>
-
-<section class="hall-of-fame">
-    <h2 style="color: #fff; text-shadow: 0 0 10px #9D50BB;">🛡️ SECURITY HALL OF FAME</h2>
-    <p style="color: #ccc; margin-bottom: 40px;">Menghormati para ksatria siber yang menjaga benteng Quorum-State.</p>
-    
-    <div class="hof-card">
-        <div class="hof-title">GENESIS_HERO</div>
-        <p style="color: #9D50BB;">Critical Bug Fix</p>
-        <div class="bounty-status">REWARDED: 50,000 $QSTATE</div>
-    </div>
-
-    <div class="hof-card" style="opacity: 0.5;">
-        <div class="hof-title">YOUR_NAME_HERE</div>
-        <p style="color: #666;">Looking for vulnerability...</p>
-        <div class="bounty-status" style="color: #ff9900;">STATUS: OPEN</div>
-    </div>
-    
-    <div style="margin-top: 40px;">
-        <a href="docs/bug_bounty_program.md" class="btn" style="border: 1px solid #00D2FF; color: #00D2FF; padding: 10px 20px; text-decoration: none;">BACA ATURAN MAIN</a>
-    </div>
-</section>
-
-<script>
-    // Simulasi penambahan Tick secara real-time
-    let currentTicks = 1245678;
-    setInterval(() => {
-        currentTicks += Math.floor(Math.random() * 5) + 1;
-        document.getElementById('tickCount').innerText = currentTicks.toLocaleString();
-    }, 2000);
-</script>
-    
-<!-- Financial Reserve & Wallet Section -->
-<style>
-    .finance-section { padding: 60px 20px; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(157, 80, 187, 0.1) 100%); border-top: 1px solid #9D50BB; margin-top: 50px; }
-    .finance-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto; }
-    .finance-card { background: #000; border: 2px solid #00D2FF; padding: 25px; border-radius: 15px; width: 300px; box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); }
-    .amount { font-size: 2.2em; color: #fff; font-weight: bold; margin: 15px 0; }
-    .currency { color: #00D2FF; font-size: 0.5em; margin-left: 10px; }
-</style>
-
-<div class="finance-section">
-    <h2 style="color: #fff; letter-spacing: 3px; margin-bottom: 40px;">🏦 QUANTUM BANK RESERVE</h2>
-    <div class="finance-container">
-        <!-- Panel Dana Cadangan (USDT) -->
-        <div class="finance-card">
-            <div class="stat-label">Total Bank Reserve</div>
-            <div class="amount" id="reserveFund">50,000<span class="currency">USDT</span></div>
-            <div class="stat-label" style="color: #00FF00;">STATUS: SECURED (RAID 1 IBM M3)</div>
-        </div> 
-        <p style="font-size: 0.7em; color: #888; margin-top: 10px;">
-    *Data di atas adalah simulasi operasional fase Genesis. Dana cadangan akan diisi melalui mekanisme pendanaan resmi dan diaudit secara publik.
-</p> 
-        <div class="stat-card" style="width: 100%; margin-top: 20px; border-color: #00FF00;">
-    <div class="stat-label">System Audit Trail</div>
-    <div id="lastLog" style="font-size: 0.9em; color: #00FF00; font-family: monospace; padding: 10px;">
-        [*] Waiting for IBM x3250 M2 connection...
-    </div>
-</div>
-
-<script>
-    // Simulasi log yang muncul di web
-    setInterval(() => {
-        const time = new Date().toLocaleTimeString();
-        document.getElementById('lastLog').innerHTML = `[${time}] TX_VERIFIED: 5000 $QSTATE processed via API_BRIDGE`;
-    }, 15000);
-</script>
-
-
-        
-        <!-- Panel Saldo Dompet $QSTATE -->
-        <div class="finance-card" style="border-color: #9D50BB;">
-            <div class="stat-label">Your Wallet Balance</div>
-            <div class="amount" id="userWallet" style="color: #9D50BB;">1,000,000<span class="currency">$QSTATE</span></div>
-            <div class="stat-label">TYPE: GENESIS ALLOCATION</div>
-        </div>
-    </div>
-</div>
-<!-- Universal Sovereign Wallet Dashboard -->
-<style>
-    .wallet-section { padding: 60px 20px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); border: 2px solid #9D50BB; border-radius: 30px; margin: 50px auto; max-width: 1000px; box-shadow: 0 0 30px rgba(157, 80, 187, 0.3); }
-    .wallet-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 20px; }
-    .balance-box { text-align: left; }
-    .balance-amount { font-size: 2.5em; color: #00FF00; text-shadow: 0 0 10px #00FF00; }
-    .banking-integration { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-    .bank-btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
-    .btn-transfer { background: #9D50BB; color: #fff; }
-    .btn-bank { background: #00D2FF; color: #000; }
-    .status-text { font-size: 0.8em; color: #aaa; margin-top: 15px; }
-</style>
-
-<div class="wallet-section">
-    <div class="wallet-header">
-        <div class="balance-box">
-            <div style="color: #9D50BB; letter-spacing: 2px; font-weight: bold;">TOTAL KEDAULATAN ANDA</div>
-            <div class="balance-amount">5,750.00 <span style="font-size: 0.4em;">$QSTATE</span></div>
-        </div>
-        <div style="text-align: right;">
-            <div style="color: #00D2FF;">ID: Q-SOVEREIGN-ID-2026</div>
-            <div style="font-size: 0.7em; color: #555;">Verified by BreSpeedWorks Lab</div>
-        </div>
-    </div>
-
-    <div class="banking-integration">
-        <button class="bank-btn btn-transfer">🚀 Kirim Antar-Galaxy</button>
-        <button class="bank-btn btn-bank">🏦 Transfer ke Bank (BI-FAST/SWIFT)</button>
-        <button class="bank-btn btn-bank" style="background: #FFD700;">💳 Top-Up via Visa/Mastercard</button>
-    </div>
-
-    <div class="status-text">
-        <span class="live-pulse" style="width:8px; height:8px;"></span> 
-        Sistem Terhubung: **RIPE-Atlas Network** | **Quantum Banking Gateway Active**
-    </div>
-</div>
-<script>
-    // Simulasi update saldo jika ada airdrop atau transaksi
-    function updateFinance() {
-        // Contoh: simulasi dana cadangan bertambah dari investor
-        let currentReserve = 50000;
-        setInterval(() => {
-            currentReserve += (Math.random() * 10);
-            document.getElementById('reserveFund').innerHTML = Math.floor(currentReserve).toLocaleString() + '<span class="currency">USDT</span>';
-        }, 5000);
-    }
-    updateFinance();
-</script>
-<!-- Static Audit Status Section -->
-<style>
-    .audit-section { padding: 50px 20px; background: rgba(157, 80, 187, 0.1); border-radius: 20px; margin: 40px auto; max-width: 900px; border: 1px dashed #9D50BB; }
-    .audit-grid { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; }
-    .audit-item { text-align: left; min-width: 250px; }
-    .status-badge { padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: bold; text-transform: uppercase; }
-    .status-pass { background: #00FF00; color: #000; box-shadow: 0 0 10px #00FF00; }
-    .status-maint { background: #FFA500; color: #000; box-shadow: 0 0 10px #FFA500; }
-    .audit-label { color: #00D2FF; display: block; margin-bottom: 5px; font-size: 0.9em; }
-</style>
-
-<div class="audit-section">
-    <h3 style="color: #fff; margin-bottom: 30px; letter-spacing: 2px;">🛡️ INTERNAL AUDIT STATUS (FEB 2026)</h3>
-    <div class="audit-grid">
-        <div class="audit-item">
-            <span class="audit-label">Quantum-Shield Integrity</span>
-            <span class="status-badge status-pass">Verified: 100%</span>
-        </div>
-        <div class="audit-item">
-            <span class="audit-label">Treasury Reserve Node</span>
-            <span class="status-badge status-pass">Stable (Lenovo-Host)</span>
-        </div>
-        <div class="audit-item">
-            <span class="audit-label">Smart Contract Logic</span>
-            <span class="status-badge status-pass">No Vulnerability</span>
-        </div>
-        <div class="audit-item">
-            <span class="audit-label">Physical Node (IBM M3)</span>
-            <span class="status-badge status-maint">In Maintenance</span>
-        </div>
-    </div>
-    <p style="margin-top: 25px; font-size: 0.8em; color: #ccc;">
-        *Audit Internal dilakukan secara harian untuk menjamin kedaulatan aset $QSTATE.
-    </p>
-</div>
-<!-- News & Updates Section -->
-<style>
-    .news-section { padding: 60px 20px; background: #000; border-top: 2px solid #9D50BB; }
-    .news-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #00D2FF; text-align: left; max-width: 800px; margin: 20px auto; }
-    .news-date { font-size: 0.8em; color: #9D50BB; font-weight: bold; }
-    .news-title { font-size: 1.2em; color: #fff; margin: 5px 0; }
-</style>
-
-<div class="news-section">
-    <h2 style="color: #fff; letter-spacing: 3px;">LATEST UPDATES</h2>
-    
-    <div class="news-card">
-        <div class="news-date">20 FEBRUARI 2026</div>
-        <div class="news-title">Inisialisasi Strategic Bank Reserve Node</div>
-        <p style="color: #ccc;">Operasional jaringan dipindahkan sementara ke Lenovo Strategic Node untuk menjamin stabilitas Ledger selama pemeliharaan infrastruktur fisik.</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-date">20 FEBRUARI 2026</div>
-        <div class="news-title">Implementasi Docker-Ready Architecture</div>
-        <p style="color: #ccc;">Quorum-State kini mendukung instalasi universal (Docker), memastikan sistem dapat beradaptasi di mesin server mana pun di masa depan.</p>
-    </div>
-</div>
-<!-- 1. REGULATORY STATUS CHECKER (Letakkan di bawah Network Statistics) -->
-<section id="compliance" style="padding: 60px 20px; background: rgba(0, 210, 255, 0.05); border-bottom: 1px solid #9D50BB;">
-    <h2 style="color: #fff; letter-spacing: 3px;">🌍 GLOBAL REGULATORY CHECKER</h2>
-    <p style="color: #ccc;">Cek Kepatuhan $QSTATE di Wilayah Anda</p>
-    
-    <div style="max-width: 500px; margin: auto; background: #111; padding: 20px; border-radius: 15px; border: 1px solid #00D2FF;">
-        <select id="countrySelect" onchange="checkCompliance()" style="width: 100%; padding: 10px; background: #000; color: #00D2FF; border: 1px solid #9D50BB; border-radius: 5px;">
-            <option value="">-- Pilih Wilayah/Negara --</option>
-            <option value="ID">Indonesia (Regional)</option>
-            <option value="US">United States (USA)</option>
-            <option value="EU">European Union (Europe)</option>
-            <option value="APAC">Asia Pacific (APAC)</option>
-            <option value="AF">Africa & Others</option>
-        </select>
-        
-        <div id="complianceResult" style="margin-top: 20px; font-weight: bold; padding: 10px; border-radius: 5px; display: none;">
-            <!-- Hasil akan muncul di sini -->
-        </div>
-    </div>
-</section>
-<!-- Client Protection Guarantee -->
-<div style="background: rgba(0, 255, 0, 0.1); border: 1px solid #00FF00; padding: 20px; border-radius: 15px; margin: 30px auto; max-width: 900px; text-align: left;">
-    <h4 style="color: #00FF00; margin-top: 0;">🛡️ JAMINAN PERLINDUNGAN KLIEN (ZERO-LOSS POLICY)</h4>
-    <p style="color: #eee; font-size: 0.9em; line-height: 1.6;">
-        Di **BreSpeedWorks Lab**, kami memahami bahwa kepercayaan Anda adalah segalanya. Sistem kami dirancang dengan prinsip <strong>Kesejahteraan Bersama</strong>. Kami menjamin:
-        <br>• Tidak ada pemotongan dana tersembunyi.
-        <br>• Perlindungan otomatis <strong>Quantum-Shield</strong> untuk setiap transaksi.
-        <br>• Transparansi mutlak melalui audit internal harian.
-        <br><em style="color: #9D50BB;">"Tugas kami adalah mensejahterakan, bukan mengambil. Kedaulatan Anda adalah prioritas kami."</em>
-    </p>
-</div>
-
-<script>
-function checkCompliance() {
-    const country = document.getElementById('countrySelect').value;
-    const resultDiv = document.getElementById('complianceResult');
-    resultDiv.style.display = "block";
-    
-    if (country === "ID") {
-        resultDiv.style.background = "rgba(0, 255, 0, 0.2)";
-        resultDiv.style.color = "#00FF00";
-        resultDiv.innerHTML = "✅ STATUS: COMPLIANT (Tunduk Patuh Privasi Rakyat - UU PDP Support)";
-    } else if (country === "US" || country === "EU") {
-        resultDiv.style.background = "rgba(0, 210, 255, 0.2)";
-        resultDiv.style.color = "#00D2FF";
-        resultDiv.innerHTML = "🔹 STATUS: ADAPTIVE (Standard SEC/MiCA Interoperability Active)";
-    } else {
-        resultDiv.style.background = "rgba(157, 80, 187, 0.2)";
-        resultDiv.style.color = "#9D50BB";
-        resultDiv.innerHTML = "🌌 STATUS: SOVEREIGN (Antar-Galaxy Privacy Protocol Enabled)";
-    }
-}
-</script>
-
-<!-- 2. FOOTER MODERN (Letakkan di paling bawah setelah News) -->
-<footer style="padding: 40px 20px; background: #000; color: #555; font-size: 0.8em; border-top: 1px solid #222;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto; text-align: left;">
-        <div style="min-width: 200px; margin-bottom: 20px;">
-            <strong style="color: #9D50BB;">BRESPEEDWORKS LAB</strong><br>
-            Bintaro, Indonesia<br>
-            Founders: Andi M.H | Agus W. | Bobwinslow
-        </div>
-        <div style="min-width: 200px; margin-bottom: 20px;">
-            <strong style="color: #00D2FF;">RESOURCES</strong><br>
-            <a href="docs/USER_MANUAL_GENESIS.md" style="color: #555; text-decoration: none;">User Manual</a><br>
-            <a href="docs/GLOBAL_FAQ.md" style="color: #555; text-decoration: none;">Global FAQ</a><br>
-            <a href="docs/CHARTER_OF_WELFARE.md" style="color: #555; text-decoration: none;">Welfare Charter</a>
-        </div>
-        <div style="min-width: 200px; margin-bottom: 20px;">
-            <strong style="color: #00FF00;">NETWORK</strong><br>
-            RIPE-Atlas Probe Active<br>
-            IBM System x3650 M3 (Mainnet Support)<br>
-            Quantum-Shield Enabled
-        </div>
-    </div>
-    <p style="margin-top: 30px;">© 2026 Quorum-State. Gemilang & Berdaulat Untuk Semua Makhluk.</p>
-</footer>
-    
+    <footer>
+        <p>&copy; 2026 BreSpeedWorks Labs | Bintaro - Indonesia</p>
+        <p style="font-size: 0.8rem;">Powered by Lenovo Ubuntu Command Center</p>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
