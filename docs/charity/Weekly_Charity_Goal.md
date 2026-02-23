@@ -1,18 +1,4 @@
 # 🌙 RAMADHAN WEEKLY CHARITY GOAL ($QSTATE)
-🌙 [SAHUR SERUAN KEDAULATAN - $QSTATE] 🌙
-
-Bangun, Pasukan! Sahur bukan sekadar makan, tapi pengisian amunisi raga untuk perjuangan jiwa.
-
-Di balik laptop Lenovo yang menyala dan server yang berderu, ada tangan-tangan kita yang akan menyapu debu di rumah-rumah ibadah hari ini. Kita tidak punya dana tunai yang melimpah, tapi kita punya raga yang sehat dan niat yang nekad untuk kebaikan umat.
-
-Jadikan keringat bakti sosial kita hari ini sebagai saksi di akhirat, bahwa BreSpeedWorks Labs dibangun di atas pengabdian, bukan keserakahan.
-
-Makanlah dengan syukur, niatkan untuk kuat berbakti.
-Sampai jumpa di titik kumpul Lab Bintaro pasca Subuh!
-
-GASPOL, PASUKAN! 🚀🔥
-- CAPO
-
 **Periode:** Ramadhan 1447 H (Februari - Maret 2026)  
 **Misi:** Mengonversi Nilai Digital Menjadi Manfaat Nyata bagi Sesama.
 
