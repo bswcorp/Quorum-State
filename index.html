@@ -133,6 +133,37 @@
         </div>
         <a href="https://github.com" class="btn-genesis">ACCESS REPOSITORY</a>
     </header>
+    <!-- UI REGISTRASI DOMPET BERDAULAT -->
+<div id="wallet-ui-container" style="max-width: 600px; margin: auto; padding: 20px; font-family: 'Rajdhani', sans-serif;">
+    <h3 style="color: var(--cyber-cyan); text-align: center;">🧬 INISIALISASI DOMPET CAHAYA</h3>
+    
+    <div style="background: rgba(157, 80, 187, 0.1); border: 1px solid var(--neon-purple); padding: 25px; border-radius: 5px;">
+        <!-- STEP 1: PILIH REGION & KASTA -->
+        <label style="color: var(--text-gray);">Kategori Layanan:</label>
+        <select id="wallet-cat" style="width: 100%; margin-bottom: 20px; padding: 10px; background: #000; color: #fff; border: 1px solid var(--cyber-cyan);">
+            <option value="EDU">🎓 STUDENT (Prajurit Cahaya - 0% Tax)</option>
+            <option value="BIZ">💼 BUSINESS (Trade & Commerce)</option>
+            <option value="ENT">🏢 ENTERPRISE (Industry Grade)</option>
+            <option value="GOV">🏛️ GOVERNMENT (National Vault)</option>
+        </select>
+
+        <!-- STEP 2: INPUT BIOMETRIC FREQUENCY -->
+        <label style="color: var(--text-gray);">Bio-ID Frequency (H2K Protocol):</label>
+        <input type="text" placeholder="Scan Detak Jantung / Input Freq (ex: 432Hz)" 
+               style="width: 96%; padding: 10px; margin-bottom: 20px; background: #000; color: var(--cyber-cyan); border: 1px solid var(--neon-purple);">
+
+        <!-- STEP 3: EXECUTE -->
+        <button onclick="alert('Inisialisasi NIST PQC...')" 
+                style="width: 100%; padding: 15px; background: var(--cyber-cyan); color: #000; font-weight: bold; border: none; cursor: pointer; font-family: 'Orbitron';">
+            GENERATE SOVEREIGN WALLET
+        </button>
+        
+        <p style="font-size: 0.8rem; color: var(--text-gray); margin-top: 15px; text-align: center;">
+            *Sistem enkripsi $QSTATE menjamin privasi biologis Anda seumur hidup.
+        </p>
+    </div>
+</div>
+
     <section id="mission">
         <h2 style="color: var(--neon-purple);">// THE MISSION</h2>
         <div class="card-grid">
@@ -213,5 +244,6 @@
     </footer>
 </body>
 </html>
+
 
 
