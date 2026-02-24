@@ -28,3 +28,4 @@ git clone git@github.com:bswcorp/Quorum-State.git
 cd Quorum-State
 chmod +x scripts/first_run_ubuntu.sh
 ./scripts/first_run_ubuntu.sh
+
