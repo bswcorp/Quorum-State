@@ -1,3 +1,15 @@
+
+# 🛡️ THE SENTINEL GHOST LIST
+# Menghilangkan jejak "Dapur Pacu" dari mata publik
+
 scripts/internal/*
-docs/internal/*
+docs/internal/
+*.env
+*.log
 sovereign_veto.py
+h2k_biological_engine.py
+genesis_minting_engine.py
+
+# Jangan biarkan file backup atau file pingsan ikut naik
+*.bak
+*.tmp
