@@ -1,36 +1,3 @@
-# OS Metadata
-.DS_Store
-Thumbs.db
-
-# IDEs and Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Compiled Source
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.obj
-
-# Python (untuk simulasi Quantum/Qiskit)
-__pycache__/
-*.py[cod]
-*$py.class
-.venv/
-env/
-venv/
-
-# Build directories
-build/
-dist/
-out/
-
-# Submodules
-# Kita tidak mengabaikan submodule, tapi kita mengabaikan isi build di dalamnya
-core/legacy-qubic/build/
-
+scripts/internal/*
+docs/internal/*
+sovereign_veto.py
