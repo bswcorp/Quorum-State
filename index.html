@@ -133,13 +133,32 @@
         </div>
         <a href="https://github.com" class="btn-genesis">ACCESS REPOSITORY</a>
     </header>
+    <!-- Q-DAY SERVICE COUNTDOWN -->
+<div id="q-day-shield" class="glow-border" style="text-align: center; margin-top: 50px;">
+    <h2 style="color: #00f2ff;">🛡️ BENTENG LAYANAN Q-DAY ACTIVE IN:</h2>
+    <div id="qday-timer" style="font-size: 3rem; color: #ff00ff; font-family: 'Orbitron';"></div>
+    <p style="color: #b0b0b0;">"Kami Bukan Sekadar Kripto, Kami Adalah Inang Keamanan Dunia."</p>
+    <div style="background: rgba(255,255,255,0.1); padding: 10px; font-size: 0.8rem;">
+        ⚠️ ATURAN ALOKASI: 10% ENTRY | 20% COMMITMENT | OTHERS: GO TO HELL.
+    </div>
+</div>
+<script>
+    // Set Q-Day Countdown (3 Tahun dari sekarang)
+    var qDayDate = new Date("Jan 1, 2029 00:00:00").getTime();
+    setInterval(function() {
+        var now = new Date().getTime();
+        var diff = qDayDate - now;
+        var d = math.floor(diff / (1000*60*60*24));
+        // ... Logika Timer ...
+        document.getElementById("qday-timer").innerHTML = d + " DAYS REMAINING";
+    }, 1000);
+</script>
     <!-- GENESIS 72H COUNTDOWN -->
 <div id="genesis-timer" style="border: 2px solid #00f2ff; padding: 20px; margin-top: 50px; background: rgba(0, 242, 255, 0.1);">
     <h3 style="color: #00f2ff; font-family: 'Orbitron';">🧬 GENESIS MINTING INITIATIVE (T-72H)</h3>
     <div id="timer" style="font-size: 2.5rem; letter-spacing: 5px; font-weight: bold;"></div>
     <p style="font-size: 0.8rem; color: #b0b0b0;">Current Location: Ciracas Operations | Destination: Bintaro Command Center</p>
 </div>
-
 <script>
     // Set hitung mundur 72 jam dari sekarang
     var countDownDate = new Date().getTime() + (72 * 60 * 60 * 1000);
@@ -159,11 +178,10 @@
         }
     }, 1000);
 </script>
-
     <!-- UI REGISTRASI DOMPET BERDAULAT -->
 <div id="wallet-ui-container" style="max-width: 600px; margin: auto; padding: 20px; font-family: 'Rajdhani', sans-serif;">
     <h3 style="color: var(--cyber-cyan); text-align: center;">🧬 INISIALISASI DOMPET CAHAYA</h3>
-    
+ 
     <div style="background: rgba(157, 80, 187, 0.1); border: 1px solid var(--neon-purple); padding: 25px; border-radius: 5px;">
         <!-- STEP 1: PILIH REGION & KASTA -->
         <label style="color: var(--text-gray);">Kategori Layanan:</label>
@@ -271,6 +289,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
