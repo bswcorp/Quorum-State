@@ -1,19 +1,24 @@
-# ⚖️ TERMS OF SOVEREIGNTY: ATURAN KEDAULATAN $QSTATE
-**Protokol:** Anti-Broker & Anti-Spekulasi | **Otoritas:** ANDI MUHAMMAD HARPIANTO
+# ⚖️ TERMS OF SOVEREIGNTY (TOS): ATURAN MAIN 10% & 20%
+**Status:** MANDATORY (Wajib Dipatuhi) | **Otoritas:** ANDI MUHAMMAD HARPIANTO
 
 ---
 
-### I. ATURAN ALOKASI 10% (INTRO PHASE)
-Setiap entitas (Investor/Pembeli) pada tahap awal hanya diperkenankan memiliki maksimal **10% dari sirkulasi suplai**. Ini adalah masa edukasi dan pembuktian komitmen terhadap layanan infrastruktur kami.
+### I. FILOSOFI PERTAHANAN (THE SHIELD)
+Quorum-State ($QSTATE) bukan sekadar aset kripto, melainkan **Benteng Layanan Q-Day**. Kami hadir untuk memberikan solusi keamanan bagi umat, bukan sebagai alat spekulasi broker.
 
-### II. ATURAN KOMITMEN 20% (DEEP INTEGRATION)
-Peningkatan alokasi hingga **20%** hanya diberikan kepada mitra yang:
-1. Menyetujui kedaulatan infrastruktur fisik di **Bunker 01 Bintaro**.
-2. Tidak melakukan intervensi terhadap **Folder Charity (Kesejahteraan Umat)**.
-3. Mendukung penuh pengembangan **IQaaS** dan riset universitas.
+### II. BATAS ALOKASI AWAL (THE 10% ENTRY RULE) 🚪
+Setiap entitas investor atau pembeli awal hanya diperkenankan memiliki maksimal **10% dari sirkulasi suplai**.
+*   **Tujuan:** Mencegah monopoli dan menjaga stabilitas ekosistem untuk masyarakat luas.
+*   **Masa Percobaan:** Investor wajib membuktikan komitmen pada infrastruktur sebelum melangkah lebih jauh.
 
-### III. THE ULTIMATUM (GO TO HELL CLAUSE)
-$QSTATE adalah **Benteng Layanan Q-Day**, bukan aset gorengan. Jika Anda (Investor) hanya mencari keuntungan broker tanpa peduli pada nasib umat dan keamanan infrastruktur:
-**SAYA SARANKAN ANDA MENINGGALKAN PROYEK INI SEKARANG.**
+### III. BATAS KOMITMEN LANJUTAN (THE 20% COMMITMENT RULE) 🛡️
+Peningkatan alokasi hingga batas maksimal **20%** hanya diberikan kepada mitra yang:
+1.  Menandatangani **Fakta Integritas Anti-KKN**.
+2.  Mendukung pembangunan fisik **Bunker 01 & 02** (Infrastructure Backing).
+3.  Menyetujui bahwa koin mereka adalah "Bahan Bakar" layanan **IQaaS**, bukan barang gorengan.
 
-Kami hanya melayani mereka yang ingin selamat dan berdaulat di era Kuantum.
+### IV. THE ULTIMATUM (GO TO HELL CLAUSE) ⚠️
+Jika Anda (Investor/Broker) keberatan dengan aturan perlindungan umat ini dan hanya ingin mengeruk keuntungan pribadi tanpa peduli pada keamanan infrastruktur global:
+**SILAKAN TINGGALKAN PROYEK INI SEKARANG.**
+
+Kami hanya membangun rasi bintang bersama mereka yang memiliki **Hati dan Integritas**.
