@@ -133,6 +133,33 @@
         </div>
         <a href="https://github.com" class="btn-genesis">ACCESS REPOSITORY</a>
     </header>
+    <!-- GENESIS 72H COUNTDOWN -->
+<div id="genesis-timer" style="border: 2px solid #00f2ff; padding: 20px; margin-top: 50px; background: rgba(0, 242, 255, 0.1);">
+    <h3 style="color: #00f2ff; font-family: 'Orbitron';">🧬 GENESIS MINTING INITIATIVE (T-72H)</h3>
+    <div id="timer" style="font-size: 2.5rem; letter-spacing: 5px; font-weight: bold;"></div>
+    <p style="font-size: 0.8rem; color: #b0b0b0;">Current Location: Ciracas Operations | Destination: Bintaro Command Center</p>
+</div>
+
+<script>
+    // Set hitung mundur 72 jam dari sekarang
+    var countDownDate = new Date().getTime() + (72 * 60 * 60 * 1000);
+
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "GENESIS ACTIVE";
+        }
+    }, 1000);
+</script>
+
     <!-- UI REGISTRASI DOMPET BERDAULAT -->
 <div id="wallet-ui-container" style="max-width: 600px; margin: auto; padding: 20px; font-family: 'Rajdhani', sans-serif;">
     <h3 style="color: var(--cyber-cyan); text-align: center;">🧬 INISIALISASI DOMPET CAHAYA</h3>
@@ -244,6 +271,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
