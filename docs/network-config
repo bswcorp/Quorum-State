@@ -1,0 +1,38 @@
+yaml
+################################################################################
+# 📒 GENESIS CONFIGURATION: THE POSTEL LEGACY
+# Otoritas: ANDI MUHAMMAD HARPIANTO | Network: QSTATE-MAINNET-L1
+################################################################################
+
+Organizations:
+    - &BrespeedWorks
+        Name: BrespeedWorksOrg
+        ID: BSWMSPSovereign
+        MSPDir: msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('BSWMSPSovereign.admin', 'BSWMSPSovereign.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('BSWMSPSovereign.admin')" # Hanya Capo Andi!
+
+Capabilities:
+    Channel: V2_0
+    Orderer: V2_0
+    Application: V2_0
+
+Profiles:
+    QStateGenesis:
+        Channel:
+            <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *BrespeedWorks
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *BrespeedWorks
