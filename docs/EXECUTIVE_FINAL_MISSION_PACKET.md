@@ -22,7 +22,7 @@ Untuk menopang jalan kesempurnaan, aplikasi mobile $QSTATE bukan sekadar dompet,
 ## III. PROTOKOL GASPOL: START OPS 72H (THE DEPLOYMENT) 💻
 **Peringatan:** Begitu tombol ini ditekan, Sentinel AI masuk ke mode **Active Defense**.
 
-- [ ] **T-72 (Besi):** Mobilisasi IBM M2/M3 ke Bunker Bintaro (Andi & Agus).
+- [✓ ] **T-72 (Besi):** Mobilisasi IBM M2/M3 ke Bunker Bintaro (Andi & Agus).
 - [ ] **T-48 (Roh):** Injeksi 9 Script Rahasia & Kalibrasi H2K (Bobwinslow).
 - [ ] **T-24 (Gembok):** Aktivasi Air-Gap & Sentinel Monitoring (CDxaiO).
 - [ ] **T-00 (Genesis):** Minting 1T $QSTATE & Launch Mobile App (Andi - CEO Veto).
