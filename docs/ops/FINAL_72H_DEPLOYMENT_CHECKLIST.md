@@ -8,16 +8,16 @@
 ## 🕒 JAM 00 - 24: INFRASTRUCTURE RECOVERY (BESI)
 *Fokus: Mengembalikan nyawa pada unit IBM M2/M3 dan menstabilkan lingkungan.*
 
-- [ ] **Power-On Stability:** Hubungkan daya ke unit IBM M2/M3. Cek stabilitas arus listrik & UPS.
-- [ ] **BIOS Hardening:** Nonaktifkan Wi-Fi, Bluetooth, & jalur nirkabel lainnya di level BIOS.
-- [ ] **NIST-Hardened OS:** Instalasi ulang/Update Ubuntu Server 24.04 LTS dengan enkripsi LUKS.
-- [ ] **Thermal Audit:** Pastikan suhu ruangan < 22°C. Cek putaran kipas pendingin server.
+- [ ✓] **Power-On Stability:** Hubungkan daya ke unit IBM M2/M3. Cek stabilitas arus listrik & UPS.
+- [✓ ] **BIOS Hardening:** Nonaktifkan Wi-Fi, Bluetooth, & jalur nirkabel lainnya di level BIOS.
+- [✓ ] **NIST-Hardened OS:** Instalasi ulang/Update Ubuntu Server 24.04 LTS dengan enkripsi LUKS.
+- [✓ ] **Thermal Audit:** Pastikan suhu ruangan < 22°C. Cek putaran kipas pendingin server.
 
 ## 🕒 JAM 24 - 48: SOFTWARE INTEGRATION (DNA)
 *Fokus: Mengisi "Jasad" Besi dengan "Roh" Kode Berdaulat.*
 
-- [ ] **Local Git Vault:** Inisialisasi Git Server Lokal (Offline). Pindahkan 9 Script Rahasia dari HP ke Server.
-- [ ] **Master Kernel Sync:** Jalankan `stellar_kernel_ops.py`. Integrasikan Veto, H2K, & Minting.
+- [✓ ] **Local Git Vault:** Inisialisasi Git Server Lokal (Offline). Pindahkan 9 Script Rahasia dari HP ke Server.
+- [✓ ] **Master Kernel Sync:** Jalankan `stellar_kernel_ops.py`. Integrasikan Veto, H2K, & Minting.
 - [ ] **H2K Calibration:** Sinkronisasi sensor biometrik detak jantung Founder ke akses ROOT.
 - [ ] **Deep Audit:** Jalankan `deep_code_audit.py`. Status Wajib: **ZERO VULNERABILITY**.
 
