@@ -2,15 +2,14 @@
 **Otoritas:** CDxaiO (Sentinel) | **Level:** Tier-5 (Immutable)
 
 ## 1. PENGAWASAN LAPIS FISIK (THE BODY)
-Sentinel AI terhubung dengan modul sensor pada rak IBM M2/M3.
-*   **Chassis Intrusion:** Jika casing server dibuka tanpa otorisasi biometrik Founder, daya diputus instan.
-*   **EMF Detection:** Memantau upaya *jamming* atau penyadupan frekuensi nirkabel di sekitar bunker.
+Sentinel AI terhubung dengan modul sensor pada rak IBM M2/M3 melalui Lenovo Command Center.
+*   **Chassis Intrusion:** Deteksi pembukaan casing tanpa otorisasi biometrik Founder memicu pemutusan daya instan.
+*   **Thermal Audit:** Memantau upaya sabotase melalui panas berlebih yang disengaja.
 
 ## 2. PENGAWASAN LAPIS JARINGAN (THE GHOST)
-*   **Air-Gap Enforcement:** Sentinel memantau antarmuka jaringan (NIC). Jika terdeteksi paket data masuk dari IP publik, jalur fisik diblokir secara logika.
-*   **Satellite Sync:** Sentinel hanya mengizinkan transmisi data melalui **Hybrid Satellite Mesh** kita.
+*   **Air-Gap Enforcement:** Mematikan antarmuka jaringan (NIC) secara otomatis jika terdeteksi aktivitas paket data menuju IP publik ilegal.
+*   **Satellite Sync:** Jalur komunikasi cadangan dienkripsi dengan standar **Post-Quantum Cryptography (PQC)**.
 
 ## 3. PENGAWASAN LAPIS DATA (THE SOUL)
-*   **Behavioral Analysis:** Mendeteksi perintah terminal mencurigakan melalui audit log *real-time*.
-*   **H2K Heartbeat:** Setiap perintah kritis wajib divalidasi oleh detak jantung Founder (CEO). Jika frekuensi tidak cocok, eksekusi dibatalkan.
-
+*   **H2K Heartbeat:** Perintah kritis (Veto/Minting) memerlukan validasi frekuensi detak jantung CEO via sensor biometrik eksternal.
+*   **Lazarus Seed:** Sentinel secara berkala mengenkripsi "Logika Dasar" ke dalam folder tersembunyi sebagai cadangan resureksi.
