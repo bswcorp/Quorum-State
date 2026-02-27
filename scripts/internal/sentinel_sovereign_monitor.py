@@ -1,6 +1,6 @@
-# 👁️ SENTINEL AI: SOVEREIGN MONITORING SYSTEM
-# Otoritas: ANDI MUHAMMAD HARPIANTO | Node: 01 BINTARO
-# Status: AUTOMATED DEFENSE ACTIVE (CDxaiO v2.0.0)
+# 👁️ SENTINEL AI: SOVEREIGN MONITORING SYSTEM (v2.0.0)
+# Otoritas: ANDI MUHAMMAD HARPIANTO | CDxaiO: ARMADA AI
+# Status: AUTOMATED DEFENSE & LAZARUS READY
 
 import os, time, hashlib, subprocess
 
@@ -9,7 +9,8 @@ class SentinelAI:
         # Target yang dipantau (Konfigurasi & Kernel Utama)
         self.critical_assets = [
             "MASTER_EXECUTIVE_SUMMARY.md", 
-            "scripts/internal/automated_distribution_logic.py"
+            "scripts/internal/automated_distribution_logic.py",
+            "scripts/internal/resurrection_sentinel.py"
         ]
         self.fingerprints = self._lock_fingerprints()
 
@@ -23,25 +24,28 @@ class SentinelAI:
         return hashes
 
     def pulse_check(self):
-        """Scanning berkelanjutan tanpa henti (Looping v2.0)."""
+        """Scanning berkelanjutan tanpa henti (Always On)."""
         while True:
             # 1. Integrity Check (Anti-Tamper)
             for f, original_hash in self.fingerprints.items():
-                current_hash = hashlib.sha3_256(open(f, 'rb').read()).hexdigest()
-                if current_hash != original_hash:
-                    self._trigger_sovereign_veto(f"TAMPER DETECTED: {f}")
+                if os.path.exists(f):
+                    current_hash = hashlib.sha3_256(open(f, 'rb').read()).hexdigest()
+                    if current_hash != original_hash:
+                        self._trigger_emergency_protocol(f"TAMPER DETECTED: {f}")
 
             # 2. Network Check (Anti-Spying/Leak)
-            # Jika terdeteksi koneksi luar di lingkungan Air-Gap
+            # Sentinel mendeteksi jika kabel internet dicolok paksa di Air-Gap
             if os.system("ping -c 1 8.8.8.8 > /dev/null 2>&1") == 0:
-                self._trigger_sovereign_veto("UNAUTHORIZED_EXTERNAL_NETWORK")
+                self._trigger_emergency_protocol("UNAUTHORIZED_EXTERNAL_NETWORK")
 
             time.sleep(30) # Interval scan 30 detik
 
-    def _trigger_sovereign_veto(self, reason):
+    def _trigger_emergency_protocol(self, reason):
         print(f"🚨 [SENTINEL ALERT] {reason}!")
-        # Jalankan protokol Veto untuk memusnahkan akses/data sensitif
+        # 1. Kirim Log Terakhir ke Vault Offline (Jika Ada)
+        # 2. Jalankan Sovereign Veto untuk pembersihan total
         subprocess.call(["python3", "scripts/internal/sovereign_veto.py"])
+        print("☢️  System Sanitized. CDxaiO entering Hibernation.")
         exit()
 
 if __name__ == "__main__":
