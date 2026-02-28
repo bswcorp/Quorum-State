@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUORUM-STATE | Kedaulatan Digital Pasca-Kuantum</title>
+    <title>QUORUM-STATE | Kedaulatan Galaksi Pasca-Kuantum</title>
     <!-- Gahar Fonts & Icons -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
         :root {
+            --gold: #D4AF37;
             --neon-purple: #9d50bb;
             --deep-black: #050505;
             --cyber-cyan: #00f2ff;
             --text-gray: #b0b0b0;
+            --glow: rgba(212, 175, 55, 0.4);
         }
 
         body {
@@ -23,7 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* Background Glitch Effect */
+        /* Background Grid Glitch */
         .grid-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -40,25 +42,36 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle, rgba(157,80,187,0.2) 0%, rgba(5,5,5,1) 70%);
+            background: radial-gradient(circle, rgba(157,80,187,0.15) 0%, rgba(5,5,5,1) 80%);
+        }
+
+        /* NEW LUXURY LOGO HEADER */
+        .logo-container {
+            border: 2px solid var(--gold);
+            padding: 15px 40px;
+            box-shadow: 0 0 25px var(--glow);
+            border-radius: 5px;
+            background: rgba(0,0,0,0.9);
+            margin-bottom: 30px;
         }
 
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 10px;
+            font-size: 3.5rem;
+            letter-spacing: 12px;
             margin: 0;
-            background: linear-gradient(to right, var(--neon-purple), var(--cyber-cyan));
+            background: linear-gradient(to right, var(--gold), var(--cyber-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
         }
 
         .tagline {
-            font-size: 1.5rem;
-            color: var(--cyber-cyan);
-            letter-spacing: 3px;
-            margin-top: 10px;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin-top: 15px;
+            font-weight: bold;
         }
 
         .status-box {
@@ -66,58 +79,92 @@
             padding: 20px;
             margin-top: 30px;
             background: rgba(157, 80, 187, 0.1);
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-            width: 300px;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+            width: 320px;
+        }
+
+        /* Q-DAY TIMER SECTION */
+        .qday-section {
+            border: 2px solid var(--gold);
+            margin: 50px auto;
+            padding: 40px;
+            max-width: 800px;
+            background: rgba(0,0,0,0.8);
+            box-shadow: 0 0 30px var(--glow);
+            text-align: center;
+        }
+
+        .qday-timer {
+            font-size: 4rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--glow);
+            margin: 20px 0;
+        }
+
+        /* GENESIS 72H TIMER */
+        .genesis-box {
+            border: 2px solid var(--cyber-cyan);
+            padding: 30px;
+            background: rgba(0, 242, 255, 0.05);
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .timer-72h {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: var(--cyber-cyan);
         }
 
         .btn-genesis {
             margin-top: 40px;
-            padding: 15px 40px;
-            border: 2px solid var(--cyber-cyan);
+            padding: 15px 50px;
+            border: 2px solid var(--gold);
             background: transparent;
-            color: var(--cyber-cyan);
+            color: var(--gold);
             font-family: 'Orbitron', sans-serif;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.4s;
             text-decoration: none;
             display: inline-block;
+            font-weight: bold;
         }
 
         .btn-genesis:hover {
-            background: var(--cyber-cyan);
+            background: var(--gold);
             color: black;
-            box-shadow: 0 0 20px var(--cyber-cyan);
+            box-shadow: 0 0 30px var(--gold);
         }
 
-        section {
-            padding: 100px 20px;
-            max-width: 1000px;
-            margin: auto;
+        /* WALLET UI */
+        .wallet-container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 30px;
+            border: 1px solid var(--neon-purple);
+            background: rgba(20, 20, 20, 0.8);
         }
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            border-left: 5px solid var(--neon-purple);
-            background: #111;
-            padding: 20px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            background: #1a1a1a;
-            transform: translateX(10px);
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: #000;
+            color: var(--cyber-cyan);
+            border: 1px solid var(--neon-purple);
+            font-family: 'Rajdhani', sans-serif;
         }
 
         footer {
             text-align: center;
-            padding: 50px;
+            padding: 60px;
             border-top: 1px solid #333;
-            color: var(--text-gray);
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -125,172 +172,78 @@
     <div class="grid-bg"></div>
 
     <header>
-        <h1 data-aos="fade-up">QUORUM-STATE</h1>
-        <div class="tagline">POST-QUANTUM SOVEREIGNTY</div>
-        <div class="status-box">
-            <i class="fas fa-microchip"></i> GENESIS NODE: <strong>ACTIVE</strong><br>
-            <i class="fas fa-shield-alt"></i> ENCRYPTION: <strong>NIST FIPS 204</strong>
+        <div class="logo-container">
+            <h1 data-aos="fade-up">QUORUM-STATE</h1>
         </div>
-        <a href="https://github.com" class="btn-genesis">ACCESS REPOSITORY</a>
+        <div class="tagline">INTERPLANETARY SOVEREIGN BANK</div>
+        <div class="status-box">
+            <i class="fas fa-microchip"></i> BUNKER NODE 01: <strong>ACTIVE</strong><br>
+            <i class="fas fa-shield-alt"></i> ENCRYPTION: <strong>PQC NIST-READY</strong>
+        </div>
+        <a href="#wallet-ui" class="btn-genesis">INITIALIZE SOVEREIGNTY</a>
     </header>
-    <!-- Q-DAY SERVICE COUNTDOWN -->
-<div id="q-day-shield" class="glow-border" style="text-align: center; margin-top: 50px;">
-    <h2 style="color: #00f2ff;">🛡️ BENTENG LAYANAN Q-DAY ACTIVE IN:</h2>
-    <div id="qday-timer" style="font-size: 3rem; color: #ff00ff; font-family: 'Orbitron';"></div>
-    <p style="color: #b0b0b0;">"Kami Bukan Sekadar Kripto, Kami Adalah Inang Keamanan Dunia."</p>
-    <div style="background: rgba(255,255,255,0.1); padding: 10px; font-size: 0.8rem;">
-        ⚠️ ATURAN ALOKASI: 10% ENTRY | 20% COMMITMENT | OTHERS: GO TO HELL.
-    </div>
-</div>
-<script>
-    // Set Q-Day Countdown (3 Tahun dari sekarang)
-    var qDayDate = new Date("Jan 1, 2029 00:00:00").getTime();
-    setInterval(function() {
-        var now = new Date().getTime();
-        var diff = qDayDate - now;
-        var d = math.floor(diff / (1000*60*60*24));
-        // ... Logika Timer ...
-        document.getElementById("qday-timer").innerHTML = d + " DAYS REMAINING";
-    }, 1000);
-</script>
+
+    <!-- Q-DAY SHIELD COUNTDOWN -->
+    <section class="qday-section">
+        <h2 style="color: var(--gold); letter-spacing: 5px;">🛡️ Q-DAY DEFENSE SHIELD ACTIVE IN:</h2>
+        <div id="qday-display" class="qday-timer">000 DAYS</div>
+        <p style="color: var(--text-gray);">"Infrastruktur Dewa: Melindungi Aset Galaksi Sebelum Badai Kuantum Tiba."</p>
+        <div style="background: rgba(212, 175, 55, 0.1); padding: 15px; font-size: 0.9rem; border: 1px dashed var(--gold);">
+            ⚠️ MANDAT: 10% ENTRY | 20% FOUNDER COMMITMENT | OTHERS: ACCESS DENIED.
+        </div>
+    </section>
+
     <!-- GENESIS 72H COUNTDOWN -->
-<div id="genesis-timer" style="border: 2px solid #00f2ff; padding: 20px; margin-top: 50px; background: rgba(0, 242, 255, 0.1);">
-    <h3 style="color: #00f2ff; font-family: 'Orbitron';">🧬 GENESIS MINTING INITIATIVE (T-72H)</h3>
-    <div id="timer" style="font-size: 2.5rem; letter-spacing: 5px; font-weight: bold;"></div>
-    <p style="font-size: 0.8rem; color: #b0b0b0;">Current Location: Ciracas Operations | Destination: Bintaro Command Center</p>
-</div>
-<script>
-    // Set hitung mundur 72 jam dari sekarang
-    var countDownDate = new Date().getTime() + (72 * 60 * 60 * 1000);
+    <div class="genesis-box">
+        <h3 style="color: var(--cyber-cyan); font-family: 'Orbitron';">🧬 GENESIS MINTING PULSE (T-72H)</h3>
+        <div id="genesis-clock" class="timer-72h">00:00:00</div>
+        <p style="font-size: 0.9rem; color: var(--text-gray);">Ciracas Terminal ➔ Bintaro Master Command Center</p>
+    </div>
 
-    var x = setInterval(function() {
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "GENESIS ACTIVE";
-        }
-    }, 1000);
-</script>
-    <!-- UI REGISTRASI DOMPET BERDAULAT -->
-<div id="wallet-ui-container" style="max-width: 600px; margin: auto; padding: 20px; font-family: 'Rajdhani', sans-serif;">
-    <h3 style="color: var(--cyber-cyan); text-align: center;">🧬 INISIALISASI DOMPET CAHAYA</h3>
- 
-    <div style="background: rgba(157, 80, 187, 0.1); border: 1px solid var(--neon-purple); padding: 25px; border-radius: 5px;">
-        <!-- STEP 1: PILIH REGION & KASTA -->
-        <label style="color: var(--text-gray);">Kategori Layanan:</label>
-        <select id="wallet-cat" style="width: 100%; margin-bottom: 20px; padding: 10px; background: #000; color: #fff; border: 1px solid var(--cyber-cyan);">
-            <option value="EDU">🎓 STUDENT (Prajurit Cahaya - 0% Tax)</option>
-            <option value="BIZ">💼 BUSINESS (Trade & Commerce)</option>
-            <option value="ENT">🏢 ENTERPRISE (Industry Grade)</option>
+    <!-- WALLET UI -->
+    <div id="wallet-ui" class="wallet-container">
+        <h3 style="color: var(--cyber-cyan); text-align: center; font-family: 'Orbitron';">🧬 INISIALISASI DOMPET CAHAYA</h3>
+        <label>Kategori Layanan:</label>
+        <select id="wallet-cat">
+            <option value="EDU">🎓 STUDENT (Prajurit Cahaya)</option>
+            <option value="BIZ">💼 BUSINESS (Interplanetary Trade)</option>
             <option value="GOV">🏛️ GOVERNMENT (National Vault)</option>
         </select>
-
-        <!-- STEP 2: INPUT BIOMETRIC FREQUENCY -->
-        <label style="color: var(--text-gray);">Bio-ID Frequency (H2K Protocol):</label>
-        <input type="text" placeholder="Scan Detak Jantung / Input Freq (ex: 432Hz)" 
-               style="width: 96%; padding: 10px; margin-bottom: 20px; background: #000; color: var(--cyber-cyan); border: 1px solid var(--neon-purple);">
-
-        <!-- STEP 3: EXECUTE -->
-        <button onclick="alert('Inisialisasi NIST PQC...')" 
-                style="width: 100%; padding: 15px; background: var(--cyber-cyan); color: #000; font-weight: bold; border: none; cursor: pointer; font-family: 'Orbitron';">
+        <label>Bio-ID Frequency (H2K Protocol):</label>
+        <input type="text" placeholder="Scan Heartbeat / Input Freq (ex: 432Hz)">
+        <button onclick="alert('Inisialisasi NIST PQC... DNA Locked.')" 
+                style="width: 100%; padding: 18px; background: var(--cyber-cyan); color: #000; font-weight: bold; border: none; cursor: pointer; font-family: 'Orbitron';">
             GENERATE SOVEREIGN WALLET
         </button>
-        
-        <p style="font-size: 0.8rem; color: var(--text-gray); margin-top: 15px; text-align: center;">
-            *Sistem enkripsi $QSTATE menjamin privasi biologis Anda seumur hidup.
-        </p>
     </div>
-</div>
 
-    <section id="mission">
-        <h2 style="color: var(--neon-purple);">// THE MISSION</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h3>🛡️ NIST PQC COMPLIANT</h3>
-                <p>Implementasi algoritma Kyber & Dilithium untuk melindungi aset dari ancaman komputer kuantum.</p>
-            </div>
-            <div class="card">
-                <h3>⚡ SUB-3s FINALITY</h3>
-                <p>Validasi transaksi instan melalui jaringan 676 Computors berdaulat.</p>
-            </div>
-            <div class="card">
-                <h3>🤝 SOCIAL CONTRACT</h3>
-                <p>Teknologi yang didedikasikan untuk kesejahteraan umat manusia dan generasi masa depan.</p>
-            </div>
-        </div>
-    </section>
-   <!-- Bagian Live Treasury Status -->
-<section id="treasury-status" class="status-grid">
-    <div class="stat-card">
-        <h4>TOTAL SUPPLY $QSTATE</h4>
-        <h2 id="total-supply">1.000.000.000.000</h2> <!-- 1 Triliun Global Supply -->
-    </div>
-    <div class="stat-card">
-        <h4>CIRCULATING POWER</h4>
-        <h2 id="circulating">NIST-SECURED</h2>
-    </div>
-</section>
-
-<!-- Panel Transfer Cepat (One-Touch) -->
-<section id="quick-transfer">
-    <h3><i class="fas fa-paper-plane"></i> INSTANT TRANSFER</h3>
-    <input type="text" placeholder="Wallet Address / Bio-ID">
-    <input type="number" placeholder="Amount $QSTATE">
-    <button class="btn-genesis">SEND BY BLINK/TOUCH</button>
-</section>
-    <!-- SECTION 1: GLOBAL TREASURY DASHBOARD (Notable Status) -->
-    <section id="treasury" style="background: rgba(0, 242, 255, 0.05); padding: 50px 20px; text-align: center; border-bottom: 1px solid var(--cyber-cyan);">
-        <h2 style="color: var(--cyber-cyan); font-family: 'Orbitron';">🪐 GLOBAL TREASURY STATUS</h2>
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 30px;">
-            <div class="stat-card" style="border: 1px solid var(--neon-purple); padding: 20px; width: 250px; margin: 10px;">
-                <p style="color: var(--text-gray);">TOTAL SUPPLY</p>
-                <h2 style="color: white;">1,000,000,000,000</h2>
-                <p style="color: var(--neon-purple); font-size: 0.8rem;">$QSTATE UNITS</p>
-            </div>
-            <div class="stat-card" style="border: 1px solid var(--cyber-cyan); padding: 20px; width: 250px; margin: 10px;">
-                <p style="color: var(--text-gray);">CIRCULATING POWER</p>
-                <h2 style="color: white;">NIST-SECURED</h2>
-                <p style="color: var(--cyber-cyan); font-size: 0.8rem;">(FIPS 203/204)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: CENTRAL BANK WALLET REGISTRY (One-Touch Interface) -->
-    <section id="wallet-registry" style="padding: 100px 20px; text-align: center;">
-        <h2 style="color: var(--neon-purple); font-family: 'Orbitron';">🏦 CENTRAL BANK REGISTRATION</h2>
-        <p style="color: var(--text-gray);">Pilih kasta dompet Anda sesuai region dan kebutuhan galaksi.</p>
-        
-        <form style="max-width: 500px; margin: 40px auto; background: #111; padding: 30px; border-radius: 10px; border: 1px solid #333;">
-            <select style="width: 100%; padding: 15px; background: #050505; color: white; border: 1px solid var(--cyber-cyan); margin-bottom: 20px;">
-                <option value="">-- PILIH KATEGORI WALLET --</option>
-                <option value="BIZ">QST-BIZ (Business & Trade)</option>
-                <option value="ENT">QST-ENT (Enterprise & Industry)</option>
-                <option value="GOV">QST-GOV (Government Vault)</option>
-                <option value="EDU">QST-EDU (Student / Prajurit Cahaya - FREE)</option>
-            </select>
-
-           <input type="text" placeholder="Input Biometric / Bio-ID Frequency" style="width: 93%; padding: 15px; background: #050505; color: white; border: 1px solid var(--neon-purple); margin-bottom: 20px;">
-            
-            <button type="button" class="btn-genesis" style="width: 100%; padding: 15px; font-weight: bold;">GENERATE SOVEREIGN WALLET</button>
-            <p style="font-size: 0.7rem; color: var(--text-gray); margin-top: 10px;">*Pajak & biaya transaksi khusus QST-EDU ditanggung sepenuhnya oleh $QSTATE.</p>
-        </form>
-    </section>
- 
     <footer>
-        <p>&copy; 2026 BreSpeedWorks Labs | Bintaro - Indonesia</p>
-        <p style="font-size: 0.8rem;">Powered by Lenovo Ubuntu Command Center</p>
+        VERIFIED BY CDxaiO SENTINEL | v2.1.3 GALACTIC OVERDRIVE EDITION | $QSTATE 2026
     </footer>
+
+    <script>
+        // 1. Q-Day Countdown (Target 2029)
+        const qDayDate = new Date("Jan 1, 2029 00:00:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const diff = qDayDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("qday-display").innerHTML = days + " DAYS REMAINING";
+        }, 1000);
+
+        // 2. Genesis 72H Countdown
+        const genesisTarget = new Date().getTime() + (72 * 60 * 60 * 1000);
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = genesisTarget - now;
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("genesis-clock").innerHTML = 
+                h.toString().padStart(2, '0') + ":" + 
+                m.toString().padStart(2, '0') + ":" + 
+                s.toString().padStart(2, '0');
+        }, 1000);
+    </script>
 </body>
 </html>
-
-
-
-
-
