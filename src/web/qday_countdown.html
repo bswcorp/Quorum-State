@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-DAY COUNTDOWN | $QSTATE GALAXY</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #050505;
+            --glow: rgba(212, 175, 55, 0.5);
+        }
+
+        body {
+            background-color: var(--black);
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* HEADER LOGO SECTION */
+        header {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            border: 2px solid var(--gold);
+            padding: 10px 25px;
+            box-shadow: 0 0 15px var(--glow);
+            border-radius: 5px;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        /* TIMER SECTION */
+        .countdown-container {
+            display: flex;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .time-box {
+            background: linear-gradient(145deg, #111, #000);
+            border: 1px solid var(--gold);
+            padding: 20px;
+            min-width: 100px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--glow);
+        }
+
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            color: #888;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .footer-text {
+            position: absolute;
+            bottom: 30px;
+            color: var(--gold);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">QUORUM-STATE</div>
+        </div>
+    </header>
+
+    <h1>The Galactic Q-Day is Coming</h1>
+
+    <div class="countdown-container">
+        <div class="time-box">
+            <div class="number" id="days">00</div>
+            <div class="label">Hari</div>
+        </div>
+        <div class="time-box">
+            <div class="number" id="hours">00</div>
+            <div class="label">Jam</div>
+        </div>
+        <div class="time-box">
+            <div class="number" id="minutes">00</div>
+            <div class="label">Menit</div>
+        </div>
+        <div class="time-box">
+            <div class="number" id="seconds">00</div>
+            <div class="label">Detik</div>
+        </div>
+    </div>
+
+    <div class="footer-text">VERIFIED BY CDxaiO SENTINEL | v2.1.3 SOVEREIGN EDITION</div>
+
+    <script>
+        // TARGET: Q-DAY (Misal: 1 Januari 2027)
+        const countdownDate = new Date("Jan 1, 2027 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-container").innerHTML = "<div class='number'>Q-DAY HAS ARRIVED</div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
