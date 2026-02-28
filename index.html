@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUORUM-STATE | Kedaulatan Galaksi Pasca-Kuantum</title>
+    <title>QUORUM-STATE | Interplanetary Sovereign Bank</title>
+    <!-- Gahar Fonts & Icons -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
@@ -15,80 +16,123 @@
             --glow: rgba(212, 175, 55, 0.4);
         }
 
-        body { background-color: var(--deep-black); color: white; font-family: 'Rajdhani', sans-serif; margin: 0; overflow-x: hidden; }
+        body { background-color: var(--deep-black); color: white; font-family: 'Rajdhani', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
         .grid-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(157, 80, 187, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(157, 80, 187, 0.05) 1px, transparent 1px); background-size: 30px 30px; z-index: -1; }
         
-        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, rgba(157,80,187,0.15) 0%, rgba(5,5,5,1) 80%); }
-        .logo-container { border: 2px solid var(--gold); padding: 15px 40px; box-shadow: 0 0 25px var(--glow); border-radius: 5px; background: rgba(0,0,0,0.9); margin-bottom: 30px; }
-        h1 { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; letter-spacing: 12px; margin: 0; background: linear-gradient(to right, var(--gold), var(--cyber-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
+        /* I. HEADER SECTION */
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, rgba(157,80,187,0.15) 0%, rgba(5,5,5,1) 80%); padding: 20px; }
+        .logo-container { border: 2px solid var(--gold); padding: 15px 40px; box-shadow: 0 0 25px var(--glow); border-radius: 5px; background: rgba(0,0,0,0.9); margin-bottom: 20px; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 8vw, 3.5rem); letter-spacing: 12px; margin: 0; background: linear-gradient(to right, var(--gold), var(--cyber-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
+        .tagline { font-size: 1.2rem; color: var(--gold); letter-spacing: 5px; margin-top: 15px; font-weight: bold; }
+        .q-day-alert { border: 1px solid red; color: #ff4d4d; padding: 10px 20px; margin-top: 20px; font-family: 'Orbitron'; animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* II. CONTENT SECTION */
+        section { padding: 80px 20px; max-width: 900px; margin: auto; }
+        .bank-card { border: 2px solid var(--gold); background: rgba(20,20,20,0.9); padding: 40px; box-shadow: 0 0 30px var(--glow); position: relative; overflow: hidden; }
+        .bank-card::before { content: "CENTRAL BANK"; position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.05; font-family: 'Orbitron'; color: var(--gold); }
         
-        /* TREASURY STATUS BOX */
-        .treasury-box { border: 1px solid var(--gold); padding: 20px; margin-top: 20px; background: rgba(212, 175, 55, 0.1); width: 350px; text-align: left; }
-        .treasury-box h3 { margin: 0 0 10px 0; color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
-        .treasury-val { font-family: 'Orbitron'; font-size: 1.2rem; color: var(--cyber-cyan); }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .stat-item { border-left: 3px solid var(--cyber-cyan); padding-left: 15px; }
+        .stat-label { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; }
+        .stat-value { font-family: 'Orbitron'; font-size: 1.4rem; color: white; }
 
-        .qday-section { border: 2px solid var(--gold); margin: 50px auto; padding: 40px; max-width: 800px; background: rgba(0,0,0,0.8); box-shadow: 0 0 30px var(--glow); text-align: center; }
-        .qday-timer { font-size: 4rem; font-family: 'Orbitron'; color: var(--gold); text-shadow: 0 0 20px var(--glow); }
+        /* PAYMENT METHODS */
+        .payment-methods { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; justify-content: center; }
+        .pay-icon { border: 1px solid #333; padding: 10px 20px; border-radius: 5px; font-size: 0.9rem; background: #111; color: var(--cyber-cyan); }
 
-        /* WALLET UI SECTION */
-        .wallet-ui-container { max-width: 600px; margin: 50px auto; padding: 30px; border: 1px solid var(--cyber-cyan); background: rgba(0, 242, 255, 0.05); }
-        input, select { width: 100%; padding: 12px; margin: 10px 0 20px 0; background: #000; color: var(--cyber-cyan); border: 1px solid var(--neon-purple); font-family: 'Rajdhani'; }
+        /* WALLET FORM */
+        .wallet-form { background: rgba(0,242,255,0.05); border: 1px solid var(--cyber-cyan); padding: 30px; margin-top: 50px; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0 20px 0; background: #000; color: var(--cyber-cyan); border: 1px solid var(--neon-purple); font-family: 'Rajdhani'; box-sizing: border-box; }
         .btn-action { width: 100%; padding: 18px; background: var(--cyber-cyan); color: #000; font-weight: bold; border: none; cursor: pointer; font-family: 'Orbitron'; transition: 0.3s; }
-        .btn-action:hover { box-shadow: 0 0 20px var(--cyber-cyan); }
+        .btn-action:hover { background: white; box-shadow: 0 0 20px var(--cyber-cyan); }
 
-        footer { text-align: center; padding: 40px; color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; }
+        /* III. FOOTER SECTION */
+        footer { background: #000; border-top: 1px solid var(--gold); padding: 60px 20px; text-align: center; }
+        .contact-link { color: var(--gold); text-decoration: none; font-size: 1.1rem; display: block; margin: 10px 0; transition: 0.3s; }
+        .contact-link:hover { color: var(--cyber-cyan); }
+        .footer-logo { font-family: 'Orbitron'; font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <div class="grid-bg"></div>
 
+    <!-- I. HEADER -->
     <header>
         <div class="logo-container"><h1>QUORUM-STATE</h1></div>
-        <div style="color: var(--gold); letter-spacing: 5px;">INTERPLANETARY SOVEREIGN BANK</div>
+        <div class="tagline">INTERPLANETARY SOVEREIGN BANK</div>
+        <p style="max-width: 600px; color: #ccc;">Satu-satunya infrastruktur keuangan yang dibangun untuk bertahan melintasi badai kuantum. Kedaulatan Anda, Kendali Anda.</p>
         
-        <!-- TREASURY STATUS -->
-        <div class="treasury-box">
-            <h3><i class="fas fa-vault"></i> TREASURY STATUS</h3>
-            <div class="treasury-val">1,000,000,000,000 $QSTATE</div>
-            <div style="font-size: 0.7rem; color: var(--text-gray); margin-top: 5px;">
-                RESERVE: 100% | STATUS: <span style="color: #00ff00;">LOCKED</span>
+        <div class="q-day-alert">⚠️ Q-DAY DEFENSE SHIELD: <span id="qday-timer">000</span> DAYS REMAINING</div>
+        
+        <p style="margin-top: 20px; font-weight: bold; color: var(--cyber-cyan);">Dunia sedang berubah. Jangan tertinggal. Bergabunglah dengan Barisan Cahaya.</p>
+        <a href="#register" class="btn-action" style="max-width: 250px; text-decoration: none; display: flex; align-items: center; justify-content: center;">DAFTAR SEKARANG</a>
+    </header>
+
+    <!-- II. CONTENT -->
+    <section id="bank-central">
+        <div class="bank-card">
+            <h2 style="color: var(--gold); font-family: 'Orbitron'; margin-top: 0;"><i class="fas fa-university"></i> BANK CENTRAL INDONESIA $QSTATE</h2>
+            <p>Otoritas moneter digital pertama yang terintegrasi dengan jaringan 9 Hexaflop Nasional (AKLI 1, 2, 3).</p>
+            
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Jumlah Koin Beredar</div>
+                    <div class="stat-value">1,000,000,000,000 $QSTATE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Treasury Status</div>
+                    <div class="stat-value" style="color: #00ff00;">100% SECURE / LOCKED</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; color: var(--cyber-cyan); font-family: 'Orbitron';">METODE TRANSAKSI GENERASI-X</h3>
+            <div class="payment-methods">
+                <div class="pay-icon"><i class="fas fa-qrcode"></i> Scan QRIS</div>
+                <div class="pay-icon"><i class="fas fa-eye"></i> Kedipan Mata (Bio-ID)</div>
+                <div class="pay-icon"><i class="fab fa-visa"></i> Visa / Master</div>
+                <div class="pay-icon"><i class="fas fa-landmark"></i> Bank Transfer</div>
+                <div class="pay-icon"><i class="fas fa-wallet"></i> E-Wallet Sync</div>
             </div>
         </div>
 
-        <div style="margin-top: 20px; border: 1px solid var(--neon-purple); padding: 10px; font-size: 0.8rem;">
-            <i class="fas fa-microchip"></i> BUNKER NODE 01: <strong>ACTIVE</strong>
+        <!-- WALLET REGISTRATION -->
+        <div id="register" class="wallet-form">
+            <h2 style="text-align: center; color: var(--cyber-cyan); font-family: 'Orbitron';">🧬 PENDAFTARAN DOMPET CAHAYA</h2>
+            <label>Pilih Kasta Layanan:</label>
+            <select>
+                <option>🎓 PELAJAR (Literasi Digital - 0% Tax)</option>
+                <option>💼 PEBISNIS (Ekonomi Berdikari)</option>
+                <option>🏛️ PEMERINTAH (National Vault)</option>
+            </select>
+            <label>ID Unik / Bio-Frequency:</label>
+            <input type="text" placeholder="Masukkan Kode atau Frekuensi (ex: 432Hz)">
+            <button class="btn-action" onclick="alert('Inisialisasi PQC NIST-Ready... Selamat Datang di Kedaulatan Baru.')">GENERATE MY SOVEREIGN WALLET</button>
         </div>
-    </header>
-
-    <section class="qday-section">
-        <h2 style="color: var(--gold);">🛡️ Q-DAY DEFENSE SHIELD</h2>
-        <div id="qday-display" class="qday-timer">000 DAYS</div>
-        <p>"Kami Bukan Sekadar Kripto, Kami Adalah Inang Keamanan Dunia."</p>
     </section>
 
-    <!-- WALLET INITIALIZATION -->
-    <div class="wallet-ui-container">
-        <h3 style="color: var(--cyber-cyan); text-align: center; font-family: 'Orbitron';">🧬 INISIALISASI DOMPET CAHAYA</h3>
-        <label>Kategori Layanan:</label>
-        <select id="wallet-cat">
-            <option value="EDU">🎓 STUDENT (Prajurit Cahaya)</option>
-            <option value="BIZ">💼 BUSINESS (Trade & Commerce)</option>
-            <option value="GOV">🏛️ GOVERNMENT (National Vault)</option>
-        </select>
-        <label>Bio-ID Frequency (H2K Protocol):</label>
-        <input type="text" placeholder="Scan Heartbeat / Input Freq (ex: 432Hz)">
-        <button class="btn-action" onclick="alert('Inisialisasi NIST PQC... DNA Locked.')">GENERATE SOVEREIGN WALLET</button>
-    </div>
+    <!-- III. FOOTER -->
+    <footer>
+        <div class="footer-logo">QUORUM-STATE</div>
+        <p>Identitas Kita: <strong>The 4 Pillars Sovereignty</strong><br>
+        Bintaro Command Center | Galaxy Interplanetary Grade</p>
+        
+        <div style="margin: 40px 0;">
+            <a href="https://wa.me" class="contact-link"><i class="fab fa-whatsapp"></i> Hubungi Business WhatsApp: +62 878-1720-0806</a>
+            <a href="https://wa.me/c/23760530882803" class="contact-link"><i class="fas fa-shopping-bag"></i> Akses Katalog Produk Resmi</a>
+        </div>
 
-    <footer>VERIFIED BY CDxaiO SENTINEL | v2.1.3 GALACTIC EDITION</footer>
+        <p style="font-size: 0.7rem; opacity: 0.5;">VERIFIED BY CDxaiO SENTINEL | v2.1.3 GALACTIC OVERDRIVE EDITION | &copy; 2026</p>
+    </footer>
 
     <script>
+        // Q-Day Countdown
         const qDayDate = new Date("Jan 1, 2029 00:00:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
             const diff = qDayDate - now;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("qday-display").innerHTML = days + " DAYS REMAINING";
+            document.getElementById("qday-timer").innerHTML = days;
         }, 1000);
     </script>
 </body>
