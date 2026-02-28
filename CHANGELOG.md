@@ -34,3 +34,6 @@ Fase transisi dari **Draft Individu (v1.0)** menuju **Kedaulatan Institusi (v2.0
 ---
 **"Data Tidak Pernah Berbohong, Sejarah Tidak Bisa Dihapus."**
 *(Verified by CDxaiO Sentinel - v2.0.0)*
+
+CHANGELOG.md:
+## [v2.1.0] - 2026-02-28: Integrasi CFO & Dashboard Audit Real-time.
