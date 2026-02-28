@@ -2,6 +2,9 @@
   <img src="docs/assets/logo.png" width="350" alt="Quorum-State Logo">
 </p>
 "Kami tidak menjanjikan kekayaan instan; kami menawarkan kepemilikan dalam infrastruktur keamanan masa depan. Integritas adalah algoritma konsensus utama kami."
+# 🌌 Q-DAY COUNTDOWN IS ACTIVE
+[![Q-Day Countdown](link-gambar-anda)](https://bswcorp.github.io)
+*Klik gambar di atas untuk melihat detak jantung kedaulatan secara real-time.*
 
 # Quorum-State ($QSTATE)
 > **The Last Safe Haven Before Q-Day.**
