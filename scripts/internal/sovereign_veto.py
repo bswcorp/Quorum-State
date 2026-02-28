@@ -22,4 +22,3 @@ def execute_nuclear_lockdown():
 
 if __name__ == "__main__":
     execute_nuclear_lockdown()
-
