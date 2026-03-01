@@ -40,4 +40,16 @@ Jalankan ini untuk memastikan sistem siap menerima "Jiwa" H2K:
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install htop net-tools -y  # Solusi htop & netstat not found
+# 🔒 PROTOKOL KEDATANGAN BINTARO (v2.1.3)
+**Otoritas:** ANDI MUHAMMAD HARPIANTO (CEO) | **Status:** INITIAL BOOT
+**Target:** Lockdown Sistem & Persiapan Injeksi M2/M3.
+
+---
+
+## I. PERSIAPAN SARAF (FIXING TOOLS) 🛠️
+Jika perintah tidak ditemukan, jalankan mantra ini satu per satu:
+
+1. **Install HTOP (Monitoring):**
+   ```bash
+   sudo apt update && sudo apt install htop -y
 
