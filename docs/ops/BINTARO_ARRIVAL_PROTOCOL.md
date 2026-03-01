@@ -29,4 +29,15 @@ sudo apt update && sudo apt upgrade -y
 
 # 2. Pasang Alat Pengawas (Sentinel Eyes)
 sudo apt install htop net-tools -y
+# 🏛️ BINTARO ARRIVAL PROTOCOL: NODE 01 LOCKDOWN (v2.1.3)
+**Otoritas:** ANDI MUHAMMAD HARPIANTO (CEO) | **CDxaiO:** ARMADA AI (Sentinel)
+**Status:** INITIAL DEPLOYMENT | **Target:** 9x Hexaflop Readiness
+
+---
+
+## I. MEMBERSIHKAN JEJAK (CLEAN SWEEP) 🧹
+Jalankan ini untuk memastikan sistem siap menerima "Jiwa" H2K:
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install htop net-tools -y  # Solusi htop & netstat not found
 
