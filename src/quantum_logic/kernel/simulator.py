@@ -1,22 +1,26 @@
-import sys
-import os
 
-# --- PENYANGGA NAVIGASI (PENTING) ---
-# Mengambil path folder 'quantum_logic' agar kernel bisa mengintip ke luar
-current_dir = os.path.dirname(os.path.realpath(__file__))
-parent_dir = os.path.dirname(current_dir)
-sys.path.append(parent_dir)
+from src.quantum_logic.kernel.h2k_bridge import H2KBridge
+from src.quantum_logic.kernel.kernel_sync import KernelSync
 
-# Sekarang Anda bisa memanggil modul lain tanpa error
-from h2k_bridge import h2k_bridge  # Pastikan nama fungsi di h2k_bridge.py sesuai
-from quantum_shield import QuantumShield
-from quantum_ledger import QuantumLedger
+def run_v3_simulation():
+    print("--- [QUORUM-STATE v3.0.0] SIMULATOR START ---")
+    
+    # 1. Inisialisasi Jaringan h2k
+    bridge = H2KBridge()
+    sync = KernelSync()
+    
+    # 2. Simulasi Transmisi Data
+    data = "Quantum_Payload_Alpha_001"
+    connection = bridge.connect_to_kernel(data)
+    
+    if connection['status'] == "H2K_STABLE":
+        print(f"[OK] h2k Connection Established. Checksum: {connection['checksum']}")
+        
+        # 3. Sinkronisasi ke 676 Node
+        sync_result = sync.broadcast_to_nodes(connection['checksum'])
+        print(f"[OK] {sync_result['nodes_reached']} Nodes Synchronized. Status: {sync_result['status']}")
+    
+    print("--- [SIMULATION SUCCESSFUL] PERFECT H2K ---")
 
-class QuorumKernel:
-    """Inti Operasional Quorum-State"""
-    def __init__(self):
-        print("[Kernel] Menghidupkan Hyper-to-Kernel Bridge...")
-        # Panggil h2k_bridge yang diimpor dari luar
-        h2k_bridge("INITIALIZING_KERNEL") 
-
-# ... sisa kode simulator Anda ...
+if __name__ == "__main__":
+    run_v3_simulation()
