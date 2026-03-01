@@ -1,0 +1,13 @@
+## Bab 9: Antarmuka Mobile & Aksesibilitas Kuantum Global
+
+### 9.1 Visi Aksesibilitas Universal
+Quorum-State ($QSTATE) dirancang agar dapat diakses oleh siapa saja, di mana saja, tanpa memerlukan perangkat komputasi kuantum fisik di tangan pengguna. Melalui aplikasi mobile, setiap individu dapat berinteraksi dengan 676 node Computors secara real-time.
+
+### 9.2 Arsitektur h2k-Mobile Bridge
+Aplikasi mobile menggunakan jalur khusus **h2k-Mobile** yang terenkripsi untuk mengirimkan instruksi transaksi ke Kernel utama. Ini memastikan bahwa meskipun perangkat pengguna adalah smartphone standar, keamanan yang diterima tetap setingkat Post-Quantum Security.
+
+### 9.3 Penambangan Awan (Cloud-Managed Minting)
+Pengguna smartphone dapat memantau dan mengelola hasil pelatihan AI (UPoW) mereka langsung dari aplikasi. Quorum-State memperkenalkan sistem "Light-Node" yang sangat hemat daya, memungkinkan perangkat mobile berfungsi sebagai validator pasif tanpa menguras baterai.
+
+---
+*Status: Mobile Development Alpha Phase.*
