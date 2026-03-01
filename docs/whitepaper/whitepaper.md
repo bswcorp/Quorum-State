@@ -126,7 +126,7 @@ Informasi yang terkandung dalam Whitepaper ini bertujuan untuk memberikan gambar
 ### 7.2 Risiko Teknologi Kuantum
 Meskipun Quorum-State dirancang untuk ketahanan pasca-kuantum (Post-Quantum Resistance), perkembangan komputasi kuantum adalah bidang yang terus berevolusi. BreSpeedWorks Labs tidak memberikan jaminan mutlak terhadap kerentanan teknologi yang belum ditemukan di masa depan, namun kami berkomitmen untuk pembaruan protokol secara berkelanjutan.
 
-### 3.3 Kepatuhan Regulasi (Compliance)
+### 7.3 Kepatuhan Regulasi (Compliance)
 Pengguna dan investor bertanggung jawab penuh untuk memastikan bahwa partisipasi mereka dalam ekosistem $QSTATE mematuhi hukum dan regulasi di wilayah hukum masing-masing. $QSTATE adalah token utilitas (utility token) yang digunakan untuk operasional jaringan dan akses ke layanan AI Aigarth-Q.
 
 ### 7.4 Pernyataan Berorientasi Masa Depan
@@ -151,25 +151,26 @@ Quorum-State mendukung sistem pembayaran retail yang kompatibel dengan standar Q
 ### 9.2 Keamanan Berlapis (Secure & Save)
 Setiap transaksi QR dienkripsi menggunakan 'Lattice-based cryptography'. Hal ini menjamin bahwa meskipun data transaksi dicegat, ia tetap mustahil didekripsi oleh komputer kuantum.
 
-## Bab 9: Protokol h2k (Hyper-to-Kernel) Bridge & Akselerasi Data
+## Bab 10: Protokol h2k (Hyper-to-Kernel) Bridge & Akselerasi Data
 
-### 9.1 Definisi dan Fungsi h2k
+### 10.1 Definisi dan Fungsi h2k
 Protokol h2k adalah arsitektur jalur cepat (fast-path) yang menghubungkan lapisan abstraksi superposisi (Hyper-layer) langsung ke unit pemrosesan inti (Kernel) dalam jaringan Quorum-State. Inovasi ini memangkas latensi komunikasi antar-node yang biasanya menghambat skalabilitas pada jaringan blockchain tradisional.
 
-### 9.2 Mekanisme Sinkronisasi Bypass
+### 10.2 Mekanisme Sinkronisasi Bypass
 Dalam sistem Quorum-State, data status kuantum tidak melalui antrean standar yang padat. Melalui h2k Bridge, hash transaksi disalurkan melalui terowongan enkripsi langsung ke kernel 676 Computors. Hal ini memungkinkan pencapaian konsensus dalam waktu sub-milidetik, memberikan efisiensi yang diperlukan untuk menangani jutaan transaksi per detik (TPS).
 
-### 9.3 Integritas dan Keamanan Jalur h2k
+### 10.3 Integritas dan Keamanan Jalur h2k
 Meskipun berkecepatan tinggi, h2k tetap menerapkan validasi ketat menggunakan Quantum-Shield. Setiap data yang melewati jembatan h2k diverifikasi secara paralel oleh node tetangga untuk memastikan tidak ada manipulasi data saat proses akselerasi berlangsung.
-# Bab 8: Arsitektur h2k (Hyper-to-Kernel) Bridge
 
-### 8.1 Definisi h2k
+# Bab 11: Arsitektur h2k (Hyper-to-Kernel) Bridge
+
+### 11.1 Definisi h2k
 h2k Bridge adalah lapisan abstraksi komunikasi berkecepatan tinggi yang menghubungkan lapisan simulasi kuantum (Hyper-layer) langsung ke unit pemrosesan inti (Kernel) dalam jaringan Quorum-State.
 
-### 8.2 Eliminasi Bottleneck
+### 11.2 Eliminasi Bottleneck
 Protokol h2k dirancang untuk mengeliminasi latensi transmisi data antar-node yang biasanya terjadi pada jaringan blockchain klasik. Dengan h2k, sinkronisasi status kuantum dilakukan melalui jalur bypass terenkripsi, memungkinkan 676 node Computors untuk mencapai konsensus dalam hitungan milidetik.
 
-### 8.3 Kesiapan HAKI
+### 11.3 Kesiapan HAKI
 Arsitektur h2k mencakup algoritma sinkronisasi unik yang merupakan kekayaan intelektual murni dari BreSpeedWorks Labs, memberikan keunggulan kompetitif mutlak dalam efisiensi transmisi data pasca-kuantum.
 
 ---
