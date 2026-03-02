@@ -1,41 +1,42 @@
 import json
 
-def kalkulator_tukang_sayur_dcp():
+def kalkulator_pro_qstate():
     """
-    Kalkulator Biaya Survei DCP (Geoteknik) - Versi Quorum-State.
-    Hitungan cepat, jujur, dan terukur.
+    Kalkulator Proyek Quorum-State (Barometer Anggaran).
+    Konversi otomatis IDR -> USD -> $QSTATE.
     """
-    print("--- 🥬 KALKULATOR TUKANG SAYUR DCP (Q-STATE) 🥬 ---")
-    print("Motto: Hitung Cepat, Kerja Tepat, Hasil Selamat (Zero Defect).\n")
+    print("--- 🥬 BAROMETER ANGGARAN Q-STATE (VERS. PRO) 🥬 ---")
+    print("Motto: Berangkat! Zero Defect, Zero Corruption.\n")
 
-    # 1. Input Data Dasar
+    # 1. Konfigurasi Kurs Barometer (Bisa diupdate sesuai pasar)
+    KURS_IDR_USD = 16000  # 1 USD = 16.000 IDR
+    KURS_QSTATE_IDR = 250 # 1 $QSTATE = 250 IDR (Simulasi Harga Awal)
+
     try:
-        biaya_per_titik = float(input("[?] Harga survei per titik DCP (IDR): ") or 500000)
-        jumlah_titik = int(input("[?] Berapa titik per wilayah (Barat/Tengah/Timur): ") or 50)
-        biaya_mobilisasi = float(input("[?] Biaya kirim armada/alat berat (IDR): ") or 5000000)
-        uang_makan_tim = float(input("[?] Jatah bumbu & kopi tim lapangan (IDR/hari): ") or 200000)
-        durasi_hari = int(input("[?] Estimasi berapa hari kerja: ") or 7)
+        # 2. Input Anggaran Pekerjaan
+        nama_pekerjaan = input("[?] Nama Pekerjaan (misal: DCP Wilayah Timur): ") or "Survei Geoteknik"
+        biaya_idr = float(input("[?] Masukkan Total Anggaran (IDR): ") or 10000000)
 
-        # 2. Rumus Hitung Cepat (Logika Tukang Sayur)
-        subtotal_dcp = biaya_per_titik * jumlah_titik
-        total_uang_makan = uang_makan_tim * durasi_hari
-        biaya_admin_arsip = subtotal_dcp * 0.05 # Biaya kertas & pulpen 5%
+        # 3. Logika Konversi Barometer
+        biaya_usd = biaya_idr / KURS_IDR_USD
+        biaya_qstate = biaya_idr / KURS_QSTATE_IDR
+
+        # 4. Output Barometer Multi-Currency
+        print("\n" + "="*50)
+        print(f"📊 LAPORAN ANGGARAN: {nama_pekerjaan.upper()}")
+        print("="*50)
+        print(f"🇮🇩 RUPIAH (IDR)    : Rp {biaya_idr:,.2f}")
+        print(f"🇺🇸 DOLLAR (USD)    : $ {biaya_usd:,.2f}")
+        print(f"🌌 Q-STATE ($QST)  : ⧫ {biaya_qstate:,.2f}")
+        print("="*50)
         
-        total_biaya = subtotal_dcp + biaya_mobilisasi + total_uang_makan + biaya_admin_arsip
-
-        # 3. Output Hasil
-        print("\n" + "="*40)
-        print(f"💰 TOTAL ANGGARAN PER WILAYAH: Rp {total_biaya:,.2f}")
-        print("="*40)
-        print(f"  - Biaya Jasa DCP: Rp {subtotal_dcp:,.2f}")
-        print(f"  - Logistik Alat:  Rp {biaya_mobilisasi:,.2f}")
-        print(f"  - Bumbu & Kopi:   Rp {total_uang_makan:,.2f}")
-        print(f"  - Administrasi:   Rp {biaya_admin_arsip:,.2f}")
-        print("="*40)
-        print("Status: AMAN UNTUK SPK. Berangkat! 🚀")
+        # 5. Analisis Efisiensi (Logika Tukang Sayur)
+        print(f"Catatan: Barometer ini menggunakan kurs 1 $QST = Rp {KURS_QSTATE_IDR}")
+        print("Status: VALID UNTUK KONTRAK / SPK.")
+        print("="*50)
 
     except ValueError:
-        print("\n[!] Masukkan angka saja, Captain! Jangan campur bumbu dulu.")
+        print("\n[!] Masukkan angka saja, Captain! Bumbunya kebanyakan.")
 
 if __name__ == "__main__":
-    kalkulator_tukang_sayur_dcp()
+    kalkulator_pro_qstate()
