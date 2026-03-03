@@ -5,7 +5,7 @@
 
 ## 📖 DAFTAR ISI (BAROMETER NAVIGASI)
 
-1. [Bab 1: Tokenomik & Arsitektur Ekonomi](#bab-1)
+1. [Bab 1: Tokenomik & Arsitektur Ekonomi]([#bab-1](https://github.com/bswcorp/Quorum-State/blob/main/docs/whitepaper/whitepaper_v1.md))
 2. [Bab 2: Konsensus Superposisi & Quorum 676](#bab-2)
 3. [Bab 3: Quantum Shield (Anti-Shor Protection)](#bab-3)
 4. [Bab 4: Smart Contract IPO](#bab-4)
