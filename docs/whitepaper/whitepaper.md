@@ -21,7 +21,7 @@
 6. [Bab 6: Interoperabilitas Kuantum (Quantum Bridge)](#bab-6-interoperabilitas-kuantum-quantum-bridge)
 7. [Bab 7: Roadmap & Visi Masa Depan](#bab-7-roadmap--visi-masa-depan)
 8. [Bab 8: Kedaulatan Biometrik & Identitas Kuantum](#bab-8-kedaulatan-biometrik--identitas-kuantum)
-
+0. [Bab 9: Tata Kelola Terdesentralisasi dan Wahana Voting](#bab-9-Tata Kelola & Wahana Voting)
 ---
 
 ## 🏛️ BAB 1: Tokenomik & Arsitektur Ekonomi
