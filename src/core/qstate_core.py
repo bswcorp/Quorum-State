@@ -3,11 +3,12 @@ from datetime import datetime
 
 class QuorumStateCore:
     def __init__(self):
-        self.ledger = {"BUNKER-RAKYAT-MISKIN": 0} # Inisialisasi Bunker
+        # Inisialisasi Ledger dengan Bunker Rakyat
+        self.ledger = {"BUNKER-RAKYAT-MISKIN": 0} 
         self.MAX_SUPPLY = 200_000_000_000_000 
         self.total_supply = 0
         self.shield_active = True
-        self.packman_ratio = 0.20 # 20% Keuntungan sistem untuk rakyat
+        self.packman_ratio = 0.20 # 20% Keuntungan sistem dimuntahkan ke rakyat
 
     def mint(self, address, amount):
         if self.total_supply + amount <= self.MAX_SUPPLY:
@@ -18,8 +19,8 @@ class QuorumStateCore:
 
     def activate_packman(self, profit_amount):
         """
-        Strategi Packman: Menghisap 20% dari setiap keuntungan 
-        dan memuntahkannya ke Bunker Rakyat Miskin.
+        Strategi Packman: Menghisap keuntungan dari transaksi raksasa
+        dan memuntahkannya ke Bunker Rakyat Miskin (Sesuai Bab 15).
         """
         to_bunker = profit_amount * self.packman_ratio
         self.mint("BUNKER-RAKYAT-MISKIN", to_bunker)
@@ -30,5 +31,6 @@ class QuorumStateCore:
 
     def apply_shield(self, data):
         if self.shield_active:
-            return f"SHIELDED-{hashlib.sha256(data.encode()).hexdigest()[:16]}"
+            shield_hash = hashlib.sha256(data.encode()).hexdigest()
+            return f"SHIELDED-{shield_hash[:16]}"
         return data
