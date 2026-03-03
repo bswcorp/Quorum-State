@@ -15,7 +15,7 @@
 
 1. [Bab 1: Tokenomik & Arsitektur Ekonomi](#bab-1-tokenomik--arsitektur-ekonomi)
 2. [Bab 2: Konsensus Superposisi & Quorum 676](#bab-2-konsensus-superposisi--quorum-676)
-3. [Bab 3: Quantum Shield (Anti-Shor Protection)](#bab-3-quantum-shield-anti-shor-protection)
+3. [Bab 3: Quantum Shield (Anti-Shor Protection](#bab-3-quantum-shield-anti-shor-protection)
 4. [Bab 4: Smart Contract IPO (Initial Public Offering)](#bab-4-smart-contract-ipo-initial-public-offering)
 5. [Bab 5: Arsitektur Neural Quorum (Integrasi AI)](#bab-5-arsitektur-neural-quorum-integrasi-ai)
 6. [Bab 6: Interoperabilitas Kuantum (Quantum Bridge)](#bab-6-interoperabilitas-kuantum-quantum-bridge)
