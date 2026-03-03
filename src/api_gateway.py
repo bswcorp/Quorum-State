@@ -1,81 +1,74 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, request, jsonify
 import sys
 import os
 
-# Menghubungkan ke Mesin Inti di src/core
+# Hubungkan ke Core Mesin
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'core')))
 from qstate_core import QuorumStateCore
 
 app = Flask(__name__)
 node = QuorumStateCore()
-# Saldo Awal untuk Reserve Mobile Andi Muhammad Harpianto
 node.mint("BSW-RESERVE-ANDI", 75000000)
 
-MOBILE_UI = """
+# Data Wahana Voting (Proposal Aktif)
+governance = {
+    "proposal_id": "QS-PROP-001",
+    "title": "Upgrade Keamanan Quantum Shield v.2",
+    "yes_votes": 450,
+    "no_votes": 20,
+    "status": "VOTING_PERIOD"
+}
+
+MOBILE_VOTING_UI = """
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>QSTATE Mobile Central Bank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QSTATE Governance</title>
     <style>
-        body { background: #000b14; color: #00e5ff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-        .app-bar { background: #001a2e; padding: 15px; text-align: center; border-bottom: 2px solid #004466; font-weight: bold; letter-spacing: 2px; }
-        .balance-card { background: linear-gradient(135deg, #004466 0%, #001a2e 100%); margin: 20px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 1px solid #00e5ff; }
-        .eye-auth { width: 140px; height: 140px; border: 3px solid #ff0055; border-radius: 50%; margin: 30px auto; position: relative; box-shadow: 0 0 30px #ff0055; background: radial-gradient(circle, #2a000a 0%, #000 70%); }
-        .scan-line { width: 100%; height: 4px; background: #ff0055; position: absolute; animation: scan 2s infinite ease-in-out; box-shadow: 0 0 15px #ff0055; }
-        @keyframes scan { 0% { top: 0; } 50% { top: 100%; } 100% { top: 0; } }
-        .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-        .btn { background: #0074D9; color: white; border: none; padding: 18px; border-radius: 15px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(0,116,217,0.3); }
-        .footer { margin-top: auto; padding: 20px; text-align: center; font-size: 11px; color: #004466; letter-spacing: 1px; }
-        .qris-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 100; }
+        body { background: #00050a; color: #00e5ff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 15px; }
+        .app-bar { text-align: center; border-bottom: 2px solid #004466; padding: 15px; font-weight: bold; }
+        .prop-card { background: #001a2e; border: 1px solid #00e5ff; border-radius: 15px; padding: 20px; margin-top: 20px; }
+        .voting-bar { height: 10px; background: #004466; border-radius: 5px; margin: 15px 0; position: relative; overflow: hidden; }
+        .yes-progress { height: 100%; background: #2ECC40; width: 85%; }
+        .eye-verify { border: 2px solid #ff0055; width: 60px; height: 60px; border-radius: 50%; margin: 10px auto; position: relative; }
+        .scan { width: 100%; height: 2px; background: #ff0055; position: absolute; animation: s 1s infinite; }
+        @keyframes s { from { top: 0; } to { top: 100%; } }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .btn { flex: 1; padding: 15px; border-radius: 10px; border: none; font-weight: bold; color: white; cursor: pointer; }
+        .btn-yes { background: #2ECC40; } .btn-no { background: #ff4444; }
     </style>
 </head>
 <body>
-    <div class="app-bar">🏛️ QSTATE CENTRAL MOBILE</div>
+    <div class="app-bar">🗳️ QSTATE GOVERNANCE</div>
     
-    <div class="balance-card">
-        <div style="font-size: 12px; color: #7FDBFF; text-transform: uppercase;">Total Aset Kuantum</div>
-        <div style="font-size: 34px; font-weight: bold; margin-top: 10px;">{{ balance }} <span style="font-size: 16px;">$QSTATE</span></div>
-        <div style="font-size: 11px; margin-top: 10px; color: #2ECC40;">● Quantum Shield Active</div>
-    </div>
+    <div class="prop-card">
+        <div style="font-size: 10px; color: #7FDBFF;">PROPOSAL #{{ prop.proposal_id }}</div>
+        <h3 style="margin: 10px 0;">{{ prop.title }}</h3>
+        
+        <div class="eye-verify"><div class="scan"></div></div>
+        <div style="text-align:center; font-size: 10px; color:#ff0055;">VERIFIKASI MATA AKTIF</div>
 
-    <div class="eye-auth" onclick="startScan()">
-        <div class="scan-line"></div>
-        <div style="position:absolute; top:45%; width:100%; text-align:center; font-size:11px; color:white; font-weight:bold;">EYE-ID SCAN</div>
-    </div>
-    <div id="status" style="text-align:center; font-size: 12px; color:#ff0055; font-weight:bold;">SENTUH UNTUK OTENTIKASI MATA</div>
-
-    <div class="action-btns">
-        <button class="btn" onclick="openQRIS()">SCAN QRIS</button>
-        <button class="btn" style="background:#004466;" onclick="location.reload()">REFRESH</button>
-    </div>
-
-    <div class="footer">
-        DASHBOARD OPERASIONAL MOBILE v1.0<br>
-        VISI ANDI MUHAMMAD HARPIANTO | BSW CORP
-    </div>
-
-    <div id="qris" class="qris-overlay" onclick="this.style.display='none'">
-        <h2 style="color:white;">MENUNGGU KAMERA...</h2>
-        <div style="background:white; padding:20px; border-radius:15px;">
-            <img src="https://api.qrserver.com:{{ balance }}" alt="QRIS">
+        <div class="voting-bar"><div class="yes-progress"></div></div>
+        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+            <span>YEA: {{ prop.yes_votes }}</span>
+            <span>NAY: {{ prop.no_votes }}</span>
         </div>
-        <p style="color:white; margin-top:20px;">Ketuk untuk Kembali</p>
+
+        <div class="btn-group">
+            <button class="btn btn-yes" onclick="vote('YEA')">VOTE YES</button>
+            <button class="btn btn-no" onclick="vote('NAY')">VOTE NO</button>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center; font-size: 10px; color: #004466;">
+        WAHANA VOTING TERDESENTRALISASI | VISI ANDI MUHAMMAD HARPIANTO
     </div>
 
     <script>
-        function startScan() {
-            document.getElementById('status').innerText = "MENYINGKRONKAN STATUS KUANTUM...";
-            document.getElementById('status').style.color = "#00e5ff";
-            if(window.navigator.vibrate) window.navigator.vibrate([100, 50, 100]);
-            setTimeout(() => {
-                document.getElementById('status').innerText = "IDENTITAS TERVERIFIKASI ✓";
-                document.getElementById('status').style.color = "#2ECC40";
-            }, 3000);
-        }
-        function openQRIS() {
-            document.getElementById('qris').style.display = 'flex';
+        function vote(choice) {
+            alert("Suara " + choice + " Anda telah dikunci oleh Quorum-State Shield!");
+            if(window.navigator.vibrate) window.navigator.vibrate(100);
         }
     </script>
 </body>
@@ -83,10 +76,9 @@ MOBILE_UI = """
 """
 
 @app.route('/')
-def mobile_home():
-    bal = "{:,}".format(node.get_balance("BSW-RESERVE-ANDI"))
-    return render_template_string(MOBILE_UI, balance=bal)
+def governance_page():
+    return render_template_string(MOBILE_VOTING_UI, prop=governance)
 
 if __name__ == '__main__':
-    # NYC Port Standard Port 8000
+    # NYC Port 8000 - Standar untuk Mobile Access
     app.run(host='0.0.0.0', port=8000, debug=True)
