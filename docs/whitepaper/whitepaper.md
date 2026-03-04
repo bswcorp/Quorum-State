@@ -24,6 +24,17 @@
 17. [Bab 18: Biometrik Syaraf & Validasi H2K](#bab-18)
 18. [Bab 19: Algoritma Slashing & Reputasi Global](#bab-19)
 19. [Bab 20: Transisi Peradaban Terakhir & Penutup](#bab-20)
+# Whitepaper Quorum-State ($QSTATE)
+## Bab 21: Manifesto Salmon & Penghapusan Antrean Sistemik
+
+### 21.1 Melawan Arus Tirani
+Quorum-State lahir sebagai antitesis dari sistem "Antrean Global". Kami menolak model di mana rakyat harus membayar untuk macet atau antre untuk sehat. Kami memilih menjadi "Ikan Salmon" yang menentang arus birokrasi busuk demi melahirkan peradaban yang merdeka.
+
+### 21.2 Hak Tanpa Jeda (Instant Rights)
+Dalam ekosistem $QSTATE, distribusi hak primer (Pangan, Kesehatan, Energi) dilakukan secara peer-to-peer melalui Bunker Rakyat. Tidak ada loket, tidak ada nomor antrian. Verifikasi Eye-ID memastikan hak Anda cair sebelum Anda sempat memintanya.
+
+### 21.3 Berjaya atau Set-Up Ulang
+Kita tidak mencari kompromi dengan sistem lama. Kita bertempur untuk menang. Jika tirani mencoba menyumbat aliran kesejahteraan ini, kita akan meratakan rintangan mereka dengan Piala Keadilan. Jika kita jatuh, kita akan bangkit dan membangun ulang kode yang lebih keras.
 
 ---
 
