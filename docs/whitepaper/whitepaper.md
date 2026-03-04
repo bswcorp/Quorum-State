@@ -26,7 +26,11 @@
 19. [Bab 20: Transisi Peradaban Terakhir & Penutup](#bab-20)
 # Whitepaper Quorum-State ($QSTATE)
 ## Bab 21: Manifesto Salmon & Penghapusan Antrean Sistemik
-
+## Bab 22: Wizardry & Evolusi Lima Pilar Inti
+- **Wizard Protocol:** Penggunaan teknologi Invisible UI yang memungkinkan kendali makro (Satelit/Rocket/Aset) hanya melalui pemicu saraf biometrik.
+- **Moral Filtering:** Akses internal tertutup bagi individu rakus dan egois. Keadilan ditegakkan dengan mengirim mereka ke luar sistem secara absolut (Go to Hell).
+- **Educational Bridge:** Membimbing generasi muda untuk meninggalkan paradigma klasik. Tidak ada kegagalan permanen, hanya kewajiban untuk belajar lebih keras sebelum kembali ke sistem.
+- 
 ### 21.1 Melawan Arus Tirani
 Quorum-State lahir sebagai antitesis dari sistem "Antrean Global". Kami menolak model di mana rakyat harus membayar untuk macet atau antre untuk sehat. Kami memilih menjadi "Ikan Salmon" yang menentang arus birokrasi busuk demi melahirkan peradaban yang merdeka.
 
