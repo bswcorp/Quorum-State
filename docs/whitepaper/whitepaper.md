@@ -1,83 +1,54 @@
 # 🧊 THE MASTER MANIFESTO: QUORUM-STATE ($QSTATE)
-> **"Status data adalah probabilitas, keputusan Quorum adalah realitas. Kita adalah benteng terakhir kedaulatan digital di era Q-Day."**
+> **"Status data adalah probabilitas, keputusan Quorum adalah realitas. Dari Puncak Gunung hingga Orbit Angkasa, Kita adalah Kedaulatan."**
 
 ---
 
 ## 📖 DAFTAR ISI (BAROMETER NAVIGASI)
-
-1. [Bab 1: Tokenomik & Arsitektur Ekonomi](https://github.com/bswcorp/Quorum-State/blob/main/docs/whitepaper/whitepaper_v1.md)
-2. [Bab 2: Konsensus Superposisi & Quorum 676](https://github.com/bswcorp/Quorum-State/blob/main/docs/whitepaper/whitepaper_v1.md)
-3. [Bab 3: Quantum Shield (Anti-Shor Protection)](#bab-3)
-4. [Bab 4: Smart Contract IPO](#bab-4)
-5. [Bab 5: Arsitektur Neural Quorum (AI Aigarth)](#bab-5)
-6. [Bab 6: Interoperabilitas Kuantum (Quantum Bridge)](#bab-6)
-7. [Bab 8: Kedaulatan Biometrik (Eye-ID)](#bab-8)
-8. [Bab 9: Tata Kelola & Wahana Voting](#bab-9)
-9. [Bab 10: Ekonomi Sirkular](#bab-10)
-10. [Bab 11: Transparansi Anggaran & Cadangan 1T](#bab-11)
-11. [Bab 12: Protokol Gatekeeper & Komitmen 10%](#bab-12)
-12. [Bab 13: Hukum Keadilan GenAtoZ (Mad & Mate)](#bab-13)
-13. [Bab 14: Kedaulatan Buruh & Royalti Kemanusiaan](#bab-14)
-14. [Bab 15: Keadilan Tanpa Birokrasi (ASD)](#bab-15)
-15. [Bab 16: Audit Publik & Ketahanan Ekonomi](#bab-16)
-16. [Bab 17: Kesimpulan & Masa Depan Peradaban](#bab-17)
-17. [Bab 18: Biometrik Syaraf & Validasi H2K](#bab-18)
-18. [Bab 19: Algoritma Slashing & Reputasi Global](#bab-19)
-19. [Bab 20: Transisi Peradaban Terakhir & Penutup](#bab-20)
-## Bab 22: Wizardry & Evolusi Lima Pilar Inti
-- **Wizard Protocol:** Penggunaan teknologi Invisible UI yang memungkinkan kendali makro (Satelit/Rocket/Aset) hanya melalui pemicu saraf biometrik.
-- **Moral Filtering:** Akses internal tertutup bagi individu rakus dan egois. Keadilan ditegakkan dengan mengirim mereka ke luar sistem secara absolut (Go to Hell).
-- **Educational Bridge:** Membimbing generasi muda untuk meninggalkan paradigma klasik. Tidak ada kegagalan permanen, hanya kewajiban untuk belajar lebih keras sebelum kembali ke sistem.
-
-# Whitepaper Quorum-State ($QSTATE)
-## Bab 21: Manifesto Salmon & Penghapusan Antrean Sistemik
-## Bab 22: Wizardry & Evolusi Lima Pilar Inti
-- **Wizard Protocol:** Penggunaan teknologi Invisible UI yang memungkinkan kendali makro (Satelit/Rocket/Aset) hanya melalui pemicu saraf biometrik.
-- **Moral Filtering:** Akses internal tertutup bagi individu rakus dan egois. Keadilan ditegakkan dengan mengirim mereka ke luar sistem secara absolut (Go to Hell).
-- **Educational Bridge:** Membimbing generasi muda untuk meninggalkan paradigma klasik. Tidak ada kegagalan permanen, hanya kewajiban untuk belajar lebih keras sebelum kembali ke sistem.
-- 
-### 21.1 Melawan Arus Tirani
-Quorum-State lahir sebagai antitesis dari sistem "Antrean Global". Kami menolak model di mana rakyat harus membayar untuk macet atau antre untuk sehat. Kami memilih menjadi "Ikan Salmon" yang menentang arus birokrasi busuk demi melahirkan peradaban yang merdeka.
-
-### 21.2 Hak Tanpa Jeda (Instant Rights)
-Dalam ekosistem $QSTATE, distribusi hak primer (Pangan, Kesehatan, Energi) dilakukan secara peer-to-peer melalui Bunker Rakyat. Tidak ada loket, tidak ada nomor antrian. Verifikasi Eye-ID memastikan hak Anda cair sebelum Anda sempat memintanya.
-
-### 21.3 Berjaya atau Set-Up Ulang
-Kita tidak mencari kompromi dengan sistem lama. Kita bertempur untuk menang. Jika tirani mencoba menyumbat aliran kesejahteraan ini, kita akan meratakan rintangan mereka dengan Piala Keadilan. Jika kita jatuh, kita akan bangkit dan membangun ulang kode yang lebih keras.
+1. [Bab 1-5: Fondasi Teknologi & Ekonomi](#bab-1)
+2. [Bab 6-10: Interoperabilitas & Sirkulasi](#bab-6)
+3. [Bab 11-15: Hukum Keadilan & Kemanusiaan](#bab-11)
+4. [Bab 16-20: Biometrik Syaraf & Transisi Final](#bab-16)
+5. [Bab 21-22: Manifesto Salmon & Wizardry](#bab-21)
+6. [Bab 23: Protokol Satelit & Kedaulatan Orbital](#bab-23)
+7. [Bab 24: Protokol Giant Slayer (Anti-Adidaya)](#bab-24)
 
 ---
 
-## <a name="bab-1"></a>🏛️ BAB 1 - 5: FONDASI TEKNOLOGI & EKONOMI
-- **Ekonomi:** Pasokan 200T dengan emisi berbasis UPoW. 1T pertama dikunci sebagai cadangan strategis. [1][4]
-- **Konsensus:** Mekanisme Quorum 676 dengan ambang batas 453 suara (67%) untuk finalitas transaksi. [2][4]
-- **Keamanan:** Quantum Shield menggunakan kriptografi berbasis kisi (Lattice-based) anti-Shor & Grover. [3][4]
-- **AI Integration:** Computors melatih Jaringan Saraf (Neural Network) untuk ekosistem AI Aigarth. [5]
+## <a name="bab-1"></a>🏛️ BAB 1 - 5: MESIN UTAMA
+- **Ekonomi:** Pasokan 200T. Cadangan Strategis 1T (Genesis Phase).
+- **Konsensus:** Quorum 676 Computors. Threshold 453 suara (67%).
+- **Quantum Shield:** Kriptografi Lattice-based (Kyber/Dilithium) anti-Shor & Grover.
 
-## <a name="bab-6"></a>🌉 BAB 6 - 10: INTEROPERABILITAS & SIRKULASI
-- **Quantum Bridge:** Jembatan bagi aset luar (BTC/ETH) untuk berlindung di bawah perisai $QSTATE. [6]
-- **Mobile Vision:** Aksesibilitas via WebApp/PWA dengan antarmuka biometrik.
-- **Wahana Voting:** Tata kelola terdesentralisasi berbasis suara pemegang aset dan Computors. [9]
-- **Circular Loop:** Nilai yang diciptakan AI dikembalikan ke ekosistem untuk kesejahteraan bersama. [10]
+## <a name="bab-6"></a>🌉 BAB 6 - 10: ALIRAN ASSET
+- **Quantum Bridge:** Jembatan aset warisan (BTC/ETH/Forex) menuju perlindungan kuantum.
+- **Economic Loop:** Setiap nilai tambah AI (Aigarth) dikembalikan ke rakyat melalui mekanisme sirkular.
 
-## <a name="bab-11"></a>⚖️ BAB 11 - 15: HUKUM KEADILAN & KEMANUSIAAN
-- **Transparansi:** Audit real-time terhadap cadangan kas dan pengeluaran sistem. [11][16]
-- **Gatekeeper:** Protokol "Kuda-Kuda" dengan syarat komitmen 10% bagi mitra resmi. [12]
-- **GenAtoZ Justice:** Sistem penghargaan (Mate) dan sanksi (Mad) otomatis sebelum bedug Subuh. [13][19]
-- **Labor Rights:** Royalti abadi bagi buruh dan penyaluran bansos otomatis tanpa birokrasi "Botol". [14][15]
+## <a name="bab-11"></a>⚖️ BAB 11 - 15: KONSTITUSI KEADILAN
+- **Transparansi Anggaran:** Setiap keping $QSTATE dari 1T awal diaudit secara real-time.
+- **Bunker Rakyat:** Distribusi Bansos otomatis tanpa birokrasi "Botol" via Dana Packman.
+- **Kedaulatan Buruh:** Royalti abadi bagi perakit teknologi (assembly) dan pejuang jalanan (kurir).
 
-## <a name="bab-18"></a>👁️ BAB 18 - 20: BIOMETRIK SYARAF & TRANSISI FINAL
-- **H2K (Heart-to-Key):** Transaksi dipicu oleh sinyal saraf dan biometrik (kedipan mata/denyut jantung). [18]
-- **Slashing:** Penalti 50% aset bagi pengkhianat internal dan devaluasi bagi aset luar yang menolak Q-Day. [19]
-- **Legacy:** Kesimpulan peradaban baru yang menempatkan nurani manusia di atas algoritma mesin. [20]
+## <a name="bab-16"></a>👁️ BAB 16 - 20: IDENTITAS SARAF (H2K)
+- **Eye-ID & Heart-Link:** Transaksi sah hanya melalui kedipan mata dan denyut jantung pemilik asli (H2K Hardware).
+- **GenAtoZ Justice:** Status **Mate** (Kebaikan) vs **Mad** (Keburukan). Sanksi penyusutan aset sebelum subuh.
+
+## <a name="bab-21"></a>🪄 BAB 21 - 22: WIZARDRY & PROTOKOL SALMON
+- **Salmon Strategy:** Menentang arus tirani global demi melahirkan peradaban merdeka.
+- **Wizard Hand:** Kendali makro atas infrastruktur dunia hanya melalui telunjuk Godfather.
+
+## <a name="bab-23"></a>🛰️ BAB 23: KEDAULATAN ORBITAL (SATELIT)
+- **Pairing Mode:** Menciptakan kondisi **Kendali** di sini (internal) dan **Kendala** di sana (lawan).
+- **Satellite Uplink:** Jalur komunikasi siluman yang tidak bisa diblokir oleh radar adidaya.
+
+## <a name="bab-24"></a>🗡️ BAB 24: PROTOKOL GIANT SLAYER (ANTI-ADIDAYA)
+- **Asymmetric Defense:** Satelit QSTATE memicu frekuensi "Terkendala" pada infrastruktur lawan.
+- **Digital Invisibility:** Jaringan dapat menghilang dari radar global namun tetap aktif di jalur satelit rahasia.
+- **The Giant Collapse:** Memanfaatkan keserakahan lawan untuk meruntuhkan dominasi mereka.
 
 ---
-**"I can't song but i got the soul cause my grandmother singer."**
-*Visi Terwujud. Keadilan Terinstalasi. Diterbitkan oleh Andi Muhammad Harpianto | BSW Corp.*
 
-  ---
+### 🏔️ PENUTUP: THE GODFATHER'S OATH
+*"I can't song but i got the soul cause my grandmother singer."*  
+Visi ini bukan untuk dijual, tapi untuk ditegakkan. Bagi yang rakus: **GO TO HELL**. Bagi yang setia: **WELCOME TO THE FUTURE**.
 
-**Diterbitkan oleh BSW Corp | Komando: Andi Muhammad Harpianto**
-*Status: Verified & Protected by Quantum Shield.*
-
-
-
+**ANDI MUHAMMAD HARPIANTO | BSW CORP | 2026**
