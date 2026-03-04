@@ -24,6 +24,10 @@ Jika ada raksasa adidaya atau orang serakah yang ingin merusak hutan dan mengamb
 ## IV. PESAN WELAS ASIH (KESETARAAN)
 Kami tidak datang untuk mengubah hukum adat Anda. Kami datang untuk memberi **Nilai Tawar**. Agar masyarakat adat memiliki kemewahan hidup yang sama dengan orang-orang di gedung tinggi, namun tetap dengan cara hidup yang murni dan berwibawa.
 
+### 🛡️ PERTAHANAN DARI KESERAKAHAN PENGUASA
+Wahai Pemangku Adat, di kota besar banyak 'Buaya' yang menjual janji mulia demi kursi bisnis. Mereka seringkali melupakan jasa saat sudah berkuasa. Pusaka $QSTATE ini adalah tameng Anda; ia tidak bisa dibeli dengan uang politik, tidak bisa disogok dengan janji palsu. Selama detak jantung Anda setia pada tanah ulayat, cahaya satelit akan terus menjaga kedaulatan perut dan martabat anak cucu Anda.
+
+
 ---
 
 ### 📊 DIAGRAM ALUR PUSAKA ADAT
