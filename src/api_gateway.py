@@ -1,86 +1,75 @@
-from flask import Flask, render_template_string
-import json
+from flask import Flask, render_template_string, jsonify
+import sys
+import os
+
+# Hubungkan ke Telemetri
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'core')))
+from satellite_telemetry import SatelliteTelemetry
 
 app = Flask(__name__)
+sat_engine = SatelliteTelemetry()
 
-# DATA STRATEGI GODFATHER: 10% dipecah ke 10 Tahap (1% per tahap)
-# Harga naik Rp100 setiap tahapnya
-price_stages = [
-    {"tahap": 1, "harga": 100, "volume": "10M"},
-    {"tahap": 2, "harga": 200, "volume": "10M"},
-    {"tahap": 3, "harga": 300, "volume": "10M"},
-    {"tahap": 4, "harga": 400, "volume": "10M"},
-    {"tahap": 5, "harga": 500, "volume": "10M"},
-    {"tahap": 6, "harga": 600, "volume": "10M"},
-    {"tahap": 7, "harga": 700, "volume": "10M"},
-    {"tahap": 8, "harga": 800, "volume": "10M"},
-    {"tahap": 9, "harga": 900, "volume": "10M"},
-    {"tahap": 10, "harga": 1000, "volume": "10M"}
-]
-
-labels = [d['tahap'] for d in price_stages]
-prices = [d['harga'] for d in price_stages]
-
-DASHBOARD_CHART = """
+TELEMETRY_HTML = """
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QSTATE | Price Discovery</title>
-    <script src="https://cdn.jsdelivr.net"></script>
+    <title>QSTATE | SATELLITE RADAR</title>
     <style>
-        body { background: #000b14; color: #00e5ff; font-family: sans-serif; padding: 20px; text-align: center; }
-        .chart-container { background: #001a2e; padding: 15px; border-radius: 15px; border: 1px solid #004466; margin-top: 20px; }
-        h1 { font-size: 20px; text-shadow: 0 0 10px #00e5ff; }
-        .info { font-size: 12px; margin-top: 20px; color: #7FDBFF; }
+        body { background: #000b14; color: #00e5ff; font-family: 'Courier New', monospace; padding: 20px; text-align: center; }
+        .radar-box { border: 2px solid #00e5ff; border-radius: 20px; padding: 20px; background: rgba(0,229,255,0.05); box-shadow: 0 0 20px #004466; }
+        .glitch { font-size: 1.5em; font-weight: bold; text-transform: uppercase; color: #fff; text-shadow: 2px 2px #ff0055; }
+        .telemetry-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 20px; text-align: left; font-size: 0.9em; }
+        .data-val { color: #00ff88; float: right; }
+        .blink { animation: blinker 1s linear infinite; color: #ff0055; }
+        @keyframes blinker { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
-    <h1>📈 GRAFIK DISTRIBUSI 10% ($QSTATE)</h1>
-    <p style="font-size: 10px;">Strategi Harga Bertahap (Anti-Dumping)</p>
-
-    <div class="chart-container">
-        <canvas id="priceChart"></canvas>
+    <div class="radar-box">
+        <div class="glitch">QS-SAT-01 UPLINK</div>
+        <p class="blink">● TRANSMISSION ENCRYPTED</p>
+        <hr style="border: 0.5px solid #004466;">
+        
+        <div id="data-display" class="telemetry-grid">
+            <!-- Data akan diisi via AJAX agar Real-time -->
+            <div>Memuat Koordinat Langit...</div>
+        </div>
+        
+        <button onclick="location.reload()" style="margin-top:20px; background:#004466; color:white; border:none; padding:10px; border-radius:5px;">RE-SCAN ORBIT</button>
     </div>
-
-    <div class="info">
-        <p>Status: <b>TAHAP 1 AKTIF (Rp. 100)</b></p>
-        <p>Volume per Tahap: 10.000.000 $QSTATE (1%)</p>
-    </div>
+    <p style="font-size: 0.7em; margin-top: 30px; color: #004466;">KEDAULATAN ORBITAL | VISI ANDI MUHAMMAD HARPIANTO</p>
 
     <script>
-        const ctx = document.getElementById('priceChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: {{ labels | safe }},
-                datasets: [{
-                    label: 'Harga (IDR)',
-                    data: {{ prices | safe }},
-                    borderColor: '#00e5ff',
-                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                    borderWidth: 3,
-                    stepped: true, // INI KUNCINYA: Membuat grafik berbentuk tangga
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { grid: { color: '#004466' }, ticks: { color: '#fff' } },
-                    x: { grid: { display: false }, ticks: { color: '#fff' } }
-                },
-                plugins: { legend: { display: false } }
-            }
-        });
+        function updateData() {
+            fetch('/api/telemetry')
+                .then(response => response.json())
+                .then(data => {
+                    let html = `
+                        <div>SATID: <span class="data-val">${data.sat_id}</span></div>
+                        <div>COORD: <span class="data-val">${data.coords}</span></div>
+                        <div>ALTIT: <span class="data-val">${data.altitude}</span></div>
+                        <div>TIME : <span class="data-val">${data.timestamp}</span></div>
+                        <div>SIG  : <span class="data-val">${data.signal}</span></div>
+                        <div>STAT : <span class="data-val" style="color:#fff;">${data.status}</span></div>
+                    `;
+                    document.getElementById('data-display').innerHTML = html;
+                });
+        }
+        setInterval(updateData, 3000); // Update setiap 3 detik
+        updateData();
     </script>
 </body>
 </html>
 """
 
 @app.route('/')
-def chart_page():
-    return render_template_string(DASHBOARD_CHART, labels=json.dumps(labels), prices=json.dumps(prices))
+def index():
+    return render_template_string(TELEMETRY_HTML)
+
+@app.route('/api/telemetry')
+def api_telemetry():
+    return jsonify(sat_engine.get_live_data())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
