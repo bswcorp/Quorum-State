@@ -24,6 +24,11 @@
 17. [Bab 18: Biometrik Syaraf & Validasi H2K](#bab-18)
 18. [Bab 19: Algoritma Slashing & Reputasi Global](#bab-19)
 19. [Bab 20: Transisi Peradaban Terakhir & Penutup](#bab-20)
+## Bab 22: Wizardry & Evolusi Lima Pilar Inti
+- **Wizard Protocol:** Penggunaan teknologi Invisible UI yang memungkinkan kendali makro (Satelit/Rocket/Aset) hanya melalui pemicu saraf biometrik.
+- **Moral Filtering:** Akses internal tertutup bagi individu rakus dan egois. Keadilan ditegakkan dengan mengirim mereka ke luar sistem secara absolut (Go to Hell).
+- **Educational Bridge:** Membimbing generasi muda untuk meninggalkan paradigma klasik. Tidak ada kegagalan permanen, hanya kewajiban untuk belajar lebih keras sebelum kembali ke sistem.
+
 # Whitepaper Quorum-State ($QSTATE)
 ## Bab 21: Manifesto Salmon & Penghapusan Antrean Sistemik
 ## Bab 22: Wizardry & Evolusi Lima Pilar Inti
