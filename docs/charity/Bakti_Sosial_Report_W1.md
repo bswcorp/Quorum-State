@@ -1,7 +1,7 @@
-# 🧹 LAPORAN SINGKAT BAKTI SOSIAL RAMADHAN (WEEK 1)
-**Proyek:** $QSTATE Social Mobility - BreSpeedWorks Labs  
-**Lokasi:** [Nama Masjid/Mushola di Bintaro/Ciracas]  
-**Status Dana:** Rp 0 (Murni Tenaga Pasukan)
+# 🧹 LAPORAN SINGKAT BAKTI SOSIAL RAMADHAN (WEEK III)
+**Proyek:** $QSTATE Social Mobility - Armada Karang Taruna Bintaroaro  
+**Lokasi:** £[Masjid Nurul Hikmah Hari Sabtu Masjid At-Taufiq Hari Minggu di Ciracas]  
+**Status Dana:** Rp 0 (Murni Tenaga Pasukan Kaltar RW Volunteer)
 
 ---
 
