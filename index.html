@@ -37,6 +37,27 @@
         .stat-item { border-left: 3px solid var(--cyber-cyan); padding-left: 15px; }
         .stat-label { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; }
         .stat-value { font-family: 'Orbitron'; font-size: 1.4rem; color: white; }
+// Memasukkan pustaka ethers dari CDN
+import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js";
+
+async function withdrawCoins() {
+    // 1. Meminta izin koneksi ke dompet (SafePal/MetaMask)
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+
+    // 2. Alamat Kontrak $QSTATE (Ganti dengan alamat kontrak Anda)
+    const qstateContractAddress = "0xALAMAT_KONTRAK_ANDA_DI_SINI";
+    
+    // 3. ABI Dasar untuk fungsi Transfer
+    const abi = ["function transfer(address to, uint256 amount) public returns (bool)"];
+    const contract = new ethers.Contract(qstateContractAddress, abi, signer);
+
+    // 4. Proses Penarikan (Contoh: Menarik 1 koin)
+    const amount = ethers.parseUnits("1.0", 18);
+    const tx = await contract.transfer("ALAMAT_DOMPET_BARU_ANDA", amount);
+    
+    console.log("Transaksi terkirim:", tx.hash);
+}
 
         /* PAYMENT METHODS */
         .payment-methods { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; justify-content: center; }
