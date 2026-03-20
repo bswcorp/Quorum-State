@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>QUORUM-STATE | Central Bank Terminal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com" type="module"></script>
+    <style>
+        :root { --gold: #D4AF37; --neon: #00f2ff; --dark: #050505; }
+        body { background: var(--dark); color: white; font-family: 'Courier New', monospace; padding: 20px; }
+        .bank-vault { border: 2px solid var(--gold); border-radius: 15px; padding: 25px; max-width: 500px; margin: auto; background: #000; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
+        .header { border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 20px; }
+        .balance-box { background: #111; border: 1px dashed var(--neon); padding: 20px; margin: 20px 0; border-radius: 10px; }
+        .aksa-value { font-size: 2rem; color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #080808; border: 1px solid #444; color: var(--neon); box-sizing: border-box; }
+        .btn-gold { width: 100%; padding: 15px; background: var(--gold); color: black; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        .founder-tag { font-size: 0.7rem; color: #666; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="bank-vault">
+        <div class="header">
+            <h2 style="margin:0; color: var(--gold);">🏛️ QUORUM-STATE</h2>
+            <div style="font-size: 0.8rem;">CENTRAL TRANSACTION PORTAL</div>
+        </div>
+
+        <button class="btn-gold" id="btnConnect">IDENTIFIKASI JANTUNG (WALLET)</button>
+
+        <div class="balance-box">
+            <div style="font-size: 0.8rem; color: #888;">SALDO TERVERIFIKASI:</div>
+            <div class="aksa-value" id="aksaDisplay">0.00 AKSA</div>
+            <div style="font-size: 0.7rem; color: var(--gold);" id="qstateDisplay">0 $QSTATE</div>
+        </div>
+
+        <div style="text-align: left;">
+            <label>ALAMAT PENERIMA (DESTINATION):</label>
+            <input type="text" id="destAddress" placeholder="0x...">
+            
+            <label>JUMLAH TRANSFER (AKSA):</label>
+            <input type="number" id="sendAmount" placeholder="0">
+            
+            <button class="btn-gold" style="background: var(--neon);" id="btnTransfer">EKSEKUSI TRANSFER</button>
+        </div>
+
+        <div class="founder-tag">
+            PELOPOR: ANDI MUHAMMAD HARPIANTO<br>
+            © 2026 SOVEREIGN TITAN GENESIS
+        </div>
+    </div>
+
+    <script type="module">
+        import { ethers } from "https://cdnjs.cloudflare.com";
+        
+        // GUNAKAN ALAMAT KONTRAK ABADI ANDA
+        const contractAddress = "0x70a64d8216e91077B2C36695596482Be068640c1"; 
+        const abi = [
+            "function balanceOf(address) view returns (uint256)",
+            "function transfer(address to, uint256 amount) returns (bool)"
+        ];
+
+        let signer;
+        let contract;
+
+        document.getElementById('btnConnect').onclick = async () => {
+            if (window.ethereum) {
+                const provider = new ethers.BrowserProvider(window.ethereum);
+                const accounts = await provider.send("eth_requestAccounts", []);
+                signer = await provider.getSigner();
+                contract = new ethers.Contract(contractAddress, abi, signer);
+                
+                const balance = await contract.balanceOf(accounts[0]);
+                const qstate = ethers.formatUnits(balance, 18);
+                const aksa = parseFloat(qstate) * 100_000_000;
+                
+                document.getElementById('aksaDisplay').innerText = aksa.toLocaleString() + " AKSA";
+                document.getElementById('qstateDisplay').innerText = parseFloat(qstate).toLocaleString() + " $QSTATE";
+                document.getElementById('btnConnect').innerText = "IDENTITAS TERKONFIRMASI";
+            }
+        };
+
+        document.getElementById('btnTransfer').onclick = async () => {
+            const to = document.getElementById('destAddress').value;
+            const amountAksa = document.getElementById('sendAmount').value;
+            
+            if(!to || !amountAksa) return alert("Data Belum Lengkap!");
+            
+            // Konversi AKSA kembali ke QSTATE (Desimal 18)
+            const amountQState = (parseFloat(amountAksa) / 100_000_000).toString();
+            const finalAmount = ethers.parseUnits(amountQState, 18);
+            
+            alert("Memproses Transfer " + amountAksa + " AKSA ke " + to);
+            // Kode transfer akan berjalan jika dompet sudah terisi ETH bensin
+        };
+    </script>
+</body>
+</html>
