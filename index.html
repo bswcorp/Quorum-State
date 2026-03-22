@@ -139,6 +139,39 @@
                 </div>
             </div>
         </div>
+                <!-- THE TITAN VIP THRESHOLD -->
+<div id="vipGate" style="margin-top: 50px; padding: 40px; border: 2px solid var(--gold); background: rgba(0,0,0,0.95); position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 0 30px var(--gold);">
+    
+    <div style="text-align: center;">
+        <h2 style="color: var(--gold); font-family: 'Orbitron'; letter-spacing: 5px;">EXCLUSIVE ACCESS</h2>
+        <p style="color: #666; font-size: 0.8rem;">RESERVED FOR SOVEREIGN PARTNERS & STRATEGIC INVESTORS</p>
+        
+        <div style="margin: 30px 0; border: 1px dashed var(--gold); padding: 20px;">
+            <p style="color: #fff; font-size: 1rem; font-style: italic;">
+                "The Giant is breathing in the shadows. 1,000,000,000,000 $QSTATE is already deployed."
+            </p>
+            <div style="font-size: 0.7rem; color: var(--neon); margin-top: 10px;">[ STATUS: PRIVATE CHAIN REPLICATING TO GLOBAL ]</div>
+        </div>
+
+        <!-- INPUT AKSES RAHASIA -->
+        <input type="password" id="vipKey" placeholder="ENTER ACCESS CODE" style="width: 250px; text-align: center; border: 1px solid var(--neon); background: #000; color: var(--neon); padding: 10px;">
+        <button class="btn" style="width: auto; padding: 10px 30px; background: var(--gold); color: #000; margin-top: 15px;" onclick="checkVip()">
+            UNLOCK ARCHIVE
+        </button>
+    </div>
+</div>
+
+<script>
+    function checkVip() {
+        const key = document.getElementById('vipKey').value;
+        if (key === "TITAN2026") {
+            window.location.href = "titan_archive.html"; // Lompat ke halaman rahasia
+        } else {
+            alert("ACCESS DENIED: Your Identity is not yet whitelisted in Genesis Block.");
+        }
+    }
+</script>
+
     </header>
 
     <footer style="text-align: center; padding: 40px; border-top: 1px solid #222; font-size: 0.8rem;">
