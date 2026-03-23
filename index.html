@@ -250,6 +250,54 @@
         </div>
     </div>
 </div>
+ <!-- TITAN EDU-DEMO PORTAL (Wahana Pendidikan Mandiri) -->
+<div id="eduDemo" style="margin-top: 40px; padding: 30px; border: 2px solid var(--gold); border-radius: 20px; background: #000; box-shadow: 0 0 30px rgba(212,175,55,0.3); text-align: left; display: none;">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); padding-bottom: 10px;">
+        <h3 style="color: var(--gold); font-family: 'Orbitron'; margin: 0;">🎓 TITAN ACADEMY (DEMO)</h3>
+        <button onclick="closeEdu()" style="background:none; color:var(--red); border:none; cursor:pointer;">[X] CLOSE</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <p style="font-size: 0.8rem; color: #888;">STATUS SISWA: <span style="color:var(--neon);">IDENTIFIED BY H2K</span></p>
+        
+        <!-- MODUL BELAJAR -->
+        <div style="background: #111; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #333;">
+            <b style="color: var(--gold);">MODUL 01: Dasar Kedaulatan Digital</b>
+            <p style="font-size: 0.7rem; margin-top: 5px;">Mempelajari cara membangun server mandiri dan menjaga data pribadi tanpa pihak ketiga.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                <span style="font-size: 0.6rem; color: var(--neon);">BIAYA AKSES: 50 AKSA</span>
+                <button class="btn" style="width: auto; padding: 5px 15px; font-size: 0.6rem;" onclick="accessLesson('Modul 01')">BUKA MODUL</button>
+            </div>
+        </div>
+
+        <div style="background: #111; padding: 15px; border-radius: 10px; border: 1px solid #333;">
+            <b style="color: var(--gold);">MODUL 02: Logika Baremetal & AI</b>
+            <p style="font-size: 0.7rem; margin-top: 5px;">Integrasi kecerdasan buatan ke dalam sistem perangkat keras secara langsung.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                <span style="font-size: 0.6rem; color: var(--neon);">BIAYA AKSES: 100 AKSA</span>
+                <button class="btn" style="width: auto; padding: 5px 15px; font-size: 0.6rem; opacity: 0.5;" disabled>LOCKED (Tunggu Fase 2)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fungsi untuk memicu tampilan Demo dari Menu Utama
+    function openEduDemo() {
+        document.getElementById('eduDemo').style.display = "block";
+        window.location.hash = "eduDemo";
+        alert("Sistem EDU Mendeteksi Saldo AKSA Anda...");
+    }
+
+    function closeEdu() {
+        document.getElementById('eduDemo').style.display = "none";
+    }
+
+    function accessLesson(title) {
+        alert("Mengakses " + title + "... Saldo 50 AKSA akan didebet dari Jantung Genesis.");
+    }
+</script>
     
 </body>
 </html>
