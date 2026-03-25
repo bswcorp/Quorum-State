@@ -1,0 +1,10 @@
+{
+  "survey_type": "DCP-Dynamic-Cone-Penetrometer",
+  "locations": ["BEKASI-NODE-A1", "BATAM-NONGSA-B2", "IKN-BASE-01"],
+  "parameters": {
+    "min_cbr_value": "6%",
+    "depth_test": "5-10 Meters",
+    "soil_stability_audit": "Mandatory-Pre-Construction"
+  },
+  "integration": "Metakarta-Spatial-Database"
+}
