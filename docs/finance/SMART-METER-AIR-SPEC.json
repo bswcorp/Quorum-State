@@ -1,0 +1,11 @@
+{
+  "unit_name": "TITAN-AIR-METER-V1",
+  "batch_size": "50,000 Units (Phase 1)",
+  "connectivity": {
+    "primary": "Q-Net Mesh (Wireless)",
+    "backup": "Q-Link Satellite",
+    "protocol": "Zero-Wire-Blockchain-Sync"
+  },
+  "security": "Quantum-Resistant Encryption",
+  "installation": "Plug-and-Play (Self-Activating via Nusantara-Root)"
+}
