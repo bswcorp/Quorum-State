@@ -1,1 +1,12 @@
+{
+  "command": "SUPPORT_NANO_SECTOR",
+  "target": "PEDAGANG_KAKI_LIMA_ID_001",
+  "source": "QSTATE_TREASURY",
+  "allocation": {
+    "amount_qubi": "500",
+    "backing_qstate": "5",
+    "purpose": "Emergency_Operating_Capital"
+  },
+  "protection_clause": "IMMUNE_FROM_EVICTION_STATUS"
+}
 
