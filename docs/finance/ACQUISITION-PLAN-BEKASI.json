@@ -1,0 +1,15 @@
+{
+  "project": "TITAN-BRAIN-ACQUISITION",
+  "priority": "IMMEDIATE-MANDATORY",
+  "location": "Bekasi Digital Hub",
+  "funding_source": "QSTATE-RESERVE-FUND",
+  "objective": {
+    "immediate": "Control center for i12 Laptop distribution & Hardware Audit",
+    "secondary": "Central Node for Q-Link Satellite Bridge",
+    "long_term": "Training center for Sultan Tech Generation"
+  },
+  "terms": {
+    "buy_out": "Full Ownership (Land, Building, Tech)",
+    "personnel": "Retain local experts with 3x Sultan Salary multiplier"
+  }
+}
