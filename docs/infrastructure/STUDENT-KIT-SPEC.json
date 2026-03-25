@@ -1,0 +1,17 @@
+{
+  "kit_name": "TITAN-GEN-SULTAN-PACK",
+  "hardware": {
+    "device": "Rugged Laptop (MIL-STD-810G)",
+    "specs": "Intel Core i7/AMD R7, 16GB RAM, 512GB SSD, Solar-Charging Case",
+    "connectivity": "Q-Link Satellite Ready"
+  },
+  "tools": {
+    "scientific": "Digital Microscope, Arduino/ESP32 IoT Starter Kit",
+    "creative": "Wacom Stylus compatible, High-Res Camera for Documentation",
+    "agricultural": "Soil pH & Moisture Sensors (for Metakarta Integrated Farming)"
+  },
+  "support": {
+    "maintenance": "Lifetime Replacement if damaged in field",
+    "nutrition_bridge": "Daily Vitamin & Protein Credit via Qubicoin"
+  }
+}
