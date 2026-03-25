@@ -1,0 +1,11 @@
+{
+  "policy_name": "SULTAN-SURPLUS-MANDATE",
+  "base_calculation": "100%",
+  "mandatory_surplus": {
+    "safety_buffer_nano": "10%",
+    "gas_oxygen_fee": "1%",
+    "total_payout": "111%"
+  },
+  "execution_rule": "NEVER_UNDER_TARGET",
+  "audit_trail": "REAL-TIME-BLOCKCHAIN-TRANSPARENCY"
+}
