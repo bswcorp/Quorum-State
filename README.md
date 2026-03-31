@@ -173,5 +173,14 @@ Mesin penggerak ekonomi masa depan:
           |
 [ PHYSICAL SOVEREIGNTY / BSW LAB ]
 
+### 🏦 Treasury & Financial Infrastructure
+Contract Address: `0x675aCF5A347DCC527Ce27F68ED5433e95a56a19D`
+Status: **LIVE** on Titan Sovereign Protocol
+
+Functions enabled:
+- `transfer(to, amount)`: Mendistribusikan $QSTATE ke node operasional.
+- `balanceOf(account)`: Memantau cadangan kas Bank Central.
+
+
 
 
