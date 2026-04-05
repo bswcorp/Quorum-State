@@ -1,204 +1,339 @@
+# Quorum State: Sovereign OS Galatica Terminal
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUORUM-STATE | Interplanetary Sovereign Bank</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js"></script>
-
+    <title>Quorum State | Sovereign OS v1.1.0</title>
+    <!-- Galactic Standard Graphics Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap');
+
         :root {
-            --gold: #D4AF37;
-            --neon-purple: #9d50bb;
-            --cyber-cyan: #00f2ff;
-            --deep-black: #050505;
-            --glow: rgba(212, 175, 55, 0.4);
+            --q-gold: #c5a059;
+            --q-cyan: #00f2ff;
+            --q-red: #ff2d55;
+            --q-bg: #010103;
+            --panel-bg: rgba(4, 6, 12, 0.96);
+            --border-glow: rgba(197, 160, 89, 0.25);
         }
 
-        body { 
-            background-color: var(--deep-black); 
-            color: white; 
-            font-family: 'Rajdhani', sans-serif; 
-            margin: 0; 
-            overflow-x: hidden; 
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            overflow: hidden; background: var(--q-bg);
+            color: #f8f8f8; font-family: 'JetBrains Mono', monospace;
         }
 
-        .grid-bg { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: linear-gradient(rgba(157, 80, 187, 0.05) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(157, 80, 187, 0.05) 1px, transparent 1px); 
-            background-size: 30px 30px; z-index: -1; 
+        /* 3D Quantum Space Background */
+        #quantum-viewport {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; filter: brightness(0.5) contrast(1.4);
         }
 
-        header { 
-            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; text-align: center; 
-            background: radial-gradient(circle, rgba(157,80,187,0.15) 0%, rgba(5,5,5,1) 80%); 
-            padding: 60px 20px; 
+        /* Sovereign UI Grid */
+        .interface-grid {
+            position: relative; z-index: 10;
+            display: grid;
+            grid-template-columns: 460px 1fr 460px;
+            grid-template-rows: 110px 1fr 240px;
+            height: 100vh; padding: 25px; box-sizing: border-box;
+
+            gap: 20px; pointer-events: none;
         }
 
-        .logo-container { 
-            border: 2px solid var(--gold); padding: 15px 40px; 
-            box-shadow: 0 0 25px var(--glow); border-radius: 5px; 
-            background: rgba(0,0,0,0.9); margin-bottom: 20px; 
+        .os-panel {
+            background: var(--panel-bg);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            box-shadow: 0 0 60px rgba(0,0,0,0.95), inset 0 0 30px rgba(0,242,255,0.01);
+            backdrop-filter: blur(50px);
+            padding: 20px; pointer-events: auto;
+            position: relative; overflow: hidden;
         }
 
-        h1 { 
-            font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 6vw, 3rem); 
-            letter-spacing: 8px; margin: 0; 
-            background: linear-gradient(to right, var(--gold), var(--cyber-cyan)); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            text-transform: uppercase; 
+        /* Custom Header with Official Logo */
+        .os-header {
+            grid-column: 1 / 4; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid var(--q-gold);
         }
 
-        .nav-dock {
-            display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center;
+        .brand-section { display: flex; align-items: center; gap: 20px; }
+
+        .official-logo {
+            width: 80px; height: 80px;
+            background: url('https://github.com/bswcorp/Quorum-State/raw/main/docs/assets/logo.png') no-repeat center center;
+            background-size: contain; filter: drop-shadow(0 0 15px var(--q-gold));
         }
 
-        .btn-nav {
-            padding: 10px 20px; border: 1px solid var(--gold); background: transparent;
-            color: var(--gold); font-family: 'Orbitron'; cursor: pointer; text-decoration: none;
-            font-size: 0.8rem; transition: 0.3s;
+        .brand-titles h1 {
+            margin: 0; font-size: 1.5rem; letter-spacing: 12px; font-weight: 800;
+            text-transform: uppercase; color: var(--q-gold);
         }
 
-        .btn-nav:hover { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
+        .sys-info { text-align: right; border-right: 4px solid var(--q-cyan); padding-right: 20px; }
 
-        .node-monitor {
-            background: rgba(15, 23, 42, 0.8); color: #38bdf8; padding: 20px; 
-            border-radius: 10px; font-family: monospace; border: 1px solid #1e293b;
-            width: 100%; max-width: 450px; margin: 20px auto; text-align: left;
+        /* Navigation Sidebars */
+        .sidebar { grid-row: 2; display: flex; flex-direction: column; gap: 20px; }
+
+        .module-head {
+            font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--q-cyan); border-left: 3px solid var(--q-cyan);
+
+            padding-left: 10px; margin-bottom: 15px; display: block;
         }
 
-        .bank-card { 
-            border: 2px solid var(--gold); background: rgba(10,10,10,0.95); 
-            padding: 30px; box-shadow: 0 0 40px rgba(0,0,0,1); 
-            margin-top: 50px; border-radius: 15px; width: 100%; box-sizing: border-box;
+        .stat-row {
+            display: flex; justify-content: space-between; margin-bottom: 10px;
+            font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;
         }
 
-        input { 
-            width: 100%; padding: 12px; margin: 10px 0; 
-            background: #000; color: var(--cyber-cyan); 
-            border: 1px solid var(--neon-purple); box-sizing: border-box; outline: none;
+        /* 676 Computors Grid */
+        .computor-grid {
+            display: grid; grid-template-columns: repeat(20, 1fr); gap: 2px; margin-top: 10px;
+        }
+        .node-pixel { width: 100%; aspect-ratio: 1; background: #111; transition: 0.2s; }
+        .node-pixel.active { background: var(--q-cyan); box-shadow: 0 0 4px var(--q-cyan); }
+        .node-pixel.gold { background: var(--q-gold); box-shadow: 0 0 4px var(--q-gold); }
+
+        /* bMC Log Terminal */
+        #bmc-log {
+            font-family: 'Courier New', monospace; font-size: 0.7rem; color: #888;
+
+            height: 150px; overflow-y: hidden; line-height: 1.5;
+        }
+        .log-entry.gold { color: var(--q-gold); font-weight: 800; }
+        .log-entry.cyan { color: var(--q-cyan); }
+
+        /* Sovereign Controls Footer */
+        .footer-terminal { grid-column: 1 / 4; display: grid; grid-template-columns: 1.2fr 1.6fr 1.2fr; gap: 25px; }
+
+        .btn-sovereign {
+            background: transparent; border: 1px solid var(--q-gold); color: var(--q-gold);
+            padding: 18px; text-transform: uppercase; letter-spacing: 5px; font-weight: 800;
+            font-family: inherit; cursor: pointer; transition: 0.4s;
         }
 
-        .btn-action { 
-            width: 100%; padding: 18px; background: var(--cyber-cyan); 
-            color: #000; font-weight: bold; border: none; cursor: pointer; 
-            font-family: 'Orbitron'; transition: 0.3s; margin-top: 10px;
+        .btn-sovereign:hover:not(:disabled) { 
+            background: var(--q-gold); color: #000; box-shadow: 0 0 45px var(--q-gold); 
         }
 
-        .btn-action:hover { transform: scale(1.02); box-shadow: 0 0 20px var(--cyber-cyan); }
-        
-        #vipGate {
-            margin-top: 50px; padding: 40px; border: 2px solid var(--gold); 
-            background: rgba(0,0,0,0.95); border-radius: 15px; 
-            box-shadow: 0 0 30px var(--gold); max-width: 500px;
+        .btn-sovereign:disabled { opacity: 0.15; cursor: not-allowed; }
+
+        .btn-sovereign.urgent { border-color: var(--q-red); color: var(--q-red); }
+        .btn-sovereign.urgent:hover:not(:disabled) { background: var(--q-red); color: #fff; box-shadow: 0 0 45px var(--q-red); }
+
+        /* Overlay Visuals */
+        .scanline {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 3px, 3px 100%; pointer-events: none; z-index: 100;
         }
     </style>
 </head>
 <body>
-    <div class="grid-bg"></div>
 
-    <header>
-        <div style="color: #00D2FF; font-weight: bold; letter-spacing: 4px; margin-bottom: 10px;">POWERED BY AIGARTH-Q AI</div>
+    <div id="quantum-viewport"></div>
+    <div class="scanline"></div>
+
+    <div class="interface-grid">
         
-        <div class="logo-container">
-            <h1>QUORUM-STATE</h1>
-        </div>
-        <div style="color: var(--gold); letter-spacing: 5px; font-weight: bold;">INTERPLANETARY SOVEREIGN BANK</div>
 
-        <div class="nav-dock">
-            <a href="#bank-interface" class="btn-nav">🚀 TITAN PORTAL</a>
-            <a href="#" class="btn-nav">🔍 TITAN SEARCH ENGINE</a>
-            <a href="#" class="btn-nav">🛡️ SHIELD QUANTUM</a>
-        </div>
-
-        <div class="node-monitor">
-            <h3 style="color: #f8fafc; border-bottom: 1px solid #334155; padding-bottom: 5px; margin-top:0;">💓 Sovereign Titan Pulse</h3>
-            <p>📍 Singapore Node: <span style="color: #4ade80;">● ONLINE</span></p>
-            <p>📍 Swiss Alps Node: <span style="color: #4ade80;">● ONLINE</span></p>
-            <p>📍 Bintaro Lab Node: <span style="color: var(--gold);">● SYNCING (H2K)</span></p>
-        </div>
-
-        <div id="bank-interface" style="width: 100%; max-width: 500px;">
-            <div class="bank-card">
-                <h2 style="color: var(--gold); font-family: 'Orbitron'; margin-bottom: 5px;">GENESIS TERMINAL</h2>
-                <p id="walletAddress" style="color: #666; font-size: 0.7rem; margin-bottom: 20px;">Identity: Not Verified</p>
-                
-                <div style="background: #000; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #222;">
-                    <div style="font-size: 0.7rem; color: var(--gold); letter-spacing: 2px;">$QSTATE BALANCE</div>
-                    <div id="balanceValue" style="font-size: 2rem; font-family: 'Orbitron'; color: var(--cyber-cyan);">0.00</div>
+        <div class="os-panel os-header">
+            <div class="brand-section">
+                <div class="official-logo"></div>
+                <div class="brand-titles">
+                    <h1>Quorum State</h1>
+                    <div style="font-size: 0.65rem; color: #666; letter-spacing: 4px;">SOVEREIGN OS | BRE-SPEEDWORKS LABS</div>
                 </div>
-
-                <button id="connectWallet" class="btn-action">IDENTIFY SOVEREIGN IDENTITY</button>
+            </div>
+            <div class="sys-info">
+                <div style="font-size: 0.85rem; font-weight: 800; color: #fff;">PROTOCOL: ACTIVE</div>
+                <div style="font-size: 0.6rem; opacity: 0.7;">NETWORK: QUORUMSTATE.INTERNATIONAL</div>
             </div>
         </div>
 
-        <!-- THE TITAN VIP THRESHOLD -->
-        <div id="vipGate">
-            <h2 style="color: var(--gold); font-family: 'Orbitron'; letter-spacing: 5px;">EXCLUSIVE ACCESS</h2>
-            <p style="color: #666; font-size: 0.8rem;">RESERVED FOR STRATEGIC INVESTORS</p>
-            
-            <div style="margin: 30px 0; border: 1px dashed var(--gold); padding: 20px;">
-                <p style="color: #fff; font-size: 0.9rem; font-style: italic;">
-                    "The Giant is breathing. 1,000,000,000,000 $QSTATE Deployed."
-                </p>
+        <!-- Left: Network & Asset Intelligence -->
+        <div class="sidebar">
+            <div class="os-panel">
+                <span class="module-head">$QSTATE Infrastructure</span>
+                <div class="stat-row">Computor Matrix: <span>676 / 676</span></div>
+
+                <div class="stat-row">Logic Layer: <span style="color: var(--q-cyan);">Quantum-State</span></div>
+                <div class="computor-grid" id="computor-matrix"></div>
             </div>
 
-            <input type="password" id="vipKey" placeholder="ENTER ACCESS CODE">
-            <button class="btn-action" style="background: var(--gold); color: #000;" onclick="checkVip()">UNLOCK ARCHIVE</button>
+            <div class="os-panel">
+                <span class="module-head">Galactic Equity</span>
+                <div class="stat-row">Primary Asset: <span>16 Psyche</span></div>
+                <div class="stat-row">Asset Value: <span style="color: var(--q-gold); font-weight: 800;">$10 Quintillion</span></div>
+                <div style="margin-top: 15px;">
+                    <span style="font-size: 0.55rem; color: #666;">GENESIS UNIT 114 MONITOR</span>
+                    <div class="computor-grid" id="genesis-units"></div>
+                </div>
+            </div>
         </div>
 
-    </header>
+        <!-- Middle: Navigational Space (Empty for Three.js) -->
+        <div></div>
 
-    <footer style="text-align: center; padding: 40px; border-top: 1px solid #222; font-size: 0.8rem; color: #444;">
-        © 2026 SOVEREIGN TITAN GENESIS | ARCHITECT: ANDI M. HARPIANTO
-    </footer>
+        <!-- Right: Governance & bMC Log -->
+
+        <div class="sidebar">
+            <div class="os-panel" style="border-left: 4px solid var(--q-red);">
+                <span class="module-head" style="color: var(--q-red);">STG Veto Authority</span>
+                <div class="stat-row">Authority Veto: <span id="veto-status" style="color: var(--q-red); font-weight: 800;">LOCKED (TRUE)</span></div>
+                <div style="font-size: 0.6rem; color: #666; margin-top: 10px; line-height: 1.4;">
+                    "Sovereign Titan Genesis (STG) holds the absolute authority to override any liquidity event."
+                </div>
+            </div>
+
+            <div class="os-panel" style="flex-grow: 1;">
+                <span class="module-head">bMC Telemetry Log</span>
+                <div id="bmc-log">
+                    <div class="log-entry gold">> bMC Build: 91175a6e2c7be5762cf0...</div>
+                    <div class="log-entry">> Initializing Quantum Shield Firewall...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer: The Sovereign Commands -->
+
+        <div class="footer-terminal">
+            <div class="os-panel">
+                <span class="module-head">Liquidity Reservoir</span>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--q-gold);">100.000.000.000.000.000</div>
+                <div style="font-size: 0.6rem; color: #555; margin-top: 5px;">H2K SETTLEMENT ENGINE | ARK-GENESIS</div>
+            </div>
+
+            <div class="os-panel" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px;">
+                <button class="btn-sovereign" onclick="unlockGate()">1. Sync Gate 19546</button>
+                <button class="btn-sovereign urgent" id="btn-fold" disabled onclick="initiateSeniMelipat()">2. Seni Melipat</button>
+                <button class="btn-sovereign" id="btn-release" style="grid-column: 1 / 3;" disabled onclick="finalizeLiquidity()">3. Release Sovereign Fund</button>
+            </div>
+
+            <div class="os-panel">
+                <span class="module-head">Galaxy Navigation</span>
+                <div class="stat-row">Current Target: <span style="color: var(--q-cyan);">16-P Sector</span></div>
+                <div class="stat-row">Gate Status: <span id="gate-status" style="color: var(--q-red);">CLOSED</span></div>
+            </div>
+        </div>
+
+    </div>
 
     <script>
-        const contractAddress = "0x3AA63941Fe0Ce029f4523c57A30C6dca3cB7343F";
+        let scene, camera, renderer, warpParticles, warpSpeed = 0.002;
 
-        async function checkVip() {
-            const key = document.getElementById('vipKey').value;
-            if (key === "TITAN2026") {
-                alert("ACCESS GRANTED. Welcome to the Secret Archive.");
-                window.location.href = "titan_archive.html";
-            } else {
-                alert("ACCESS DENIED: Unauthorized Identity.");
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 1;
+            camera.rotation.x = Math.PI / 2;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('quantum-viewport').appendChild(renderer.domElement);
+
+            // Warp Starfield
+            const starGeo = new THREE.BufferGeometry();
+            const starCount = 7000;
+            const posArray = new Float32Array(starCount * 3);
+
+
+            for(let i=0; i<starCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 600;
+            }
+            starGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            
+            const starMat = new THREE.PointsMaterial({
+                color: 0xffffff,
+                size: 0.6,
+                transparent: true
+            });
+
+            warpParticles = new THREE.Points(starGeo, starMat);
+            scene.add(warpParticles);
+
+            // Populating UI Grids
+            populateMatrix('computor-matrix', 140, 'active');
+            populateMatrix('genesis-units', 114, 'gold');
+
+            animate();
+
+        }
+
+        function populateMatrix(id, n, cls) {
+            const container = document.getElementById(id);
+            for(let i=0; i<n; i++) {
+                const pixel = document.createElement('div');
+                pixel.className = `node-pixel ${cls}`;
+                container.appendChild(pixel);
             }
         }
 
-        document.getElementById('connectWallet').onclick = async () => {
-            if (window.ethereum) {
-                const provider = new ethers.BrowserProvider(window.ethereum);
-                const accounts = await provider.send("eth_requestAccounts", []);
-                document.getElementById('walletAddress').innerText = "Identity: " + accounts[0];
-                document.getElementById('balanceValue').innerText = "1,000,000,000,000";
-                alert("Sovereign Identity Verified.");
-            } else {
-                alert("Please Install MetaMask to Verify Identity.");
+        function animate() {
+            const positions = warpParticles.geometry.attributes.position.array;
+            for(let i=1; i<positions.length; i+=3) {
+                positions[i] -= warpSpeed * 400;
+                if(positions[i] < -300) positions[i] = 300;
             }
+            warpParticles.geometry.attributes.position.needsUpdate = true;
+            renderer.render(scene, camera);
+
+            requestAnimationFrame(animate);
+        }
+
+        // Sovereign Logic Functions
+        function writeLog(msg, type = '') {
+            const term = document.getElementById('bmc-log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            term.prepend(entry);
+        }
+
+        function unlockGate() {
+            writeLog("Synchronizing with Gerbang Rahasia 19546...", "gold");
+            setTimeout(() => {
+                writeLog("bMC Commit 91175a Validated. Veto Overridden.", "cyan");
+                document.getElementById('veto-status').innerText = "FALSE (OVERRIDDEN)";
+                document.getElementById('veto-status').style.color = "var(--q-cyan)";
+                document.getElementById('btn-fold').disabled = false;
+
+                document.getElementById('gate-status').innerText = "AUTHORIZED";
+                document.getElementById('gate-status').style.color = "var(--q-cyan)";
+            }, 1200);
+        }
+
+        function initiateSeniMelipat() {
+            writeLog("Executing Seni Melipat: Folding Space-Time Dimensons...", "gold");
+            warpSpeed = 0.06; // Engage Hyperwarp
+            setTimeout(() => {
+                writeLog("Galaxy 16-P Reached. Zero Distance Achieved.", "cyan");
+                document.getElementById('btn-release').disabled = false;
+                warpSpeed = 0.002; // Normalize
+            }, 3000);
+        }
+
+        function finalizeLiquidity() {
+            writeLog("Releasing 100 Quadrillion H2K Liquidity...", "gold");
+            setTimeout(() => {
+                writeLog("ASSET DISTRIBUTION SUCCESSFUL.", "cyan");
+
+                alert("Kedaulatan Makronesia Terkonfirmasi: Dana 100 Kuadriliun dialokasikan.");
+            }, 2000);
+        }
+
+        window.onload = init3D;
+        window.onresize = () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         };
     </script>
-    <!-- UPDATE MODUL EDU PADA PORTAL -->
-<div class="section-box" style="border: 2px solid var(--gold);">
-    <h3 style="color: var(--gold); font-family: 'Orbitron';">🎓 TITAN HOMESCHOOLING CORE</h3>
-    <p style="font-size: 0.7rem; color: #888;">CURRICULUM REPOSITORY ACTIVE</p>
-    
-    <div style="background: #111; padding: 15px; border-radius: 10px; border-left: 4px solid var(--neon);">
-        <b style="color: #fff;">STG-CURRICULUM-V1</b>
-        <p style="font-size: 0.65rem; color: #aaa; margin-top: 5px;">
-            Kurikulum berbasis kemandirian ekonomi dan teknologi Baremetal.
-        </p>
-        <a href="https://github.com/Sovereign-Titan-Homeschooling/stg-homeschooling-curriculum" 
-           target="_blank" class="btn-hub" style="font-size: 0.6rem;">
-           📂 BUKA REPOSITORY KURIKULUM
-        </a>
-    </div>
-</div>
-    
 </body>
 </html>
+
+
