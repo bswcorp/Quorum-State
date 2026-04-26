@@ -210,6 +210,36 @@ async function loadRepos() {
 setInterval(loadRepos, 5000);
 loadRepos();
     </script>
+    <script>
+async function loadRepos() {
+    try {
+        const res = await fetch('http://localhost:3000/api/repos');
+        const data = await res.json();
+
+        const container = document.querySelector('.left-panel .log');
+        container.innerHTML = "";
+
+        data.slice(0, 6).forEach(repo => {
+            const date = new Date(repo.updated).toLocaleString();
+
+            container.innerHTML += `
+                <div>
+                    <strong>${repo.name}</strong><br>
+                    ⭐ ${repo.stars} | Updated: ${date}
+                </div>
+                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1)">
+            `;
+        });
+
+    } catch (err) {
+        console.log("Error:", err);
+    }
+}
+
+// auto refresh
+setInterval(loadRepos, 5000);
+loadRepos();
+    </script>
 
 </body>
 </html>
