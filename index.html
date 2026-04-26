@@ -1,219 +1,7 @@
-```html
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quorum State | Sovereign OS v1.1.0</title>
-
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --q-gold: #c5a059;
-            --q-cyan: #00f2ff;
-            --q-red: #ff2d55;
-            --q-bg: #010103;
-            --panel-bg: rgba(4, 6, 12, 0.96);
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: var(--q-bg);
-            color: #f8f8f8;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        #quantum-viewport {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .interface-grid {
-            position: relative;
-            z-index: 10;
-            display: grid;
-            grid-template-columns: 300px 1fr 300px;
-            grid-template-rows: 80px 1fr 180px;
-            gap: 15px;
-            padding: 15px;
-            height: 100vh;
-        }
-
-        .os-panel {
-            background: var(--panel-bg);
-            border: 1px solid rgba(197,160,89,0.2);
-            backdrop-filter: blur(20px);
-            padding: 15px;
-            overflow: hidden;
-        }
-
-        .os-header {
-            grid-column: 1 / 4;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--q-gold);
-        }
-
-        .title {
-            font-weight: 800;
-            color: var(--q-gold);
-        }
-
-        .status {
-            color: var(--q-cyan);
-            font-size: 12px;
-        }
-
-        .left-panel { grid-column: 1; grid-row: 2; }
-        .center-panel { grid-column: 2; grid-row: 2; }
-        .right-panel { grid-column: 3; grid-row: 2; }
-        .footer { grid-column: 1 / 4; grid-row: 3; }
-
-        .log {
-            font-size: 12px;
-            color: var(--q-cyan);
-            line-height: 1.5;
-        }
-    </style>
-</head>
-
-<body>
-
-<!-- 3D Background -->
-<canvas id="quantum-viewport"></canvas>
-
-<div class="interface-grid">
-
-    <!-- HEADER -->
-    <div class="os-panel os-header">
-        <div class="title">QUORUM STATE :: SOVEREIGN OS</div>
-        <div class="status">SYSTEM ACTIVE • v1.1.0</div>
-    </div>
-
-    <!-- LEFT -->
-    <div class="os-panel left-panel">
-        <h3>Observation</h3>
-        <div class="log">
-            Monitoring system...<br>
-            Logs streaming...<br>
-            Status: OK
-        </div>
-    </div>
-
-    <!-- CENTER -->
-    <div class="os-panel center-panel">
-        <h3>Processing</h3>
-        <div class="log">
-            Running automation...<br>
-            Evaluating input...<br>
-            Decision: Stable
-        </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="os-panel right-panel">
-        <h3>Execution</h3>
-        <div class="log">
-            Deploy triggered...<br>
-            Output generated...<br>
-            Completed ✔
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="os-panel footer">
-        <h3>System Log</h3>
-        <div class="log">
-            [00:01] Boot sequence initiated<br>
-            [00:02] Modules loaded<br>
-            [00:03] System online
-        </div>
-    </div>
-
-</div>
-
 <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('quantum-viewport') });
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const geometry = new THREE.BufferGeometry();
-    const vertices = [];
-
-    for (let i = 0; i < 5000; i++) {
-        vertices.push(
-            THREE.MathUtils.randFloatSpread(2000),
-            THREE.MathUtils.randFloatSpread(2000),
-            THREE.MathUtils.randFloatSpread(2000)
-        );
-    }
-
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-    const material = new THREE.PointsMaterial({ size: 2 });
-    const points = new THREE.Points(geometry, material);
-
-    scene.add(points);
-    camera.position.z = 500;
-
-    function animate() {
-        requestAnimationFrame(animate);
-        points.rotation.x += 0.0005;
-        points.rotation.y += 0.001;
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth/window.innerHeight;
-        camera.updateProjectionMatrix();
-    });
-</script>
-    <script>
 async function loadRepos() {
     try {
-        const res = await fetch('http://localhost:3000/api/repos');
-        const data = await res.json();
-
-        const container = document.querySelector('.left-panel .log');
-        container.innerHTML = "";
-
-        data.slice(0, 5).forEach(repo => {
-            container.innerHTML += `
-                ${repo.name}<br>
-                ⭐ ${repo.stars} | Updated: ${repo.updated}<br><br>
-            `;
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-// refresh tiap 5 detik
-setInterval(loadRepos, 5000);
-loadRepos();
-    </script>
-    <script>
-async function loadRepos() {
-    try {
-        const res = await fetch('http://localhost:3000/api/repos');
+        const res = await fetch('http://127.0.0.1:3000/api/repos');
         const data = await res.json();
 
         const container = document.querySelector('.left-panel .log');
@@ -232,16 +20,12 @@ async function loadRepos() {
         });
 
     } catch (err) {
-        console.log("Error:", err);
+        document.querySelector('.left-panel .log').innerHTML = "ERROR CONNECTING API";
+        console.log(err);
     }
 }
 
-// auto refresh
-setInterval(loadRepos, 5000);
-loadRepos();
-    </script>
-    <script>
-async function loadProcessing() {
+function loadProcessing() {
     const el = document.querySelector('.center-panel .log');
     el.innerHTML = `
         Automation Engine Running...<br>
@@ -250,11 +34,7 @@ async function loadProcessing() {
     `;
 }
 
-setInterval(loadProcessing, 4000);
-loadProcessing();
-    </script>
-   <script>
-async function loadExecution() {
+function loadExecution() {
     const el = document.querySelector('.right-panel .log');
     el.innerHTML = `
         Last Execution: ${new Date().toLocaleTimeString()}<br>
@@ -262,11 +42,13 @@ async function loadExecution() {
     `;
 }
 
+// loop
+setInterval(loadRepos, 5000);
+setInterval(loadProcessing, 4000);
 setInterval(loadExecution, 3000);
-loadExecution();
-</script> 
-    fetch('http://127.0.0.1:3000/api/repos')
 
-</body>
-</html>
-```
+// initial load
+loadRepos();
+loadProcessing();
+loadExecution();
+</script>
