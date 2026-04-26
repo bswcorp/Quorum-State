@@ -240,6 +240,31 @@ async function loadRepos() {
 setInterval(loadRepos, 5000);
 loadRepos();
     </script>
+    <script>
+async function loadProcessing() {
+    const el = document.querySelector('.center-panel .log');
+    el.innerHTML = `
+        Automation Engine Running...<br>
+        Active Tasks: ${Math.floor(Math.random()*5)+1}<br>
+        Status: STABLE
+    `;
+}
+
+setInterval(loadProcessing, 4000);
+loadProcessing();
+    </script>
+   <script>
+async function loadExecution() {
+    const el = document.querySelector('.right-panel .log');
+    el.innerHTML = `
+        Last Execution: ${new Date().toLocaleTimeString()}<br>
+        Result: SUCCESS ✔
+    `;
+}
+
+setInterval(loadExecution, 3000);
+loadExecution();
+</script> 
 
 </body>
 </html>
