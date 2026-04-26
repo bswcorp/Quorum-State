@@ -1,34 +1,189 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QSTATE | Sovereign OS</title>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --q-gold: #c5a059;
+            --q-cyan: #00f2ff;
+            --q-bg: #010103;
+            --panel-bg: rgba(4, 6, 12, 0.96);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--q-bg);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            overflow: hidden;
+        }
+
+        #quantum-viewport {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .interface-grid {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            grid-template-rows: 80px 1fr 160px;
+            gap: 10px;
+            padding: 10px;
+            height: 100vh;
+        }
+
+        .os-panel {
+            background: var(--panel-bg);
+            border: 1px solid rgba(197,160,89,0.2);
+            padding: 12px;
+            backdrop-filter: blur(10px);
+            overflow: auto;
+        }
+
+        .os-header {
+            grid-column: 1 / 4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--q-gold);
+        }
+
+        .title {
+            color: var(--q-gold);
+            font-weight: 800;
+        }
+
+        .status {
+            color: var(--q-cyan);
+            font-size: 12px;
+        }
+
+        .left-panel { grid-column: 1; }
+        .center-panel { grid-column: 2; }
+        .right-panel { grid-column: 3; }
+        .footer { grid-column: 1 / 4; }
+
+        .log {
+            font-size: 12px;
+            color: var(--q-cyan);
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<canvas id="quantum-viewport"></canvas>
+
+<div class="interface-grid">
+
+    <div class="os-panel os-header">
+        <div class="title">QSTATE :: SOVEREIGN OS</div>
+        <div class="status">LIVE SYSTEM</div>
+    </div>
+
+    <div class="os-panel left-panel">
+        <h3>Observation</h3>
+        <div class="log">Loading...</div>
+    </div>
+
+    <div class="os-panel center-panel">
+        <h3>Processing</h3>
+        <div class="log">Initializing...</div>
+    </div>
+
+    <div class="os-panel right-panel">
+        <h3>Execution</h3>
+        <div class="log">Waiting...</div>
+    </div>
+
+    <div class="os-panel footer">
+        <h3>System Log</h3>
+        <div class="log">Booting system...</div>
+    </div>
+
+</div>
+
 <script>
+/* THREE JS BACKGROUND */
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('quantum-viewport') });
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const geometry = new THREE.BufferGeometry();
+const vertices = [];
+
+for (let i = 0; i < 3000; i++) {
+    vertices.push(
+        THREE.MathUtils.randFloatSpread(1500),
+        THREE.MathUtils.randFloatSpread(1500),
+        THREE.MathUtils.randFloatSpread(1500)
+    );
+}
+
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+const material = new THREE.PointsMaterial({ size: 1 });
+const points = new THREE.Points(geometry, material);
+
+scene.add(points);
+camera.position.z = 400;
+
+function animate() {
+    requestAnimationFrame(animate);
+    points.rotation.y += 0.0008;
+    renderer.render(scene, camera);
+}
+
+animate();
+
+/* DASHBOARD DATA */
+
 async function loadRepos() {
     try {
         const res = await fetch('http://127.0.0.1:3000/api/repos');
         const data = await res.json();
 
-        const container = document.querySelector('.left-panel .log');
-        container.innerHTML = "";
+        const el = document.querySelector('.left-panel .log');
+        el.innerHTML = "";
 
-        data.slice(0, 6).forEach(repo => {
-            const date = new Date(repo.updated).toLocaleString();
-
-            container.innerHTML += `
-                <div>
-                    <strong>${repo.name}</strong><br>
-                    ⭐ ${repo.stars} | Updated: ${date}
-                </div>
-                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1)">
-            `;
+        data.slice(0, 6).forEach(r => {
+            const d = new Date(r.updated).toLocaleString();
+            el.innerHTML += `<b>${r.name}</b><br>⭐ ${r.stars} | ${d}<hr>`;
         });
 
     } catch (err) {
-        document.querySelector('.left-panel .log').innerHTML = "ERROR CONNECTING API";
-        console.log(err);
+        document.querySelector('.left-panel .log').innerHTML = "API ERROR";
     }
 }
 
 function loadProcessing() {
     const el = document.querySelector('.center-panel .log');
     el.innerHTML = `
-        Automation Engine Running...<br>
+        Engine Running<br>
         Active Tasks: ${Math.floor(Math.random()*5)+1}<br>
         Status: STABLE
     `;
@@ -37,18 +192,21 @@ function loadProcessing() {
 function loadExecution() {
     const el = document.querySelector('.right-panel .log');
     el.innerHTML = `
-        Last Execution: ${new Date().toLocaleTimeString()}<br>
-        Result: SUCCESS ✔
+        Last Run: ${new Date().toLocaleTimeString()}<br>
+        Result: SUCCESS
     `;
 }
 
-// loop
+/* LOOP */
 setInterval(loadRepos, 5000);
 setInterval(loadProcessing, 4000);
 setInterval(loadExecution, 3000);
 
-// initial load
 loadRepos();
 loadProcessing();
 loadExecution();
 </script>
+
+</body>
+</html>
+```
