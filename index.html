@@ -1,212 +1,43 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QSTATE | Sovereign OS</title>
-
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap" rel="stylesheet">
-
+    <title>QSTATE | Sovereign Audit Dashboard</title>
     <style>
-        :root {
-            --q-gold: #c5a059;
-            --q-cyan: #00f2ff;
-            --q-bg: #010103;
-            --panel-bg: rgba(4, 6, 12, 0.96);
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--q-bg);
-            color: #fff;
-            font-family: 'JetBrains Mono', monospace;
-            overflow: hidden;
-        }
-
-        #quantum-viewport {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .interface-grid {
-            position: relative;
-            z-index: 10;
-            display: grid;
-            grid-template-columns: 300px 1fr 300px;
-            grid-template-rows: 80px 1fr 160px;
-            gap: 10px;
-            padding: 10px;
-            height: 100vh;
-        }
-
-        .os-panel {
-            background: var(--panel-bg);
-            border: 1px solid rgba(197,160,89,0.2);
-            padding: 12px;
-            backdrop-filter: blur(10px);
-            overflow: auto;
-        }
-
-        .os-header {
-            grid-column: 1 / 4;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--q-gold);
-        }
-
-        .title {
-            color: var(--q-gold);
-            font-weight: 800;
-        }
-
-        .status {
-            color: var(--q-cyan);
-            font-size: 12px;
-        }
-
-        .left-panel { grid-column: 1; }
-        .center-panel { grid-column: 2; }
-        .right-panel { grid-column: 3; }
-        .footer { grid-column: 1 / 4; }
-
-        .log {
-            font-size: 12px;
-            color: var(--q-cyan);
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+        body { background-color: #0a0a0a; color: #d4af37; font-family: 'Courier New', monospace; text-align: center; }
+        .dashboard { border: 2px solid #d4af37; padding: 20px; margin: 50px auto; width: 80%; background: #111; box-shadow: 0 0 20px #d4af37; }
+        .stat-box { display: inline-block; width: 45%; margin: 10px; padding: 20px; border: 1px solid #444; vertical-align: top; }
+        .amount { font-size: 2.5em; font-weight: bold; color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+        .label { font-size: 1.1em; color: #aaa; text-transform: uppercase; margin-bottom: 10px; }
+        .status-led { height: 10px; width: 10px; background-color: #00ff00; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        .log-box { text-align: left; font-size: 0.8em; color: #666; margin-top: 20px; padding: 10px; background: #000; border: 1px solid #222; }
     </style>
 </head>
-
 <body>
 
-<canvas id="quantum-viewport"></canvas>
-
-<div class="interface-grid">
-
-    <div class="os-panel os-header">
-        <div class="title">QSTATE :: SOVEREIGN OS</div>
-        <div class="status">LIVE SYSTEM</div>
+<div class="dashboard">
+    <h2>SOVEREIGN TITAN GENESIS | UNIT 008</h2>
+    <hr color="#d4af37">
+    
+    <div class="stat-box">
+        <div class="label">Total Collateral Value</div>
+        <div class="amount">Rp 1.498 T</div>
+        <div style="font-size: 0.7em; color: #888;">Backed by Physical & Digital Assets</div>
     </div>
 
-    <div class="os-panel left-panel">
-        <h3>Observation</h3>
-        <div class="log">Loading...</div>
+    <div class="stat-box">
+        <div class="label">Audit Status</div>
+        <div class="amount" style="color: #d4af37;">VERIFIED</div>
+        <div style="font-size: 0.9em;"><span class="status-led"></span>Sentinel AI Active</div>
     </div>
 
-    <div class="os-panel center-panel">
-        <h3>Processing</h3>
-        <div class="log">Initializing...</div>
+    <div class="log-box">
+        <div>[LOG] 10/05/2026 09:20:00 - Syncing Dual-Node Singapore-Swiss... OK</div>
+        <div>[LOG] 10/05/2026 09:20:05 - Verifying Batch 02 (Financial Vesting)... OK</div>
+        <div>[LOG] 10/05/2026 09:20:10 - Tax Gateway (NPWP: 73.093.085.6) Active... OK</div>
+        <div>[SYSTEM] THE GIANT IS BREATHING.</div>
     </div>
-
-    <div class="os-panel right-panel">
-        <h3>Execution</h3>
-        <div class="log">Waiting...</div>
-    </div>
-
-    <div class="os-panel footer">
-        <h3>System Log</h3>
-        <div class="log">Booting system...</div>
-    </div>
-
 </div>
-
-<script>
-/* THREE JS BACKGROUND */
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('quantum-viewport') });
-
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-const geometry = new THREE.BufferGeometry();
-const vertices = [];
-
-for (let i = 0; i < 3000; i++) {
-    vertices.push(
-        THREE.MathUtils.randFloatSpread(1500),
-        THREE.MathUtils.randFloatSpread(1500),
-        THREE.MathUtils.randFloatSpread(1500)
-    );
-}
-
-geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-const material = new THREE.PointsMaterial({ size: 1 });
-const points = new THREE.Points(geometry, material);
-
-scene.add(points);
-camera.position.z = 400;
-
-function animate() {
-    requestAnimationFrame(animate);
-    points.rotation.y += 0.0008;
-    renderer.render(scene, camera);
-}
-
-animate();
-
-/* DASHBOARD DATA */
-
-async function loadRepos() {
-    try {
-        const res = await fetch('http://127.0.0.1:3000/api/repos');
-        const data = await res.json();
-
-        const el = document.querySelector('.left-panel .log');
-        el.innerHTML = "";
-
-        data.slice(0, 6).forEach(r => {
-            const d = new Date(r.updated).toLocaleString();
-            el.innerHTML += `<b>${r.name}</b><br>⭐ ${r.stars} | ${d}<hr>`;
-        });
-
-    } catch (err) {
-        document.querySelector('.left-panel .log').innerHTML = "API ERROR";
-    }
-}
-
-function loadProcessing() {
-    const el = document.querySelector('.center-panel .log');
-    el.innerHTML = `
-        Engine Running<br>
-        Active Tasks: ${Math.floor(Math.random()*5)+1}<br>
-        Status: STABLE
-    `;
-}
-
-function loadExecution() {
-    const el = document.querySelector('.right-panel .log');
-    el.innerHTML = `
-        Last Run: ${new Date().toLocaleTimeString()}<br>
-        Result: SUCCESS
-    `;
-}
-
-/* LOOP */
-setInterval(loadRepos, 5000);
-setInterval(loadProcessing, 4000);
-setInterval(loadExecution, 3000);
-
-loadRepos();
-loadProcessing();
-loadExecution();
-</script>
 
 </body>
 </html>
-```
