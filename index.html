@@ -3,360 +3,437 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>$QSTATE | Sovereign Galactic Dashboard</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+<title>QSTATE | Sovereign Digital Infrastructure</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#02050d;
-    color:white;
-    font-family:'Rajdhani',sans-serif;
-    overflow-x:hidden;
+background:#02050d;
+color:white;
+font-family:'Rajdhani',sans-serif;
+overflow-x:hidden;
 }
 
-/* GALAXY BACKGROUND */
+/* BACKGROUND */
+
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at 20% 20%, rgba(0,255,255,.15), transparent 30%),
-    radial-gradient(circle at 80% 10%, rgba(140,82,255,.15), transparent 30%),
-    radial-gradient(circle at 50% 80%, rgba(255,215,0,.08), transparent 40%),
-    #02050d;
-    z-index:-3;
+content:"";
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(circle at 20% 20%, rgba(0,255,255,.15), transparent 30%),
+radial-gradient(circle at 80% 10%, rgba(140,82,255,.12), transparent 30%),
+radial-gradient(circle at 50% 80%, rgba(255,215,0,.06), transparent 40%),
+#02050d;
+
+z-index:-3;
 }
 
 .stars{
-    position:fixed;
-    inset:0;
-    background:url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity:.3;
-    z-index:-2;
-    animation:starMove 120s linear infinite;
+position:fixed;
+inset:0;
+background:url('https://www.transparenttextures.com/patterns/stardust.png');
+opacity:.25;
+z-index:-2;
+animation:starMove 120s linear infinite;
 }
 
 @keyframes starMove{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-1500px);
-    }
+from{transform:translateY(0);}
+to{transform:translateY(-1200px);}
 }
 
 .grid{
-    position:fixed;
-    inset:0;
-    background:
-    linear-gradient(rgba(0,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,.05) 1px, transparent 1px);
-    background-size:40px 40px;
-    transform:rotateX(75deg) translateY(300px);
-    transform-origin:center;
-    opacity:.25;
-    z-index:-1;
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(rgba(0,255,255,.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,255,255,.05) 1px, transparent 1px);
+
+background-size:40px 40px;
+
+transform:rotateX(75deg) translateY(300px);
+
+opacity:.18;
+
+z-index:-1;
 }
 
 /* HEADER */
+
 header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,0,.3);
-    border-bottom:1px solid rgba(255,255,255,.08);
-    z-index:100;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 8%;
+
+backdrop-filter:blur(15px);
+
+background:rgba(0,0,0,.25);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+z-index:999;
 }
 
 .logo{
-    font-family:'Orbitron',sans-serif;
-    font-size:1.8rem;
-    color:#00f0ff;
-    font-weight:900;
-    letter-spacing:3px;
-    text-shadow:0 0 15px #00f0ff;
+font-family:'Orbitron',sans-serif;
+font-size:1.6rem;
+font-weight:900;
+color:#00f0ff;
+letter-spacing:2px;
+
+text-shadow:0 0 20px #00f0ff;
 }
 
 nav a{
-    color:#ddd;
-    text-decoration:none;
-    margin-left:25px;
-    transition:.3s;
+color:#ddd;
+text-decoration:none;
+margin-left:20px;
 }
 
 nav a:hover{
-    color:#00f0ff;
+color:#00f0ff;
 }
 
 /* HERO */
+
 .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:120px 8% 60px;
-    position:relative;
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:120px 8% 60px;
+
+text-align:center;
+position:relative;
 }
 
 .hero-content{
-    max-width:1000px;
+max-width:1000px;
 }
 
 .hero h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:5rem;
-    line-height:1.1;
-    margin-bottom:25px;
-    background:linear-gradient(90deg,#00f0ff,#ffd700,#8c52ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-family:'Orbitron',sans-serif;
+font-size:4.8rem;
+line-height:1.1;
+
+background:
+linear-gradient(
+90deg,
+#00f0ff,
+#ffd700,
+#8c52ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+margin-bottom:25px;
 }
 
 .hero p{
-    font-size:1.3rem;
-    line-height:1.7;
-    color:#cfd8ff;
-    margin-bottom:40px;
+font-size:1.2rem;
+line-height:1.8;
+color:#c9d6ff;
+margin-bottom:35px;
 }
 
 .btn-group{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .btn{
-    padding:15px 35px;
-    border-radius:60px;
-    text-decoration:none;
-    font-weight:bold;
-    letter-spacing:1px;
-    transition:.35s;
+padding:14px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+cursor:pointer;
+border:none;
 }
 
 .btn-primary{
-    background:linear-gradient(90deg,#00f0ff,#006eff);
-    color:white;
-    box-shadow:0 0 25px rgba(0,240,255,.5);
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px);
+background:linear-gradient(90deg,#00f0ff,#006eff);
+color:white;
 }
 
 .btn-secondary{
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.04);
-    color:white;
-    backdrop-filter:blur(10px);
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+color:white;
 }
 
-.btn-secondary:hover{
-    border-color:#ffd700;
-}
-
-/* DASHBOARD */
-.dashboard{
-    width:90%;
-    margin:auto;
-    padding:40px;
-    border-radius:30px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(15px);
-    box-shadow:0 0 35px rgba(0,240,255,.08);
-}
-
-.dashboard h2{
-    font-family:'Orbitron',sans-serif;
-    text-align:center;
-    color:#ffd700;
-    margin-bottom:15px;
-}
-
-.divider{
-    height:1px;
-    background:linear-gradient(to right,transparent,#ffd700,transparent);
-    margin:20px 0 40px;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.stat-box{
-    padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.06);
-    transition:.35s;
-}
-
-.stat-box:hover{
-    transform:translateY(-8px);
-    border-color:#00f0ff;
-    box-shadow:0 0 25px rgba(0,240,255,.15);
-}
-
-.label{
-    color:#aaa;
-    margin-bottom:10px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-.amount{
-    font-size:2.5rem;
-    font-weight:bold;
-    color:#00ff99;
-    text-shadow:0 0 15px rgba(0,255,153,.7);
-}
-
-.status{
-    color:#ffd700;
-}
-
-/* PROOF SECTION */
-.proof-section{
-    margin-top:40px;
-    padding:30px;
-    border-radius:25px;
-    background:rgba(0,20,40,.55);
-    border:1px solid rgba(0,255,255,.1);
-}
-
-.proof-section h3{
-    color:#ffd700;
-    margin-bottom:20px;
-    font-family:'Orbitron',sans-serif;
-}
-
-.hash{
-    color:#6cf;
-    word-break:break-all;
-}
-
-.proof-item{
-    margin-bottom:15px;
-}
-
-.proof-item a{
-    color:#8fff8f;
-    text-decoration:none;
-}
-
-/* LOG BOX */
-.log-box{
-    margin-top:35px;
-    background:#000;
-    padding:20px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,.08);
-    font-size:.9rem;
-    color:#777;
-    line-height:1.8;
-}
-
-/* TICKER */
-.ticker-bar{
-    margin-top:40px;
-    overflow:hidden;
-    border-top:1px solid rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:#050b14;
-    padding:15px 0;
-}
-
-.ticker-content{
-    white-space:nowrap;
-    display:inline-block;
-    padding-left:100%;
-    animation:tickerMove 25s linear infinite;
-    color:#00f0ff;
-    font-weight:bold;
-}
-
-@keyframes tickerMove{
-    0%{ transform:translateX(0); }
-    100%{ transform:translateX(-100%); }
-}
-
-/* ENHANCED FOOTER */
-footer{
-    margin-top:80px;
-    padding:80px 20px;
-    text-align:center;
-    background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,240,255,.05));
-    border-top:1px solid rgba(0,240,255,.15);
-    position:relative;
-}
-
-footer::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:250px;
-    height:1px;
-    background:#00f0ff;
-    box-shadow:0 0 15px #00f0ff, 0 0 30px #00f0ff;
-}
-
-footer h3{
-    font-family:'Orbitron',sans-serif;
-    color:#00f0ff;
-    margin-bottom:15px;
-    text-shadow:0 0 15px #00f0ff;
-}
-
-footer p{
-    color:#9ab0c9;
-    max-width:700px;
-    margin:auto;
+.btn:hover{
+transform:translateY(-3px);
 }
 
 /* PLANET */
+
 .planet{
-    position:absolute;
-    width:320px;
-    height:320px;
-    border-radius:50%;
-    right:5%;
-    top:15%;
-    background:radial-gradient(circle at 30% 30%, #00f0ff, #050b18 70%);
-    opacity:.18;
-    box-shadow:0 0 120px rgba(0,240,255,.35);
-    animation:planetFloat 8s ease-in-out infinite;
+position:absolute;
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+right:8%;
+top:20%;
+
+background:
+radial-gradient(circle at 30% 30%, #00f0ff, #07111d 70%);
+
+opacity:.18;
+
+box-shadow:0 0 120px rgba(0,240,255,.4);
 }
 
-@keyframes planetFloat{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-25px); }
+/* DASHBOARD */
+
+.dashboard{
+width:92%;
+max-width:1300px;
+
+margin:auto;
+
+padding:40px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+}
+
+.dashboard h2{
+text-align:center;
+font-family:'Orbitron',sans-serif;
+color:#ffd700;
+}
+
+.divider{
+height:1px;
+margin:25px 0 35px;
+
+background:
+linear-gradient(
+to right,
+transparent,
+#ffd700,
+transparent
+);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+padding:25px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+}
+
+.label{
+color:#aaa;
+margin-bottom:10px;
+}
+
+.amount{
+font-size:2rem;
+font-weight:bold;
+color:#00ff99;
+}
+
+/* WALLET */
+
+.wallet-box{
+margin-top:30px;
+}
+
+.wallet-address{
+word-break:break-all;
+color:#00f0ff;
+margin-top:10px;
+}
+
+/* STORAGE */
+
+.storage-box{
+margin-top:30px;
+padding:25px;
+
+border-radius:20px;
+
+background:rgba(0,20,40,.55);
+
+border:1px solid rgba(0,255,255,.12);
+}
+
+.bar{
+height:14px;
+background:#111;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.bar-fill{
+height:100%;
+width:35%;
+
+background:
+linear-gradient(
+90deg,
+#00f0ff,
+#00ff99
+);
+}
+
+/* LOG */
+
+.log-box{
+margin-top:25px;
+
+padding:20px;
+
+background:#000;
+
+border-radius:20px;
+
+font-size:.9rem;
+
+color:#888;
+}
+
+/* TICKER */
+
+.ticker{
+margin-top:35px;
+
+padding:14px;
+
+border-top:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.08);
+
+overflow:hidden;
+}
+
+.ticker-text{
+white-space:nowrap;
+
+animation:moveTicker 25s linear infinite;
+
+display:inline-block;
+
+padding-left:100%;
+}
+
+@keyframes moveTicker{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+/* FOOTER */
+
+footer{
+
+margin-top:80px;
+
+padding:80px 20px;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,0),
+rgba(0,240,255,.05)
+);
+
+border-top:
+1px solid rgba(0,240,255,.12);
+
+position:relative;
+}
+
+footer::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+
+width:220px;
+height:1px;
+
+background:#00f0ff;
+
+box-shadow:
+0 0 15px #00f0ff,
+0 0 30px #00f0ff;
+}
+
+footer h3{
+font-family:'Orbitron',sans-serif;
+color:#00f0ff;
+margin-bottom:15px;
+}
+
+footer p{
+color:#9ab0c9;
 }
 
 @media(max-width:768px){
-    .hero h1{ font-size:3rem; }
-    nav{ display:none; }
-    .planet{ width:180px; height:180px; }
+
+.hero h1{
+font-size:3rem;
 }
+
+nav{
+display:none;
+}
+
+.planet{
+display:none;
+}
+
+}
+
 </style>
 </head>
 
@@ -366,80 +443,378 @@ footer p{
 <div class="grid"></div>
 
 <header>
-    <div class="logo">SQSTATE</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Technology</a>
-        <a href="#">Audit</a>
-        <a href="#">Nodes</a>
-        <a href="#">Contact</a>
-    </nav>
+
+<div class="logo">
+QSTATE
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Infrastructure</a>
+<a href="#">Wallet</a>
+<a href="#">Audit</a>
+<a href="#">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
-    <div class="planet"></div>
-    <div class="hero-content">
-        <h1>Sovereign<br>Galactic Infrastructure</h1>
-        <p>Building the next civilization-scale infrastructure powered by Sentinel AI, Proof-of-Titan, H2K biometric cryptography, and ethical sovereign economy systems.</p>
-        <div class="btn-group">
-            <a href="#" class="btn btn-primary">ENTER ECOSYSTEM</a>
-            <a href="#" class="btn btn-secondary">READ WHITEPAPER</a>
-        </div>
-    </div>
+
+<div class="planet"></div>
+
+<div class="hero-content">
+
+<h1>
+SOVEREIGN<br>
+DIGITAL INFRASTRUCTURE
+</h1>
+
+<p>
+Identity. Treasury. Wallet. Registry.
+Building the next civilization-grade digital foundation.
+</p>
+
+<div class="btn-group">
+
+<button class="btn btn-primary" onclick="connectWallet()">
+CONNECT AKSA WALLET
+</button>
+
+<button class="btn btn-secondary">
+READ WHITEPAPER
+</button>
+
+</div>
+
+</div>
+
 </section>
 
 <section class="dashboard">
-    <h2>SOVEREIGN TITAN GENESIS | UNIT 008</h2>
-    <div class="divider"></div>
 
-    <div class="stats">
-        <div class="stat-box">
-            <div class="label">Total Collateral Value</div>
-            <div class="amount" id="counter">Rp 1.125.000.000.000</div>
-            <small>Backed by Physical & Digital Assets</small>
-        </div>
-        <div class="stat-box">
-            <div class="label">Audit Status</div>
-            <div class="amount status">VERIFIED</div>
-            <small>🟢 Sentinel AI Active</small>
-        </div>
-    </div>
+<h2>QSTATE SOVEREIGN CORE</h2>
 
-    <!-- PROOF LAYER WITH MONITOR WIDGET -->
-    <div class="proof-section">
-        <h3>🔒 Sovereign Proof Layer</h3>
-        <div class="proof-item">
-            <strong>PoR Hash:</strong><br>
-            <span class="hash">0x8f3a9c7d4b2e1f6d9a0c5b7e2d4f8a9b3c7d1e5f6a8b9c0d1e2f3a4b5c6d7e8f</span>
-        </div>
-        <div class="proof-item">
-            <strong>ZKP Certificate:</strong><br>
-            <a href="./docs/ZKP-CERTIFICATE-UNIT008.json" target="_blank">View Certificate</a>
-        </div>
-        <div style="margin-top: 15px;"><small>✅ Verified via Proof of Titan Protocol</small></div>
-    </div>
+<div class="divider"></div>
 
-    <!-- STORAGE ACTIVITY MONITOR -->
-    <div class="proof-section">
-        <h3>💾 Storage Activity Monitor</h3>
-        <p id="storage-io-status">⚡ STANDBY (SYNCHRONIZED)</p>
-        <div style="height:14px; background:#111; border-radius:20px; overflow:hidden; margin-top:15px;">
-            <div id="storage-density-bar" style="width:35%; height:100%; background:linear-gradient(90deg, #00f0ff, #00ff99); transition: width 0.5s ease;"></div>
-        </div>
-        <p id="disk-bytes-counter" style="margin-top:10px;">Allocated Index: 12.50 KB</p>
-    </div>
+<div class="stats">
 
-    <!-- LOG BOX -->
-    <div class="log-box">
-        [SYSTEM LOG]: STG-Chain Core Node Operational // Integrity Check 100% Passed // Sentinel Security Engine Shield Active.
-    </div>
+<div class="card">
+<div class="label">Treasury Value</div>
+<div class="amount" id="counter">Rp 0</div>
+</div>
 
-    <!-- TICKER BAR -->
-    <div class="ticker-bar">
-        <div class="ticker-content">
-            $QSTATE: ACTIVE ADOPTION // EXPANSION TO ASEAN HUB RUNNING // NEW MARKET PENETRATION 98.4% // SECURE CRYPTOGRAPHIC BOUNDARY LOCKED
-        </div>
-    </div>
+<div class="card">
+<div class="label">Sentinel Status</div>
+<div class="amount">
+ACTIVE
+</div>
+</div>
+
+</div>
+
+<div class="wallet-box card">
+
+<h3>🪙 AKSA Wallet</h3>
+
+<p id="walletStatus">
+Wallet Not Connected
+</p>
+
+<p
+id="walletAddress"
+class="wallet-address">
+-
+</p>
+
+</div>
+
+<div class="wallet-box card">
+
+<h3>📦 AKSA Token Data</h3>
+
+<p id="tokenName">Name: -</p>
+<p id="tokenSymbol">Symbol: -</p>
+<p id="tokenSupply">Supply: -</p>
+
+</div>
+
+<div class="storage-box">
+
+<h3>
+💾 Storage Activity Monitor
+</h3>
+
+<p id="storage-io-status">
+⚡ STANDBY (SYNCHRONIZED)
+</p>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="storage-density-bar">
+</div>
+</div>
+
+<p id="disk-bytes-counter">
+Allocated Index: 12.50 KB
+</p>
+
+</div>
+
+<div class="log-box">
+
+<div>[LOG] Sentinel AI Matrix Active</div>
+<div>[LOG] Sovereign Registry Connected</div>
+<div>[LOG] Treasury Synchronization OK</div>
+<div>[SYSTEM] QSTATE ONLINE</div>
+
+</div>
+
+<div class="ticker">
+
+<div
+id="ticker"
+class="ticker-text">
+Loading Sovereign Metrics...
+</div>
+
+</div>
+
 </section>
 
-    
+<footer>
+
+<h3>
+QSTATE SOVEREIGN NETWORK
+</h3>
+
+<p>
+Building identity, treasury, registry,
+wallet and civilization-scale infrastructure
+for the next digital era.
+</p>
+
+</footer>
+
+<script type="module">
+
+import {
+ethers
+}
+from "https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.min.js";
+
+const CONTRACT_ADDRESS =
+"YOUR_AKSA_CONTRACT";
+
+const CONTRACT_ABI = [
+
+"function name() view returns (string)",
+"function symbol() view returns (string)",
+"function totalSupply() view returns (uint256)"
+
+];
+
+window.connectWallet =
+async function(){
+
+if(!window.ethereum){
+
+alert("MetaMask / AKSA Wallet not detected");
+
+return;
+}
+
+try{
+
+await ethereum.request({
+method:"eth_requestAccounts"
+});
+
+const provider =
+new ethers.BrowserProvider(window.ethereum);
+
+const signer =
+await provider.getSigner();
+
+const address =
+await signer.getAddress();
+
+document.getElementById(
+'walletStatus'
+).innerText =
+"CONNECTED";
+
+document.getElementById(
+'walletAddress'
+).innerText =
+address;
+
+const contract =
+new ethers.Contract(
+CONTRACT_ADDRESS,
+CONTRACT_ABI,
+provider
+);
+
+const name =
+await contract.name();
+
+const symbol =
+await contract.symbol();
+
+const supply =
+await contract.totalSupply();
+
+document.getElementById(
+'tokenName'
+).innerText =
+"Name: " + name;
+
+document.getElementById(
+'tokenSymbol'
+).innerText =
+"Symbol: " + symbol;
+
+document.getElementById(
+'tokenSupply'
+).innerText =
+"Supply: " +
+supply.toString();
+
+triggerStorageIOActivity();
+
+}catch(err){
+
+console.error(err);
+
+alert(
+"Wallet connection failed"
+);
+
+}
+
+};
+
+function triggerStorageIOActivity(){
+
+const ioStatus =
+document.getElementById(
+'storage-io-status'
+);
+
+const bytesCounter =
+document.getElementById(
+'disk-bytes-counter'
+);
+
+const densityBar =
+document.getElementById(
+'storage-density-bar'
+);
+
+ioStatus.innerText =
+"💾 WRITING STATE TO DISK...";
+
+ioStatus.style.color =
+"#ffcc00";
+
+setTimeout(()=>{
+
+ioStatus.innerText =
+"⚡ STANDBY (SYNCHRONIZED)";
+
+ioStatus.style.color =
+"#00ff99";
+
+let current =
+parseFloat(
+bytesCounter.innerText
+.replace(/[^0-9.]/g,'')
+);
+
+current += 0.12;
+
+bytesCounter.innerText =
+"Allocated Index: " +
+current.toFixed(2) +
+" KB";
+
+densityBar.style.width =
+Math.min(
+parseInt(densityBar.style.width || 35)+2,
+100
+) + "%";
+
+},800);
+
+}
+
+let targetValue =
+1498000000000000;
+
+let currentValue = 0;
+
+const counterEl =
+document.getElementById(
+'counter'
+);
+
+let counter =
+setInterval(()=>{
+
+currentValue +=
+targetValue/200;
+
+if(currentValue >= targetValue){
+
+currentValue =
+targetValue;
+
+clearInterval(counter);
+
+}
+
+counterEl.innerText =
+"Rp " +
+Math.floor(
+currentValue
+).toLocaleString('id-ID');
+
+},20);
+
+const ticker =
+document.getElementById(
+'ticker'
+);
+
+function updateTicker(){
+
+const metrics = [
+
+"🟢 AKSA/USD +0.12%",
+"🟢 AKSA/IDR +0.09%",
+"🟢 Sovereign Index +1.22%",
+"🟢 Treasury Verified"
+
+];
+
+ticker.innerText =
+metrics.join(" | ") +
+" | " +
+new Date().toLocaleString(
+'id-ID'
+);
+
+}
+
+updateTicker();
+
+setInterval(
+updateTicker,
+5000
+);
+
+</script>
+
+</body>
+</html>
