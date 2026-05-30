@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -296,25 +294,43 @@ nav a:hover{
 }
 
 @keyframes tickerMove{
-    0%{
-        transform:translateX(0);
-    }
-    100%{
-        transform:translateX(-100%);
-    }
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-100%); }
 }
 
-/* FOOTER */
+/* ENHANCED FOOTER */
 footer{
+    margin-top:80px;
+    padding:80px 20px;
     text-align:center;
-    padding:60px 20px;
-    color:#888;
+    background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,240,255,.05));
+    border-top:1px solid rgba(0,240,255,.15);
+    position:relative;
+}
+
+footer::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:250px;
+    height:1px;
+    background:#00f0ff;
+    box-shadow:0 0 15px #00f0ff, 0 0 30px #00f0ff;
 }
 
 footer h3{
-    color:#00f0ff;
-    margin-bottom:10px;
     font-family:'Orbitron',sans-serif;
+    color:#00f0ff;
+    margin-bottom:15px;
+    text-shadow:0 0 15px #00f0ff;
+}
+
+footer p{
+    color:#9ab0c9;
+    max-width:700px;
+    margin:auto;
 }
 
 /* PLANET */
@@ -325,38 +341,22 @@ footer h3{
     border-radius:50%;
     right:5%;
     top:15%;
-    background:
-    radial-gradient(circle at 30% 30%, #00f0ff, #050b18 70%);
+    background:radial-gradient(circle at 30% 30%, #00f0ff, #050b18 70%);
     opacity:.18;
     box-shadow:0 0 120px rgba(0,240,255,.35);
     animation:planetFloat 8s ease-in-out infinite;
 }
 
 @keyframes planetFloat{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-25px);
-    }
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-25px); }
 }
 
 @media(max-width:768px){
-
-    .hero h1{
-        font-size:3rem;
-    }
-
-    nav{
-        display:none;
-    }
-
-    .planet{
-        width:180px;
-        height:180px;
-    }
+    .hero h1{ font-size:3rem; }
+    nav{ display:none; }
+    .planet{ width:180px; height:180px; }
 }
-
 </style>
 </head>
 
@@ -367,7 +367,6 @@ footer h3{
 
 <header>
     <div class="logo">SQSTATE</div>
-
     <nav>
         <a href="#">Home</a>
         <a href="#">Technology</a>
@@ -378,221 +377,69 @@ footer h3{
 </header>
 
 <section class="hero">
-
-<div class="planet"></div>
-
-<div class="hero-content">
-
-<h1>
-Sovereign<br>
-Galactic Infrastructure
-</h1>
-
-<p>
-Building the next civilization-scale infrastructure powered by
-Sentinel AI, Proof-of-Titan, H2K biometric cryptography,
-and ethical sovereign economy systems.
-</p>
-
-<div class="btn-group">
-    <a href="#" class="btn btn-primary">ENTER ECOSYSTEM</a>
-    <a href="#" class="btn btn-secondary">READ WHITEPAPER</a>
-</div>
-
-</div>
+    <div class="planet"></div>
+    <div class="hero-content">
+        <h1>Sovereign<br>Galactic Infrastructure</h1>
+        <p>Building the next civilization-scale infrastructure powered by Sentinel AI, Proof-of-Titan, H2K biometric cryptography, and ethical sovereign economy systems.</p>
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary">ENTER ECOSYSTEM</a>
+            <a href="#" class="btn btn-secondary">READ WHITEPAPER</a>
+        </div>
+    </div>
 </section>
 
 <section class="dashboard">
+    <h2>SOVEREIGN TITAN GENESIS | UNIT 008</h2>
+    <div class="divider"></div>
 
-<h2>SOVEREIGN TITAN GENESIS | UNIT 008</h2>
+    <div class="stats">
+        <div class="stat-box">
+            <div class="label">Total Collateral Value</div>
+            <div class="amount" id="counter">Rp 1.125.000.000.000</div>
+            <small>Backed by Physical & Digital Assets</small>
+        </div>
+        <div class="stat-box">
+            <div class="label">Audit Status</div>
+            <div class="amount status">VERIFIED</div>
+            <small>🟢 Sentinel AI Active</small>
+        </div>
+    </div>
 
-<div class="divider"></div>
+    <!-- PROOF LAYER WITH MONITOR WIDGET -->
+    <div class="proof-section">
+        <h3>🔒 Sovereign Proof Layer</h3>
+        <div class="proof-item">
+            <strong>PoR Hash:</strong><br>
+            <span class="hash">0x8f3a9c7d4b2e1f6d9a0c5b7e2d4f8a9b3c7d1e5f6a8b9c0d1e2f3a4b5c6d7e8f</span>
+        </div>
+        <div class="proof-item">
+            <strong>ZKP Certificate:</strong><br>
+            <a href="./docs/ZKP-CERTIFICATE-UNIT008.json" target="_blank">View Certificate</a>
+        </div>
+        <div style="margin-top: 15px;"><small>✅ Verified via Proof of Titan Protocol</small></div>
+    </div>
 
-<div class="stats">
+    <!-- STORAGE ACTIVITY MONITOR -->
+    <div class="proof-section">
+        <h3>💾 Storage Activity Monitor</h3>
+        <p id="storage-io-status">⚡ STANDBY (SYNCHRONIZED)</p>
+        <div style="height:14px; background:#111; border-radius:20px; overflow:hidden; margin-top:15px;">
+            <div id="storage-density-bar" style="width:35%; height:100%; background:linear-gradient(90deg, #00f0ff, #00ff99); transition: width 0.5s ease;"></div>
+        </div>
+        <p id="disk-bytes-counter" style="margin-top:10px;">Allocated Index: 12.50 KB</p>
+    </div>
 
-<div class="stat-box">
-    <div class="label">Total Collateral Value</div>
-    <div class="amount" id="counter">Rp 0</div>
-    <small>Backed by Physical & Digital Assets</small>
-</div>
+    <!-- LOG BOX -->
+    <div class="log-box">
+        [SYSTEM LOG]: STG-Chain Core Node Operational // Integrity Check 100% Passed // Sentinel Security Engine Shield Active.
+    </div>
 
-<div class="stat-box">
-    <div class="label">Audit Status</div>
-    <div class="amount status">VERIFIED</div>
-    <small>🟢 Sentinel AI Active</small>
-</div>
-
-</div>
-
-<div class="proof-section">
-
-<h3>🔒 Sovereign Proof Layer</h3>
-
-<div class="proof-item">
-<strong>PoR Hash:</strong><br>
-<span class="hash">
-0x8f3a9c7d4b2e1f6d9a0c5b7e2d4f8a9b3c7d1e5f6a8b9c0d1e2f3a4b5c6d7e8f
-</span>
-</div>
-
-<div class="proof-item">
-<strong>ZKP Certificate:</strong><br>
-<a href="./docs/ZKP-CERTIFICATE-UNIT008.json" target="_blank">
-View Certificate
-</a>
-</div>
-
-<small>
-✅ Verified via Proof of Reserve + Zero-Knowledge Proof
-</small>
-<div class="token-card">
-  <h3>🪙 Qubicoin Dashboard</h3>
-  <p id="tokenName">Name: Loading...</p>
-  <p id="tokenSymbol">Symbol: Loading...</p>
-  <p id="tokenSupply">Total Supply: Loading...</p>
-  <button onclick="loadTokenData()">Load Token Data</button>
-</div>
-
-<script type="module">
-import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.min.js";
-
-const CONTRACT_ADDRESS = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
-const CONTRACT_ABI = [
-  "function name() view returns (string)",
-  "function symbol() view returns (string)",
-  "function totalSupply() view returns (uint256)"
-];
-
-async function loadTokenData() {
-  if (!window.ethereum) {
-    alert("MetaMask not detected");
-    return;
-  }
-
-  const provider = new ethers.BrowserProvider(window.ethereum);
-  const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
-
-  try {
-    const name = await contract.name();
-    const symbol = await contract.symbol();
-    const supply = await contract.totalSupply();
-
-    document.getElementById("tokenName").innerText = "Name: " + name;
-    document.getElementById("tokenSymbol").innerText = "Symbol: " + symbol;
-    document.getElementById("tokenSupply").innerText = "Total Supply: " + supply.toString();
-  } catch (err) {
-    console.error("Error fetching token data:", err);
-  }
-}
-  </script>
-  
-
-    
-</div>
-
-<div class="log-box">
-<div>[LOG] Syncing Dual-Node Singapore-Swiss... OK</div>
-<div>[LOG] Verifying Batch 02 (Financial Vesting)... OK</div>
-<div>[LOG] Sentinel AI Security Matrix... ACTIVE</div>
-<div>[SYSTEM] THE GIANT IS BREATHING.</div>
-</div>
-
-<div class="ticker-bar">
-<div class="ticker-content" id="ticker">
-Loading sovereign metrics...
-</div>
-</div>
-
+    <!-- TICKER BAR -->
+    <div class="ticker-bar">
+        <div class="ticker-content">
+            $QSTATE: ACTIVE ADOPTION // EXPANSION TO ASEAN HUB RUNNING // NEW MARKET PENETRATION 98.4% // SECURE CRYPTOGRAPHIC BOUNDARY LOCKED
+        </div>
+    </div>
 </section>
 
-<footer>
-<h3>SOVEREIGN TITAN GENESIS</h3>
-<p>
-Building the infrastructure layer for the next digital civilization.
-</p>
-</footer>
-
-<script>
-
-/* COUNTER */
-let targetValue = 1498000000000000;
-let counterEl = document.getElementById('counter');
-let currentValue = 0;
-let increment = targetValue / 200;
-
-function animateCounter(){
-
-    currentValue += increment;
-
-    if(currentValue >= targetValue){
-        currentValue = targetValue;
-        clearInterval(counter);
-    }
-
-    counterEl.textContent =
-        "Rp " + Math.floor(currentValue).toLocaleString('id-ID');
-}
-
-let counter = setInterval(animateCounter,20);
-
-/* TICKER */
-let ticker = document.getElementById('ticker');
-
-let metrics = [
-    { pair:"AKSA vs Rupiah", change:+0.12 },
-    { pair:"AKSA vs USD", change:+0.08 },
-    { pair:"AKSA vs BTC", change:-0.05 },
-    { pair:"QSTATE Sovereign Index", change:+1.22 }
-];
-
-function updateTicker(){
-
-    let now = new Date().toLocaleString('id-ID');
-
-    let text = metrics.map(m=>{
-
-        let icon = m.change >= 0 ? "🟢" : "🔴";
-
-        return `${icon} ${m.pair} ${m.change.toFixed(2)}%`;
-
-    }).join(" | ");
-
-    ticker.textContent =
-        `${text} | 📈 Last Update: ${now}`;
-}
-
-updateTicker();
-
-setInterval(updateTicker,5000);
-
-</script>
-   // Simulasi Pemantauan Aktivitas LevelDB Storage di Dashboard UI
-export function triggerStorageIOActivity() {
-    const ioStatus = document.getElementById('storage-io-status');
-    const densityBar = document.getElementById('storage-density-bar');
-    const bytesCounter = document.getElementById('disk-bytes-counter');
-
-    if (ioStatus) {
-        // Mengubah status visual menjadi berkedip memproses data (Disk Write)
-        ioStatus.innerText = "💾 WRITING STATE TO DISK...";
-        ioStatus.style.color = "#ffcc00";
-        
-        setTimeout(() => {
-            ioStatus.innerText = "⚡ STANDBY (SYNCHRONIZED)";
-            ioStatus.style.color = "#00ff00";
-            
-            // Mensimulasikan pertumbuhan ukuran database kecil secara dinamis
-            const currentBytes = (parseFloat(bytesCounter.innerText.replace(/[^0-9.]/g, '')) + 0.12).toFixed(2);
-            bytesCounter.innerText = `Allocated Index: ${currentBytes} KB`;
-            densityBar.style.width = `${Math.min(parseInt(densityBar.style.width) + 1, 100)}%`;
-        }, 800);
-    }
-}
-
-// Hubungkan triggerStorageIOActivity() ini di dalam fungsi transfer sukses Anda 
-// agar setiap kali saldo bermutasi, visual LevelDB ikut merespons penulisan disk.
- 
-
-</body>
-</html>
-```
+    
