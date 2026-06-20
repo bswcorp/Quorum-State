@@ -3,11 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QuorumState International Network | Sovereign Civilizational Infrastructure</title>
+<title>SSPA Human Rights Ledger | QuorumState International Network</title>
 
 <link href="https://googleapis.com" rel="stylesheet">
 
 <style>
+:root {
+    --ibm-blue: #0f62fe;
+    --deep-space: #050816;
+    --galaxy-blue: #081b3a;
+    --neon-cyan: #00e5ff;
+    --starlight: #d7f9ff;
+    --callforcode-blue: #0043ce;
+    --sdg-green: #00ff99;
+}
+
 *{
     margin:0;
     padding:0;
@@ -15,8 +25,8 @@
 }
 
 body{
-    background:#02050e;
-    color:#f0f4f8;
+    background: var(--deep-space);
+    color: var(--starlight);
     font-family:'Rajdhani', sans-serif;
     overflow-x:hidden;
 }
@@ -27,209 +37,416 @@ body::before{
     position:fixed;
     inset:0;
     background:
-    radial-gradient(circle at 15% 15%, rgba(0,240,255,0.12), transparent 35%),
-    radial-gradient(circle at 85% 85%, rgba(140,82,255,0.1), transparent 40%),
-    #02050e;
-    z-index:-2;
+    radial-gradient(circle at 10% 15%, rgba(15, 98, 254, 0.15), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(0, 229, 255, 0.12), transparent 45%),
+    var(--deep-space);
+    z-index:-3;
 }
 
 .stars{
     position:fixed;
     inset:0;
     background:url('https://transparenttextures.com');
-    opacity:0.2;
-    z-index:-1;
+    opacity:0.25;
+    z-index:-2;
+    animation: spaceFloat 180s linear infinite;
 }
 
-/* NAVIGATION HEADER */
+@keyframes spaceFloat {
+    from { background-position: 0 0; }
+    to { background-position: 0 -1200px; }
+}
+
+.orbit-line {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    border: 1px dashed rgba(0, 229, 255, 0.12);
+    border-radius: 50%;
+    z-index: -1;
+    animation: rotateOrbit 40s linear infinite;
+}
+
+@keyframes rotateOrbit {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* HEADER CONTAINER */
 header{
     position:absolute;
     width:100%;
     top:0;
     left:0;
-    padding:25px 8%;
+    padding:30px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:100;
 }
 
-.brand{
+.brand-title {
     font-family:'Orbitron', sans-serif;
-    font-size:1.5rem;
+    font-size:1.4rem;
     font-weight:900;
-    color:#00f0ff;
+    color: var(--neon-cyan);
     letter-spacing:3px;
-    text-shadow:0 0 15px rgba(0,240,255,0.4);
+    text-shadow:0 0 15px rgba(0,229,255,0.4);
 }
 
-.network-badge{
-    background:rgba(0,240,255,0.06);
-    border:1px solid rgba(0,240,255,0.2);
-    padding:6px 14px;
-    border-radius:20px;
-    font-size:0.85rem;
-    letter-spacing:1px;
-    color:#ffd700;
-    text-transform:uppercase;
+.root-badge {
+    background: rgba(15, 98, 254, 0.1);
+    border: 1px solid var(--ibm-blue);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
 }
 
-/* HERO CONSTITUTION SECTION */
+/* HERO LAYER */
 .hero{
-    min-height:90vh;
+    min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:140px 8% 60px;
+    padding:160px 8% 40px;
     text-align:center;
+    position:relative;
 }
 
-.hero-container{
-    max-width:900px;
+.hero-content{
+    max-width:950px;
+}
+
+.tagline-top {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--neon-cyan);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .hero h1{
     font-family:'Orbitron', sans-serif;
-    font-size:4rem;
+    font-size: 5rem;
     line-height:1.1;
     margin-bottom:25px;
-    background:linear-gradient(90deg, #00f0ff, #ffd700, #8c52ff);
+    background: linear-gradient(135deg, #ffffff, var(--neon-cyan), var(--ibm-blue));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    letter-spacing:1px;
+    font-weight: 900;
 }
 
 .hero p{
-    font-size:1.25rem;
+    font-size:1.4rem;
     line-height:1.7;
-    color:#b0c4de;
+    color: #b9cedb;
     margin-bottom:40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* DIRECTIVE DEPLOYMENT PANELS */
-.grid-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:30px;
-    padding:0 8% 80px;
+.btn-primary {
+    background: var(--ibm-blue);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 4px 20px rgba(15, 98, 254, 0.4);
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
-.panel{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:20px;
-    padding:35px;
-    backdrop-filter:blur(10px);
-    transition:transform 0.3s ease, border-color 0.3s ease;
+.btn-primary:hover {
+    background: var(--callforcode-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 67, 206, 0.6);
 }
 
-.panel:hover{
-    transform:translateY(-5px);
-    border-color:#00f0ff;
-    box-shadow:0 0 30px rgba(0,240,255,0.1);
+/* REVISI 4: IMPACT METRICS LAYERS */
+.metrics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 84%;
+    margin: 0 auto 60px;
 }
 
-.panel h2{
-    font-family:'Orbitron', sans-serif;
-    font-size:1.5rem;
-    color:#ffd700;
-    margin-bottom:15px;
+.metric-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(15, 98, 254, 0.15);
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
 }
 
-.panel p{
-    font-size:1rem;
-    line-height:1.6;
-    color:#94a3b8;
-    margin-bottom:25px;
+.metric-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    margin-bottom: 5px;
 }
 
-.btn-link{
-    display:inline-block;
-    padding:12px 28px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
-    letter-spacing:1px;
-    transition:all 0.2s ease;
+.metric-label {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.btn-cyan{
-    background:linear-gradient(90deg, #00f0ff, #0072ff);
-    color:white;
-    box-shadow:0 4px 15px rgba(0,240,255,0.3);
+/* REVISI TAMBAHAN: WHY SSPA MATTERS LAYER */
+.why-matters-section {
+    padding: 60px 8%;
+    background: rgba(15, 98, 254, 0.04);
+    border-top: 1px solid rgba(15, 98, 254, 0.15);
+    border-bottom: 1px solid rgba(15, 98, 254, 0.15);
 }
 
-.btn-outline{
-    border:1px solid rgba(255,255,255,0.15);
-    background:rgba(255,255,255,0.02);
-    color:#fff;
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #fff;
+    letter-spacing: 2px;
 }
 
-.btn-outline:hover{
-    border-color:#ffd700;
-    color:#ffd700;
+.section-title span {
+    color: var(--neon-cyan);
 }
 
-/* CONSTITUTIONAL STATEMENT */
-.constitution-block{
-    width:84%;
-    margin:0 auto 80px;
-    padding:40px;
-    background:rgba(0,15,30,0.6);
-    border:1px solid rgba(0,240,255,0.15);
-    border-radius:25px;
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.constitution-block h3{
-    font-family:'Orbitron', sans-serif;
-    color:#00f0ff;
-    margin-bottom:20px;
-    text-align:center;
+.why-card {
+    background: rgba(5, 8, 22, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
 }
 
-.principle-list{
-    list-style:none;
+.why-card:hover {
+    transform: translateY(-3px);
 }
 
-.principle-item{
-    padding:12px 0;
-    border-bottom:1px solid rgba(255,255,255,0.05);
-    font-size:1.1rem;
-    color:#cbd5e1;
+.why-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
-.principle-item strong{
-    color:#00ff99;
-    margin-right:10px;
+.why-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
 }
 
-.principle-item:last-child{
-    border:none;
+.why-card p {
+    color: #94a3b8;
+    line-height: 1.6;
 }
 
-/* CORE VALUE FOOTER */
-footer{
-    padding:60px 20px;
-    text-align:center;
-    border-top:1px solid rgba(0,240,255,0.1);
-    background:linear-gradient(180deg, transparent, rgba(0,240,255,0.03));
+/* LAYER 2: PROBLEM & IMPACT AREA */
+.problem-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 60px 8%;
+    background: rgba(8, 27, 58, 0.3);
 }
 
-footer h4{
-    font-family:'Orbitron', sans-serif;
-    color:#00f0ff;
-    margin-bottom:10px;
+.problem-card {
+    background: rgba(5, 8, 22, 0.6);
+    border-left: 3px solid #ff3366;
+    padding: 25px;
+    border-radius: 0 8px 8px 0;
 }
 
-footer p{
-    color:#64748b;
-    max-width:650px;
-    margin:0 auto;
+.problem-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-@media(max-width:768px){
-    .hero h1{ font-size:2.8rem; }
-    .constitution-block{ width:92%; padding:25px; }
+.problem-card p {
+    color: #a2b4c7;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* LAYER 3: HUMAN-CENTRIC ARCHITECTURE */
+.architecture-section {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 40px auto 0;
+}
+
+.flow-node {
+    background: rgba(15, 98, 254, 0.1);
+    border: 1px solid var(--ibm-blue);
+    padding: 15px 40px;
+    border-radius: 4px;
+    width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(15, 98, 254, 0.2);
+}
+
+.flow-arrow {
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* LAYER 4: UNITED NATIONS SDG ALIGNMENT (REVISI 2: FEATURED SDG 16) */
+.sdg-section {
+    padding: 80px 8%;
+    background: rgba(5, 8, 22, 0.7);
+}
+
+.sdg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.sdg-card {
+    background: var(--galaxy-blue);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.sdg-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.sdg-card h4 {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+}
+
+/* HIGHLIGHT SDG 16 PANEL */
+.featured-sdg {
+    border: 2px solid var(--ibm-blue);
+    box-shadow: 0 0 25px rgba(15, 98, 254, 0.35);
+    background: rgba(15, 98, 254, 0.15);
+    grid-column: span 1;
+}
+
+.featured-sdg .sdg-number {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--ibm-blue);
+}
+
+.featured-sdg h4 {
+    color: #fff;
+    font-weight: 700;
+}
+
+.featured-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background: var(--ibm-blue);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* LAYER 5: FUTURE ROADMAP (REVISI 5: REMOVED ECONOMY TOKEN BUZZWORDS) */
+.roadmap-section {
+    padding: 80px 8% 120px;
+}
+
+.roadmap-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 50px auto 0;
+}
+
+.roadmap-step {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 3px solid var(--neon-cyan);
+    padding: 25px 20px;
+    border-radius: 0 0 6px 6px;
+    border-left: 1px solid rgba(255, 255, 255, 0.04);
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.roadmap-step h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-cyan);
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+}
+
+.roadmap-step p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+/* FOOTER CORES */
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    background: #03050f;
+    border-top: 1px solid rgba(15, 98, 254, 0.15);
+}
+
+footer p {
+    color: #536b82;
+    font-size: 0.95rem;
+}
+
+@media(max-width: 992px) {
+    .metrics-container { width: 100%; }
+}
+
+@media(max-width: 768px) {
+    .hero h1 { font-size: 3.2rem; }
+    .featured-sdg { grid-column: span 1; }
 }
 </style>
 </head>
@@ -238,53 +455,13 @@ footer p{
 <div class="stars"></div>
 
 <header>
-    <div class="brand">QUORUMSTATE</div>
-    <div class="network-badge">🔴 Network Root Node</div>
+    <div class="brand-title">QUORUMSTATE</div>
+    <div class="root-badge">GATEWAY NODE ACTIVE</div>
 </header>
 
+<!-- LAYER 1: VISUAL HERO EXPERIENCE -->
 <section class="hero">
-    <div class="hero-container">
-        <h1>QUORUMSTATE INTERNATIONAL</h1>
-        <p>The global digital foundation anchor providing secure routing, cryptographic identity, and structural sovereign parameters for high-compliance human rights technologies and localized distributed ledgers.</p>
-    </div>
-</section>
-
-<!-- PROJECT DIRECTION GRID -->
-<main class="grid-container">
-    
-    <!-- PANEL 1: TARGET REPO UTAMA SSPA -->
-    <div class="panel">
-        <h2>SSPA Human Rights Ledger</h2>
-        <p>Infrastruktur kemanusiaan berbasis <em>Proof-of-Value</em> (PoV) untuk preservasi integritas bukti, perlindungan identitas korban pelanggaran HAM, dan ketahanan data mandiri.</p>
-        <!-- Gantilah URL di bawah ini ke tautan Repositori GitHub SSPA Anda -->
-        <a href="https://github.com" class="btn-link btn-cyan" target="_blank">EXPLORE LEDGER REPO</a>
-    </div>
-
-    <!-- PANEL 2: CORE ECOSYSTEM / FUTURE SUSTAINABILITY -->
-    <div class="panel">
-        <h2>Future Sustainability Mechanism</h2>
-        <p>Dokumentasi cetak biru tata kelola ekonomi token $SPOV, kerangka kerja kurva emisi kemanusiaan abadi, dan regulasi ketat arsitektur PoV Treasury jangka panjang.</p>
-        <a href="#constitution" class="btn-link btn-outline">VIEW SPECIFICATIONS</a>
-    </div>
-
-</main>
-
-<!-- CONSTITUTION CORE LAYER -->
-<section class="constitution-block" id="constitution">
-    <h3>📜 DIGITAL CONSTITUTION LAYER (SSPA GENESIS PROTOCOL)</h3>
-    <ul class="principle-list">
-        <li class="principle-item"><strong>[PRINCIPLE I]</strong> Identity is a fundamental human right that must remain independent of state intervention.</li>
-        <li class="principle-item"><strong>[PRINCIPLE II]</strong> Cryptographic evidence must survive catastrophic local hardware and device loss.</li>
-        <li class="principle-item"><strong>[PRINCIPLE III]</strong> Absolute human dignity over speculative economic exploitation.</li>
-        <li class="principle-item"><strong>[PRINCIPLE IV]</strong> Verification of Proof-of-Value must logically precede Proof-of-Wealth mechanics.</li>
-        <li class="principle-item"><strong>[PRINCIPLE V]</strong> Under this protocol, no human shall be rendered digitally invisible or erased.</li>
-    </ul>
-</section>
-
-<footer>
-    <h4>QUORUMSTATE INTERNATIONAL NETWORK</h4>
-    <p>© 2026 QuorumState. Built with an unyielding ethos: MUDA, KAYA, WANGI, BAIK HATI. Architecting secure cryptographic boundaries for global digital sovereignty.</p>
-</footer>
-
-</body>
-</html>
+    <div class="orbit-line"></div>
+    <div class="hero-content">
+        <div class="tagline-top">Next-Generation Humanitarian Infrastructure</div>
+        <h1>SSPA Human Rights Ledger</h1>
