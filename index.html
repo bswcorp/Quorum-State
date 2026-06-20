@@ -1,467 +1,628 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSPA Human Rights Ledger | QuorumState International Network</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SSPA Human Rights Ledger — Protect Identity. Preserve Evidence. Enable Justice." />
+  <title>SSPA Human Rights Ledger | QuorumState International Network</title>
 
-<link href="https://googleapis.com" rel="stylesheet">
+  <!-- GOOGLE FONTS PRECONNECT PIPELINE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-    --ibm-blue: #0f62fe;
-    --deep-space: #050816;
-    --galaxy-blue: #081b3a;
-    --neon-cyan: #00e5ff;
-    --starlight: #d7f9ff;
-    --callforcode-blue: #0043ce;
-    --sdg-green: #00ff99;
-}
+  <style>
+    :root {
+        --ibm-blue: #0f62fe;
+        --deep-space: #050816;
+        --galaxy-blue: #081b3a;
+        --neon-cyan: #00e5ff;
+        --starlight: #d7f9ff;
+        --callforcode-blue: #0043ce;
+        --sdg-green: #00ff99;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
 
-body{
-    background: var(--deep-space);
-    color: var(--starlight);
-    font-family:'Rajdhani', sans-serif;
-    overflow-x:hidden;
-}
+    html,body{ height:100%; }
 
-/* BACKGROUND ECOSYSTEM */
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at 10% 15%, rgba(15, 98, 254, 0.15), transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(0, 229, 255, 0.12), transparent 45%),
-    var(--deep-space);
-    z-index:-3;
-}
+    body{
+        background: var(--deep-space);
+        color: var(--starlight);
+        font-family:'Rajdhani', sans-serif;
+        overflow-x:hidden;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+    }
 
-.stars{
-    position:fixed;
-    inset:0;
-    background:url('https://transparenttextures.com');
-    opacity:0.25;
-    z-index:-2;
-    animation: spaceFloat 180s linear infinite;
-}
+    /* NATIVE INLINE EMULATED STARFIELD BACKGROUND */
+    body::before{
+        content:"";
+        position:fixed;
+        inset:0;
+        background:
+        radial-gradient(circle at 10% 15%, rgba(15, 98, 254, 0.15), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 229, 255, 0.12), transparent 45%),
+        var(--deep-space);
+        z-index:-3;
+    }
 
-@keyframes spaceFloat {
-    from { background-position: 0 0; }
-    to { background-position: 0 -1200px; }
-}
+    .starfield {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background-image:
+            radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+            radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+            radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+        background-size: 550px 550px, 350px 350px, 250px 250px;
+        background-position: 0 0, 40px 60px, 130px 270px;
+        opacity: 0.35;
+        animation: starMove 150s linear infinite;
+        pointer-events: none;
+    }
 
-.orbit-line {
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 650px;
-    height: 650px;
-    border: 1px dashed rgba(0, 229, 255, 0.12);
-    border-radius: 50%;
-    z-index: -1;
-    animation: rotateOrbit 40s linear infinite;
-}
+    @keyframes starMove {
+        from { background-position: 0 0, 40px 60px, 130px 270px; }
+        to { background-position: 0 -1100px, 40px -1040px, 130px -830px; }
+    }
 
-@keyframes rotateOrbit {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
+    .orbit-line {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 650px;
+        height: 650px;
+        border: 1px dashed rgba(0, 229, 255, 0.12);
+        border-radius: 50%;
+        z-index: -1;
+        animation: rotateOrbit 40s linear infinite;
+        pointer-events: none;
+    }
 
-/* HEADER CONTAINER */
-header{
-    position:absolute;
-    width:100%;
-    top:0;
-    left:0;
-    padding:30px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:100;
-}
+    @keyframes rotateOrbit {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
 
-.brand-title {
-    font-family:'Orbitron', sans-serif;
-    font-size:1.4rem;
-    font-weight:900;
-    color: var(--neon-cyan);
-    letter-spacing:3px;
-    text-shadow:0 0 15px rgba(0,229,255,0.4);
-}
+    /* HEADER LAYER */
+    header{
+        position:fixed;
+        width:100%;
+        top:0;
+        left:0;
+        padding:18px 6%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        z-index:100;
+        backdrop-filter: blur(6px);
+    }
 
-.root-badge {
-    background: rgba(15, 98, 254, 0.1);
-    border: 1px solid var(--ibm-blue);
-    color: #fff;
-    padding: 6px 16px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1px;
-}
+    .brand-title {
+        font-family:'Orbitron', sans-serif;
+        font-size:1.2rem;
+        font-weight:900;
+        color: var(--neon-cyan);
+        letter-spacing:3px;
+        text-shadow:0 0 10px rgba(0,229,255,0.25);
+    }
 
-/* HERO LAYER */
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:160px 8% 40px;
-    text-align:center;
-    position:relative;
-}
+    .root-badge {
+        background: rgba(15, 98, 254, 0.08);
+        border: 1px solid var(--ibm-blue);
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-family: 'Orbitron', sans-serif;
+        letter-spacing: 1px;
+    }
 
-.hero-content{
-    max-width:950px;
-}
+    main { padding-top:80px; }
 
-.tagline-top {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    color: var(--neon-cyan);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
+    /* HERO LAYER */
+    .hero{
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:120px 8% 40px;
+        text-align:center;
+        position:relative;
+    }
 
-.hero h1{
-    font-family:'Orbitron', sans-serif;
-    font-size: 5rem;
-    line-height:1.1;
-    margin-bottom:25px;
-    background: linear-gradient(135deg, #ffffff, var(--neon-cyan), var(--ibm-blue));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    font-weight: 900;
-}
+    .hero-content{
+        max-width:950px;
+    }
 
-.hero p{
-    font-size:1.4rem;
-    line-height:1.7;
-    color: #b9cedb;
-    margin-bottom:40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .tagline-top {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.9rem;
+        color: var(--neon-cyan);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
 
-.btn-primary {
-    background: var(--ibm-blue);
-    color: white;
-    padding: 16px 36px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1px;
-    font-family: 'Orbitron', sans-serif;
-    box-shadow: 0 4px 20px rgba(15, 98, 254, 0.4);
-    transition: all 0.3s ease;
-    display: inline-block;
-}
+    .hero h1{
+        font-family:'Orbitron', sans-serif;
+        font-size: 4rem;
+        line-height:1.05;
+        margin-bottom:18px;
+        background: linear-gradient(135deg, #ffffff, var(--neon-cyan), var(--ibm-blue));
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        font-weight: 900;
+    }
 
-.btn-primary:hover {
-    background: var(--callforcode-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 67, 206, 0.6);
-}
+    .hero .slogan-main {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+        font-family: 'Orbitron', sans-serif;
+        letter-spacing: 1px;
+    }
 
-/* REVISI 4: IMPACT METRICS LAYERS */
-.metrics-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 84%;
-    margin: 0 auto 60px;
-}
+    .hero .sub-headline {
+        font-size:1.05rem;
+        line-height:1.6;
+        color: #b9cedb;
+        margin-bottom:28px;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-.metric-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(15, 98, 254, 0.15);
-    padding: 20px;
-    border-radius: 6px;
-    text-align: center;
-}
+    .btn-primary {
+        background: var(--ibm-blue);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: 'Orbitron', sans-serif;
+        box-shadow: 0 6px 20px rgba(15, 98, 254, 0.28);
+        transition: all 0.22s ease;
+        display: inline-block;
+    }
 
-.metric-num {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--neon-cyan);
-    margin-bottom: 5px;
-}
+    .btn-primary:hover {
+        background: var(--callforcode-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0, 67, 206, 0.45);
+    }
 
-.metric-label {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+    /* IMPACT METRICS LAYERS */
+    .metrics-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        width: 84%;
+        margin: 30px auto 60px;
+    }
 
-/* REVISI TAMBAHAN: WHY SSPA MATTERS LAYER */
-.why-matters-section {
-    padding: 60px 8%;
-    background: rgba(15, 98, 254, 0.04);
-    border-top: 1px solid rgba(15, 98, 254, 0.15);
-    border-bottom: 1px solid rgba(15, 98, 254, 0.15);
-}
+    .metric-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(15, 98, 254, 0.12);
+        padding: 18px;
+        border-radius: 8px;
+        text-align: center;
+    }
 
-.section-title {
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: #fff;
-    letter-spacing: 2px;
-}
+    .metric-num {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--neon-cyan);
+        margin-bottom: 6px;
+    }
 
-.section-title span {
-    color: var(--neon-cyan);
-}
+    .metric-label {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
+    /* WHY SSPA MATTERS LAYER */
+    .why-matters-section {
+        padding: 60px 8%;
+        background: rgba(15, 98, 254, 0.03);
+        border-top: 1px solid rgba(15, 98, 254, 0.08);
+        border-bottom: 1px solid rgba(15, 98, 254, 0.08);
+    }
 
-.why-card {
-    background: rgba(5, 8, 22, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 6px;
-    transition: transform 0.2s ease;
-}
+    .section-title {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #fff;
+        letter-spacing: 2px;
+    }
 
-.why-card:hover {
-    transform: translateY(-3px);
-}
+    .section-title span {
+        color: var(--neon-cyan);
+    }
 
-.why-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    display: inline-block;
-}
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
 
-.why-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: #fff;
-    margin-bottom: 12px;
-    font-size: 1.3rem;
-}
+    .why-card {
+        background: rgba(5, 8, 22, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        padding: 24px;
+        border-radius: 8px;
+        transition: transform 0.2s ease;
+    }
 
-.why-card p {
-    color: #94a3b8;
-    line-height: 1.6;
-}
+    .why-card:hover {
+        transform: translateY(-4px);
+    }
 
-/* LAYER 2: PROBLEM & IMPACT AREA */
-.problem-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    padding: 60px 8%;
-    background: rgba(8, 27, 58, 0.3);
-}
+    .why-icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+        display: inline-block;
+    }
 
-.problem-card {
-    background: rgba(5, 8, 22, 0.6);
-    border-left: 3px solid #ff3366;
-    padding: 25px;
-    border-radius: 0 8px 8px 0;
-}
+    .why-card h3 {
+        font-family: 'Orbitron', sans-serif;
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 1.15rem;
+    }
 
-.problem-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
+    .why-card p {
+        color: #94a3b8;
+        line-height: 1.6;
+    }
 
-.problem-card p {
-    color: #a2b4c7;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
+    /* PROBLEM & IMPACT AREA */
+    .problem-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        padding: 60px 8%;
+        background: rgba(8, 27, 58, 0.18);
+    }
 
-/* LAYER 3: HUMAN-CENTRIC ARCHITECTURE */
-.architecture-section {
-    padding: 80px 8%;
-    text-align: center;
-}
+    .problem-card {
+        background: rgba(5, 8, 22, 0.6);
+        border-left: 3px solid #ff3366;
+        padding: 20px;
+        border-radius: 0 8px 8px 0;
+    }
 
-.flow-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 500px;
-    margin: 40px auto 0;
-}
+    .problem-card h3 {
+        font-family: 'Orbitron', sans-serif;
+        color: #fff;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
 
-.flow-node {
-    background: rgba(15, 98, 254, 0.1);
-    border: 1px solid var(--ibm-blue);
-    padding: 15px 40px;
-    border-radius: 4px;
-    width: 100%;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #fff;
-    box-shadow: inset 0 0 10px rgba(15, 98, 254, 0.2);
-}
+    .problem-card p {
+        color: #a2b4c7;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 
-.flow-arrow {
-    color: var(--neon-cyan);
-    font-size: 1.5rem;
-    margin: 10px 0;
-    text-shadow: 0 0 8px var(--neon-cyan);
-}
+    /* HUMAN-CENTRIC ARCHITECTURE */
+    .architecture-section {
+        padding: 80px 8%;
+        text-align: center;
+    }
 
-/* LAYER 4: UNITED NATIONS SDG ALIGNMENT (REVISI 2: FEATURED SDG 16) */
-.sdg-section {
-    padding: 80px 8%;
-    background: rgba(5, 8, 22, 0.7);
-}
+    .flow-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 520px;
+        margin: 40px auto 0;
+    }
 
-.sdg-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-}
+    .flow-node {
+        background: rgba(15, 98, 254, 0.08);
+        border: 1px solid var(--ibm-blue);
+        padding: 12px 28px;
+        border-radius: 6px;
+        width: 100%;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+        box-shadow: inset 0 0 8px rgba(15, 98, 254, 0.12);
+        margin-bottom: 10px;
+    }
 
-.sdg-card {
-    background: var(--galaxy-blue);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 25px 20px;
-    text-align: center;
-    border-radius: 6px;
-}
+    .flow-arrow {
+        color: var(--neon-cyan);
+        font-size: 1.4rem;
+        margin: 8px 0;
+        text-shadow: 0 0 6px var(--neon-cyan);
+    }
 
-.sdg-number {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.3rem;
-    font-weight: 900;
-    color: #64748b;
-    margin-bottom: 10px;
-}
+    /* UNITED NATIONS SDG ALIGNMENT */
+    .sdg-section {
+        padding: 80px 8%;
+        background: rgba(5, 8, 22, 0.7);
+    }
 
-.sdg-card h4 {
-    font-size: 1.05rem;
-    color: #cbd5e1;
-}
+    .sdg-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
 
-/* HIGHLIGHT SDG 16 PANEL */
-.featured-sdg {
-    border: 2px solid var(--ibm-blue);
-    box-shadow: 0 0 25px rgba(15, 98, 254, 0.35);
-    background: rgba(15, 98, 254, 0.15);
-    grid-column: span 1;
-}
+    .sdg-card {
+        background: var(--galaxy-blue);
+        border: 1px solid rgba(255,255,255,0.04);
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+    }
 
-.featured-sdg .sdg-number {
-    color: var(--neon-cyan);
-    text-shadow: 0 0 15px var(--ibm-blue);
-}
+    .sdg-number {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2rem;
+        font-weight: 900;
+        color: #64748b;
+        margin-bottom: 8px;
+    }
 
-.featured-sdg h4 {
-    color: #fff;
-    font-weight: 700;
-}
+    .sdg-card h4 {
+        font-size: 1rem;
+        color: #cbd5e1;
+    }
 
-.featured-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    background: var(--ibm-blue);
-    color: #fff;
-    padding: 2px 10px;
-    border-radius: 4px;
-    margin-top: 10px;
-    letter-spacing: 1px;
-}
+    /* HIGHLIGHT SDG 16 PANEL */
+    .featured-sdg {
+        border: 2px solid var(--ibm-blue);
+        box-shadow: 0 0 25px rgba(15, 98, 254, 0.28);
+        background: rgba(15, 98, 254, 0.12);
+    }
 
-/* LAYER 5: FUTURE ROADMAP (REVISI 5: REMOVED ECONOMY TOKEN BUZZWORDS) */
-.roadmap-section {
-    padding: 80px 8% 120px;
-}
+    .featured-sdg .sdg-number {
+        color: var(--neon-cyan);
+        text-shadow: 0 0 10px var(--ibm-blue);
+    }
 
-.roadmap-timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: 50px auto 0;
-}
+    .featured-sdg h4 {
+        color: #fff;
+        font-weight: 700;
+    }
 
-.roadmap-step {
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 3px solid var(--neon-cyan);
-    padding: 25px 20px;
-    border-radius: 0 0 6px 6px;
-    border-left: 1px solid rgba(255, 255, 255, 0.04);
-    border-right: 1px solid rgba(255, 255, 255, 0.04);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
+    .featured-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        background: var(--ibm-blue);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+        letter-spacing: 1px;
+    }
 
-.roadmap-step h4 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--neon-cyan);
-    margin-bottom: 12px;
-    font-size: 1.15rem;
-    letter-spacing: 1px;
-}
+    /* BLUEPRINT INFOGRAPHIC */
+    .blueprint-section {
+        padding: 80px 8%;
+        background: rgba(5, 8, 22, 0.5);
+        border-top: 1px solid rgba(15, 98, 254, 0.06);
+        text-align: center;
+    }
 
-.roadmap-step p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #94a3b8;
-}
+    .blueprint-wrapper {
+        max-width: 1100px;
+        margin: 40px auto 0;
+        padding: 20px;
+        background: rgba(15, 98, 254, 0.02);
+        border: 1px solid rgba(0, 229, 255, 0.08);
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
 
-/* FOOTER CORES */
-footer {
-    padding: 50px 20px;
-    text-align: center;
-    background: #03050f;
-    border-top: 1px solid rgba(15, 98, 254, 0.15);
-}
+    .blueprint-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+    }
 
-footer p {
-    color: #536b82;
-    font-size: 0.95rem;
-}
+    .blueprint-meta {
+        margin-top: 18px;
+        font-size: 1.05rem;
+        color: #94a3b8;
+        line-height: 1.6;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-@media(max-width: 992px) {
-    .metrics-container { width: 100%; }
-}
+    /* FOOTER CORES: PENYESUAIAN RESILIENSI */
+    footer {
+        padding: 40px 20px;
+        text-align: center;
+        background: #03050f;
+        border-top: 1px solid rgba(15, 98, 254, 0.08);
+    }
 
-@media(max-width: 768px) {
-    .hero h1 { font-size: 3.2rem; }
-    .featured-sdg { grid-column: span 1; }
-}
-</style>
+    footer p {
+        color: #536b82;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    @media(max-width: 992px) {
+      .metrics-container { width: 100%; }
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .blueprint-wrapper { padding: 12px; }
+      .hero { padding: 100px 6% 40px; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Visual background layers required by CSS -->
+  <div class="starfield" aria-hidden="true"></div>
+  <div class="orbit-line" aria-hidden="true"></div>
 
-<div class="stars"></div>
+  <header role="banner">
+    <div class="brand-title" aria-hidden="false">SSPA Human Rights Ledger</div>
+    <div class="root-badge" aria-hidden="false">QuorumState Network</div>
+  </header>
 
-<header>
-    <div class="brand-title">QUORUMSTATE</div>
-    <div class="root-badge">GATEWAY NODE ACTIVE</div>
-</header>
-
-<!-- LAYER 1: VISUAL HERO EXPERIENCE -->
-<section class="hero">
-    <div class="orbit-line"></div>
-    <div class="hero-content">
-        <div class="tagline-top">Next-Generation Humanitarian Infrastructure</div>
+  <main>
+    <!-- HERO -->
+    <section class="hero" role="region" aria-label="Hero">
+      <div class="hero-content">
+        <div class="tagline-top">Protect Identity · Preserve Evidence · Enable Justice</div>
         <h1>SSPA Human Rights Ledger</h1>
+        <div class="slogan-main">A survivor-centered distributed trust infrastructure</div>
+        <p class="sub-headline">
+          When devices are lost, seized, or destroyed, survivors must not lose access to identity, evidence, or justice.
+          SSPA ensures persistent identity and tamper-evident evidence preservation even in extreme network conditions.
+        </p>
+        <a class="btn-primary" href="#why" role="button">See Why SSPA Matters</a>
+      </div>
+    </section>
+
+    <!-- IMPACT METRICS -->
+    <section class="metrics-container" aria-label="Impact metrics">
+      <div class="metric-card" role="article">
+        <div class="metric-num">1M+</div>
+        <div class="metric-label">Potentially Protected Records</div>
+      </div>
+      <div class="metric-card" role="article">
+        <div class="metric-num">Offline</div>
+        <div class="metric-label">Offline-first Recovery</div>
+      </div>
+      <div class="metric-card" role="article">
+        <div class="metric-num">SDG 16</div>
+        <div class="metric-label">Primary Alignment</div>
+      </div>
+    </section>
+
+    <!-- WHY SSPA MATTERS -->
+    <section id="why" class="why-matters-section" role="region" aria-label="Why SSPA matters">
+      <h2 class="section-title"><span>Why</span> SSPA Matters</h2>
+      <div class="why-grid" role="list">
+        <article class="why-card" role="listitem" aria-label="Human trafficking">
+          <div class="why-icon">🛡️</div>
+          <h3>Human Trafficking Evidence</h3>
+          <p>Preserve chain-of-custody hashes and survivor statements in a tamper-evident ledger to support prosecutions.</p>
+        </article>
+        <article class="why-card" role="listitem" aria-label="Identity loss">
+          <div class="why-icon">🆔</div>
+          <h3>Persistent Identity</h3>
+          <p>Survivor-centered identity vaults that can be re-bound to new devices with cryptographic proofs.</p>
+        </article>
+        <article class="why-card" role="listitem" aria-label="Evidence destruction">
+          <div class="why-icon">📦</div>
+          <h3>Evidence Preservation</h3>
+          <p>Distributed evidence hash store with multi-node redundancy and offline sync strategies.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROBLEM AREA -->
+    <section class="problem-container" role="region" aria-label="Problems">
+      <div class="problem-card">
+        <h3>Device Seizure</h3>
+        <p>When devices are confiscated at borders, survivors lose access to critical identity and evidence.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Infrastructure Failure</h3>
+        <p>Centralized servers and local authorities can be compromised during conflict or disaster.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Evidence Loss</h3>
+        <p>Destruction or tampering of records prevents accountability and delays justice.</p>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="architecture-section" role="region" aria-label="Architecture">
+      <h2 class="section-title"><span>Human-Centric</span> Architecture</h2>
+      <div class="flow-container" aria-hidden="false">
+        <div class="flow-node">Survivor Identity Vault (encrypted, offline-first)</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node">Local Evidence Hash Store (tamper-evident)</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node">Distributed Ledger Anchors (global redundancy)</div>
+      </div>
+    </section>
+
+    <!-- SDG ALIGNMENT -->
+    <section class="sdg-section" role="region" aria-label="SDG alignment">
+      <h2 class="section-title"><span>Impact</span> & SDG Alignment</h2>
+      <div class="sdg-grid">
+        <div class="sdg-card featured-sdg" role="article">
+          <div class="sdg-number">16</div>
+          <h4>Peace, Justice & Strong Institutions</h4>
+          <div class="featured-badge">Primary</div>
+        </div>
+        <div class="sdg-card" role="article">
+          <div class="sdg-number">1</div>
+          <h4>No Poverty</h4>
+        </div>
+        <div class="sdg-card" role="article">
+          <div class="sdg-number">5</div>
+          <h4>Gender Equality</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLUEPRINT -->
+    <section class="blueprint-section" role="region" aria-label="Blueprint">
+      <h2 class="section-title"><span>Blueprint</span> & Future Sustainability</h2>
+      <div class="blueprint-wrapper">
+        <!-- Replace the src with your actual blueprint image path -->
+        <img class="blueprint-img" src="assets/blueprint-placeholder.png" alt="SSPA architecture blueprint infographic" />
+        <p class="blueprint-meta">
+          High-level tokenomics and genesis ledger are included as a future sustainability research artifact.
+          (This image is a placeholder — replace with finalized infographic before submission.)
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>SSPA Human Rights Ledger — Protect Identity. Preserve Evidence. Enable Justice.</p>
+    <p>© <span id="year"></span> QuorumState International Network</p>
+  </footer>
+
+  <script>
+    // Small runtime helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: smooth scroll for anchor links
+    (function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
