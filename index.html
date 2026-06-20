@@ -1,195 +1,324 @@
+
+
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description" content="SSPA Human Rights Ledger — Protect Identity. Preserve Evidence. Enable Justice." />
-  <meta name="theme-color" content="#0f62fe" />
+<meta charset="UTF-8" />
 
-  <title>SSPA Human Rights Ledger | QuorumState International Network</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>SSPA Human Rights Ledger - Interactive Demo</title>
 
-  <style>
-    :root {
-        --ibm-blue: #0f62fe;
-        --deep-space: #050816;
-        --galaxy-blue: #081b3a;
-        --neon-cyan: #00e5ff;
-        --starlight: #d7f9ff;
-        --callforcode-blue: #0043ce;
-        --sdg-green: #00ff99;
-    }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    html {
-        scroll-behavior: smooth;
-    }
+<style>
 
     body {
-        height: 100%;
-        background: var(--deep-space);
-        color: var(--starlight);
-        font-family: 'Rajdhani', sans-serif;
+
+        margin: 0;
+
+        font-family: Arial, sans-serif;
+
+        background: radial-gradient(circle at top, #0b1b3a, #050816);
+
+        color: white;
+
         overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+
     }
 
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background:
-        radial-gradient(circle at 10% 15%, rgba(15, 98, 254, 0.15), transparent 40%),
-        radial-gradient(circle at 85% 80%, rgba(0, 229, 255, 0.12), transparent 45%),
-        var(--deep-space);
-        z-index: -3;
-    }
 
-    .starfield {
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        background-image:
-            radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-            radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-            radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
-        background-size: 550px 550px, 350px 350px, 250px 250px;
-        background-position: 0 0, 40px 60px, 130px 270px;
-        opacity: 0.35;
-        animation: starMove 150s linear infinite;
-        pointer-events: none;
-    }
-
-    @keyframes starMove {
-        from { background-position: 0 0, 40px 60px, 130px 270px; }
-        to { background-position: 0 -1100px, 40px -1040px, 130px -830px; }
-    }
 
     header {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        padding: 18px 6%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 100;
-        backdrop-filter: blur(6px);
-    }
 
-    .brand-title {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 900;
-        color: var(--neon-cyan);
-        letter-spacing: 3px;
-    }
+        padding: 20px;
 
-    .root-badge {
-        background: rgba(15, 98, 254, 0.08);
-        border: 1px solid var(--ibm-blue);
-        padding: 6px 14px;
-        border-radius: 6px;
-        font-size: 0.8rem;
-        font-family: 'Orbitron', sans-serif;
-    }
-
-    main { padding-top: 80px; }
-
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 120px 8% 40px;
         text-align: center;
-        position: relative;
+
+        background: linear-gradient(90deg, #1b2a6b, #0a0f2c);
+
+        border-bottom: 2px solid #2f5cff;
+
     }
 
-    .hero h1 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 4rem;
-        line-height: 1.05;
-        margin-bottom: 18px;
-        background: linear-gradient(135deg, #ffffff, var(--neon-cyan), var(--ibm-blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 900;
+
+
+    h1 {
+
+        margin: 0;
+
+        font-size: 22px;
+
+        color: #7db2ff;
+
     }
 
-    .btn-primary {
-        background: var(--ibm-blue);
-        color: white;
-        padding: 12px 28px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 700;
-        font-family: 'Orbitron', sans-serif;
-        display: inline-block;
-    }
 
-    .btn-primary:hover {
-        background: var(--callforcode-blue);
-        transform: translateY(-3px);
-    }
 
-    .metrics-container {
+    .container {
+
+        padding: 20px;
+
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        width: 84%;
-        margin: 30px auto 60px;
+
+        gap: 15px;
+
     }
 
-    footer {
-        padding: 40px 20px;
+
+
+    .panel {
+
+        background: rgba(255,255,255,0.05);
+
+        border: 1px solid rgba(125,178,255,0.3);
+
+        border-radius: 12px;
+
+        padding: 15px;
+
+    }
+
+
+
+    .status {
+
+        font-size: 18px;
+
+        padding: 10px;
+
+        border-radius: 8px;
+
         text-align: center;
-        background: #03050f;
+
+        margin-bottom: 10px;
+
     }
 
-  </style>
+
+
+    .safe { background: #1f6f3a; }
+
+    .under { background: #a36b00; }
+
+    .breach { background: #8b1e1e; }
+
+
+
+    button {
+
+        padding: 10px 15px;
+
+        margin: 5px;
+
+        border: none;
+
+        border-radius: 8px;
+
+        cursor: pointer;
+
+        font-weight: bold;
+
+    }
+
+
+
+    .attack { background: #ff3b3b; color: white; }
+
+    .recover { background: #2dd36f; color: black; }
+
+    .reset { background: #4b6fff; color: white; }
+
+
+
+    #ledger {
+
+        height: 200px;
+
+        overflow-y: auto;
+
+        background: rgba(0,0,0,0.4);
+
+        padding: 10px;
+
+        border-radius: 8px;
+
+        font-family: monospace;
+
+        font-size: 12px;
+
+    }
+
+
+
+    .log {
+
+        margin: 2px 0;
+
+    }
+
+</style>
+
 </head>
 
+
+
 <body>
-  <div class="starfield" aria-hidden="true"></div>
 
-  <header>
-    <div class="brand-title">SSPA Human Rights Ledger</div>
-    <div class="root-badge">QuorumState Network</div>
-  </header>
 
-  <main>
 
-    <section class="hero">
-      <div>
-        <h1>SSPA Human Rights Ledger</h1>
-        <p>A survivor-centered distributed trust infrastructure</p>
-        <a class="btn-primary" href="#why">See Why SSPA Matters</a>
-      </div>
-    </section>
+<header>
 
-  </main>
+    <h1>🛡️ SSPA Human Rights Ledger - Interactive Resilience Demo</h1>
 
-  <footer>
-    <p>SSPA Human Rights Ledger — Protect Identity. Preserve Evidence. Enable Justice.</p>
-    <p>© <span id="year"></span> QuorumState International Network</p>
-  </footer>
+</header>
 
-  <script>
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-  </script>
+
+
+<div class="container">
+
+
+
+    <div class="panel">
+
+        <div id="status" class="status safe">SYSTEM STATUS: PROTECTED</div>
+
+
+
+        <button class="attack" onclick="attackSystem()">Simulate Attack</button>
+
+        <button class="recover" onclick="recoverSystem()">Trigger Recovery</button>
+
+        <button class="reset" onclick="resetSystem()">Reset System</button>
+
+    </div>
+
+
+
+    <div class="panel">
+
+        <h3>📜 Immutable Ledger (Simulation Log)</h3>
+
+        <div id="ledger"></div>
+
+    </div>
+
+
+
+    <div class="panel">
+
+        <h3>🧠 SSPA Core Concept</h3>
+
+        <p>
+
+            This demo shows how SSPA protects identity and evidence even during system compromise.
+
+            Ledger entries remain persistent, simulating tamper-resistant recovery architecture.
+
+        </p>
+
+    </div>
+
+
+
+</div>
+
+
+
+<script>
+
+let ledger = document.getElementById("ledger");
+
+let status = document.getElementById("status");
+
+
+
+function addLog(text) {
+
+    let entry = document.createElement("div");
+
+    entry.className = "log";
+
+    entry.textContent = "[" + new Date().toLocaleTimeString() + "] " + text;
+
+    ledger.appendChild(entry);
+
+    ledger.scrollTop = ledger.scrollHeight;
+
+}
+
+
+
+function attackSystem() {
+
+    status.className = "status breach";
+
+    status.textContent = "SYSTEM STATUS: UNDER ATTACK";
+
+
+
+    addLog("⚠️ Intrusion detected in identity verification layer");
+
+    addLog("⚠️ Evidence channel compromised (simulated)");
+
+    addLog("🔒 Ledger switched to protected recovery mode");
+
+}
+
+
+
+function recoverSystem() {
+
+    status.className = "status under";
+
+    status.textContent = "SYSTEM STATUS: RECOVERING";
+
+
+
+    addLog("🛠️ Recovery protocol activated");
+
+    addLog("🔁 Rebuilding identity hash chain...");
+
+    addLog("🔗 Restoring immutable ledger integrity");
+
+    
+
+    setTimeout(() => {
+
+        status.className = "status safe";
+
+        status.textContent = "SYSTEM STATUS: PROTECTED RESTORED";
+
+        addLog("✅ System fully restored without data loss");
+
+    }, 2000);
+
+}
+
+
+
+function resetSystem() {
+
+    ledger.innerHTML = "";
+
+    status.className = "status safe";
+
+    status.textContent = "SYSTEM STATUS: PROTECTED";
+
+    addLog("🔄 System reset to baseline state");
+
+}
+
+</script>
+
+
 
 </body>
+
 </html>
+
+
