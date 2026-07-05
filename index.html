@@ -1,324 +1,204 @@
-
-
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>SSPA Human Rights Ledger - Interactive Demo</title>
-
-
-
+<title>SSPA Human Rights Ledger | Interactive Resilience Demo</title>
+<link href="https://googleapis.com" rel="stylesheet">
 <style>
-
     body {
-
         margin: 0;
-
-        font-family: Arial, sans-serif;
-
+        font-family: 'Rajdhani', sans-serif;
         background: radial-gradient(circle at top, #0b1b3a, #050816);
-
         color: white;
-
         overflow-x: hidden;
-
     }
-
-
-
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(rgba(0,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: -1;
+        opacity: 0.3;
+    }
     header {
-
-        padding: 20px;
-
+        padding: 25px;
         text-align: center;
-
         background: linear-gradient(90deg, #1b2a6b, #0a0f2c);
-
-        border-bottom: 2px solid #2f5cff;
-
+        border-bottom: 2px solid #ffd700;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
     }
-
-
-
     h1 {
-
         margin: 0;
-
-        font-size: 22px;
-
-        color: #7db2ff;
-
+        font-size: 24px;
+        font-family: 'Orbitron', sans-serif;
+        color: #ffd700;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
-
-
-
     .container {
-
         padding: 20px;
-
         display: grid;
-
         gap: 15px;
-
+        max-width: 1200px;
+        margin: auto;
     }
-
-
-
     .panel {
-
-        background: rgba(255,255,255,0.05);
-
-        border: 1px solid rgba(125,178,255,0.3);
-
-        border-radius: 12px;
-
-        padding: 15px;
-
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(125,178,255,0.2);
+        border-radius: 15px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
     }
-
-
-
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+    }
     .status {
-
+        font-family: 'Orbitron', sans-serif;
         font-size: 18px;
-
-        padding: 10px;
-
+        font-weight: 900;
+        padding: 12px;
         border-radius: 8px;
-
         text-align: center;
-
-        margin-bottom: 10px;
-
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        box-shadow: 0 0 15px currentColor;
     }
-
-
-
-    .safe { background: #1f6f3a; }
-
-    .under { background: #a36b00; }
-
-    .breach { background: #8b1e1e; }
-
-
-
+    .safe { background: #1f6f3a; color: #00ff99; }
+    .under { background: #a36b00; color: #ffcc00; animation: blink 1.5s infinite; }
+    .breach { background: #8b1e1e; color: #ff3333; animation: blink 1s infinite; }
+    @keyframes blink { 0%{opacity: 0.5;} 50%{opacity: 1;} 100%{opacity: 0.5;} }
     button {
-
-        padding: 10px 15px;
-
+        padding: 12px 20px;
         margin: 5px;
-
         border: none;
-
-        border-radius: 8px;
-
+        border-radius: 50px;
         cursor: pointer;
-
         font-weight: bold;
-
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.85rem;
+        transition: 0.2s;
     }
-
-
-
-    .attack { background: #ff3b3b; color: white; }
-
-    .recover { background: #2dd36f; color: black; }
-
-    .reset { background: #4b6fff; color: white; }
-
-
-
+    button:hover { transform: translateY(-2px); }
+    .attack { background: #ff3b3b; color: white; box-shadow: 0 0 10px rgba(255,59,59,0.4); }
+    .recover { background: #2dd36f; color: black; box-shadow: 0 0 10px rgba(45,211,111,0.4); }
+    .reset { background: #4b6fff; color: white; box-shadow: 0 0 10px rgba(75,111,255,0.4); }
     #ledger {
-
         height: 200px;
-
         overflow-y: auto;
-
-        background: rgba(0,0,0,0.4);
-
-        padding: 10px;
-
+        background: rgba(0,0,0,0.6);
+        padding: 15px;
         border-radius: 8px;
-
         font-family: monospace;
-
-        font-size: 12px;
-
+        font-size: 13px;
+        color: #00ff99;
+        border: 1px solid rgba(0,255,255,0.1);
     }
-
-
-
-    .log {
-
-        margin: 2px 0;
-
-    }
-
+    .log { margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 2px; }
+    .amount { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: bold; color: #00ff99; margin-top: 5px; }
 </style>
-
 </head>
-
-
-
 <body>
 
-
-
 <header>
-
     <h1>🛡️ SSPA Human Rights Ledger - Interactive Resilience Demo</h1>
-
 </header>
-
-
 
 <div class="container">
 
-
+    <!-- CORES SOVEREIGN ASSET INDEX METRICS -->
+    <div class="panel stats-grid">
+        <div style="padding:10px; background:rgba(0,0,0,0.2); border-radius:10px; border-left:4px solid #00ff99;">
+            <div style="color:#aaa; font-size:0.9rem;">Historical AKSA Legacy Treasury Value</div>
+            <div class="amount" id="aksaCounter">Rp 1.498.000.000.000</div>
+        </div>
+        <div style="padding:10px; background:rgba(0,0,0,0.2); border-radius:10px; border-left:4px solid #ffd700;">
+            <div style="color:#aaa; font-size:0.9rem;">SPOV Sovereign Human Rights Grant Pool</div>
+            <div class="amount" style="color:#ffd700;">1,000,000,000 $SPOV</div>
+        </div>
+    </div>
 
     <div class="panel">
-
-        <div id="status" class="status safe">SYSTEM STATUS: PROTECTED</div>
-
-
+        <div id="status" class="status safe">SYSTEM STATUS: SECURED</div>
 
         <button class="attack" onclick="attackSystem()">Simulate Attack</button>
-
         <button class="recover" onclick="recoverSystem()">Trigger Recovery</button>
-
         <button class="reset" onclick="resetSystem()">Reset System</button>
-
     </div>
 
-
-
     <div class="panel">
-
-        <h3>📜 Immutable Ledger (Simulation Log)</h3>
-
+        <h3>📜 Immutable Ledger (Simulation Live Log Stream)</h3>
         <div id="ledger"></div>
-
     </div>
-
-
 
     <div class="panel">
-
-        <h3>🧠 SSPA Core Concept</h3>
-
-        <p>
-
-            This demo shows how SSPA protects identity and evidence even during system compromise.
-
-            Ledger entries remain persistent, simulating tamper-resistant recovery architecture.
-
+        <h3>🧠 SSPA Core Architecture & E8 Lattice Framework</h3>
+        <p style="line-height:1.6; color:#ccc;">
+            This interactive demo simulates how the **Sovereign State Persistence Architecture (SSPA)** protects the integrity of digital rights, legal testimonies, and humanitarian survival funds even during extreme local infrastructure failures or intentional hardware compromises [callforcode.org]. Inspired by Maryna Viazovska’s high-symmetry 8-dimensional sphere packing matrices, user metadata is bound directly to an absolute identity vault sequence (**`PIN ──► PID ──► PIH`**), allowing the running ledger state to outlive software generation failures via self-healing network rebinding protocols [callforcode.org]!
         </p>
-
     </div>
-
-
 
 </div>
 
-
-
 <script>
-
 let ledger = document.getElementById("ledger");
-
 let status = document.getElementById("status");
+let aksaBase = 1498000000000;
 
+// Continuous Ledger Telemetry Tick
+setInterval(() => {
+    aksaBase += Math.floor(Math.random() * 300000) + 100000;
+    document.getElementById("aksaCounter").innerText = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(aksaBase);
+}, 3000);
 
-
-function addLog(text) {
-
+function addLog(text, color = "#00ff99") {
     let entry = document.createElement("div");
-
     entry.className = "log";
-
+    entry.style.color = color;
     entry.textContent = "[" + new Date().toLocaleTimeString() + "] " + text;
-
     ledger.appendChild(entry);
-
     ledger.scrollTop = ledger.scrollHeight;
-
 }
-
-
 
 function attackSystem() {
-
     status.className = "status breach";
+    status.textContent = "SYSTEM STATUS: UNDER CRITICAL ATTACK";
 
-    status.textContent = "SYSTEM STATUS: UNDER ATTACK";
-
-
-
-    addLog("⚠️ Intrusion detected in identity verification layer");
-
-    addLog("⚠️ Evidence channel compromised (simulated)");
-
-    addLog("🔒 Ledger switched to protected recovery mode");
-
+    addLog("⚠️ [CRITICAL] Intrusion detected in identity verification layer (Hardhat Genesis Reset Event)", "#ff3333");
+    addLog("⚠️ [CRITICAL] Operational wallet access compromised. Local state corrupted.", "#ff3333");
+    addLog("🔒 [SECURITY] Sovereign State Engine engaged. Ghost-Mode encryption running.", "#ffcc00");
 }
-
-
 
 function recoverSystem() {
-
     status.className = "status under";
+    status.textContent = "SYSTEM STATUS: AUTOMATED RECOVERY ACTIVE";
 
-    status.textContent = "SYSTEM STATUS: RECOVERING";
-
-
-
-    addLog("🛠️ Recovery protocol activated");
-
-    addLog("🔁 Rebuilding identity hash chain...");
-
-    addLog("🔗 Restoring immutable ledger integrity");
-
+    addLog("🛠️ [RECOVERY] SSPA automated self-healing protocol triggered.", "#00ffff");
+    addLog("🔁 [COMPUTING] Mapping residual E8 Lattice vector coordinates across Chainstack backbone...", "#00ffff");
+    addLog("🔗 [ROUTING] Executing Asset Rebinding sequence via Webhook API Port 8082...", "#00ffff");
     
-
     setTimeout(() => {
-
         status.className = "status safe";
-
-        status.textContent = "SYSTEM STATUS: PROTECTED RESTORED";
-
-        addLog("✅ System fully restored without data loss");
-
-    }, 2000);
-
+        status.textContent = "SYSTEM STATUS: STATE SECURED & BOUND";
+        addLog("✅ [SUCCESS] Sovereign digital rights restored 100% with absolute zero loss!", "#00ff99");
+    }, 2500);
 }
-
-
 
 function resetSystem() {
-
     ledger.innerHTML = "";
-
     status.className = "status safe";
-
-    status.textContent = "SYSTEM STATUS: PROTECTED";
-
-    addLog("🔄 System reset to baseline state");
-
+    status.textContent = "SYSTEM STATUS: SECURED";
+    addLog("🔄 [RESET] System architecture calibrated back to IBM Private Cloud baseline state.", "#ffffff");
 }
 
+// Initial Telemetry Boot
+window.onload = function() {
+    addLog("🌐 [BACKBONE] Sentinel AI Matrix listening live at Chainstack Server Endpoint (jolly-goldberg)...");
+};
 </script>
 
-
-
 </body>
-
 </html>
-
-
