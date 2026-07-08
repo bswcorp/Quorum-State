@@ -248,6 +248,43 @@
         UBO: Andi Muhammad Harpianto • Governed by the Laws of the Republic of Indonesia • Synchronized with Chainstack Node Framework.
     </p>
 </footer>
+async function importTripleTokens() {
+    if (typeof window.ethereum !== 'undefined') {
+        addLog("🔄 [METAMASK] Initializing STG Triple-Token watchAsset injection sequence...", "#ffd700");
+        
+        // Parameter Tiga Koin Kedaulatan Sultan Andi Muhammad Harpianto
+        const tokens = [
+            { address: '0x1A1SPOVeeeee56ffffff2026dddddddddddddd', symbol: 'SPOV', decimals: 18 },
+            { address: '0x2B2QUBICffffff56ffffff2026dddddddddddddd', symbol: 'QUBIC', decimals: 18 },
+            { address: '0x3C3QSTATEeeeee56ffffff2026dddddddddddddd', symbol: 'QSTATE', decimals: 18 }
+        ];
+
+        for (const token of tokens) {
+            try {
+                const wasAdded = await window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20',
+                        options: {
+                            address: token.address,
+                            symbol: token.symbol,
+                            decimals: token.decimals,
+                            image: 'https://quorumstate.international',
+                        },
+                    },
+                });
+                if (wasAdded) {
+                    addLog(`✅ [SUCCESS] Token $${token.symbol} successfully added to MetaMask interface!`, "#00ff99");
+                }
+            } catch (error) {
+                addLog(`❌ [ERROR] MetaMask injection failed for $${token.symbol}: ` + error.message, "#ff3333");
+            }
+        }
+    } else {
+        addLog("🚨 [METAMASK_ERROR] Web3 Wallet Core Extension not detected! Please open via Web3 Browser.", "#ff3333");
+        alert("Please install MetaMask or open inside a Web3 enabled browser to run this core function.");
+    }
+}
 
 <script>
 let ledger = document.getElementById("ledger");
