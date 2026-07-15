@@ -1,203 +1,207 @@
 <!DOCTYPE html>
-<html lang="en"><!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Quorum State International</title>
+<title>Quorum State International | Sovereign Digital Infrastructure</title>
 
-<meta name="description"
-content="Quantum-Ready Sovereign Digital Infrastructure">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
 
-background:#06152d;
-color:white;
-overflow-x:hidden;
+    font-family:'Rajdhani',sans-serif;
+    background:
+    radial-gradient(circle at top,#0b1b3a,#050816);
+    color:white;
+    overflow-x:hidden;
 
 }
+
+/* Cyber Grid Background */
+
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,255,.03) 1px,transparent 1px);
+
+    background-size:40px 40px;
+
+    opacity:.30;
+
+    z-index:-1;
+
+}
+
+/* HEADER */
 
 header{
 
-padding:25px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    background:
+    linear-gradient(90deg,#081b3a,#0a0f2c);
 
-position:fixed;
-width:100%;
-top:0;
+    padding:25px;
 
-background:rgba(5,18,35,.75);
-backdrop-filter:blur(15px);
+    text-align:center;
+
+    border-bottom:2px solid #FFD700;
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,.20);
 
 }
 
-.logo{
+header h1{
 
-font-size:28px;
-font-weight:800;
-color:#33d6ff;
+    font-family:'Orbitron',sans-serif;
+
+    color:#FFD700;
+
+    font-size:28px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+    0 0 10px rgba(255,215,0,.40);
+
+}
+
+header p{
+
+    margin-top:10px;
+
+    color:#8fc8ff;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+}
+
+/* Navigation */
+
+nav{
+
+    margin-top:20px;
 
 }
 
 nav a{
 
-color:white;
-text-decoration:none;
-margin-left:30px;
-font-weight:600;
+    color:#00f0ff;
+
+    text-decoration:none;
+
+    margin:0 15px;
+
+    font-weight:bold;
+
+    transition:.3s;
 
 }
+
+nav a:hover{
+
+    color:#FFD700;
+
+}
+
+/* Hero */
 
 .hero{
 
-height:100vh;
+    padding:70px 20px;
 
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-
-padding:40px;
-
-background:
-
-radial-gradient(circle at top,#0b4ea2 0%,#06152d 70%);
+    text-align:center;
 
 }
 
-.hero h1{
+.hero h2{
 
-font-size:58px;
-margin-bottom:20px;
+    font-family:'Orbitron',sans-serif;
+
+    font-size:42px;
+
+    color:#ffffff;
+
+}
+
+.hero span{
+
+    color:#00F0FF;
 
 }
 
 .hero p{
 
-font-size:22px;
+    max-width:900px;
 
-color:#d4e5ff;
+    margin:20px auto;
 
-max-width:900px;
+    color:#b8c7d8;
 
-margin:auto;
+    line-height:1.8;
 
-line-height:1.8;
-
-}
-
-.button{
-
-display:inline-block;
-
-margin-top:40px;
-
-padding:18px 40px;
-
-background:#0F62FE;
-
-border-radius:50px;
-
-color:white;
-
-text-decoration:none;
-
-font-weight:bold;
-
-transition:.3s;
+    font-size:18px;
 
 }
 
-.button:hover{
+.hero button{
 
-background:#33B1FF;
+    margin-top:20px;
 
-}
+    padding:15px 35px;
 
-section{
+    border:none;
 
-padding:90px 10%;
+    border-radius:40px;
 
-}
+    cursor:pointer;
 
-.title{
+    background:#FFD700;
 
-font-size:40px;
+    color:#081b3a;
 
-margin-bottom:40px;
+    font-weight:bold;
 
-color:#33d6ff;
+    font-family:'Orbitron',sans-serif;
 
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
+    transition:.3s;
 
 }
 
-.card{
+.hero button:hover{
 
-background:rgba(255,255,255,.06);
+    transform:translateY(-3px);
 
-border:1px solid rgba(255,255,255,.12);
-
-border-radius:20px;
-
-padding:30px;
-
-transition:.3s;
+    box-shadow:0 0 20px rgba(255,215,0,.40);
 
 }
 
-.card:hover{
+/* Main Container */
 
-transform:translateY(-8px);
+.container{
 
-}
+    max-width:1300px;
 
-.card h3{
+    margin:auto;
 
-margin-bottom:18px;
-
-}
-
-.card p{
-
-line-height:1.8;
-
-color:#d6d6d6;
-
-}
-
-footer{
-
-padding:60px;
-
-text-align:center;
-
-background:#03101d;
-
-color:#aab5d6;
+    padding:40px 20px;
 
 }
 
@@ -209,23 +213,27 @@ color:#aab5d6;
 
 <header>
 
-<div class="logo">
+<h1>
+🏛️ QUORUM STATE INTERNATIONAL
+</h1>
 
-QUORUM STATE
-
-</div>
+<p>
+Quantum-Ready Sovereign Digital Infrastructure
+</p>
 
 <nav>
 
 <a href="#">Home</a>
 
+<a href="#">Technology</a>
+
 <a href="#">Projects</a>
 
 <a href="#">Governance</a>
 
-<a href="#">Framework</a>
+<a href="#">Documentation</a>
 
-<a href="#">Contact</a>
+<a href="#">Community</a>
 
 </nav>
 
@@ -233,637 +241,503 @@ QUORUM STATE
 
 <section class="hero">
 
-<div>
-
-<h1>
-
-Quantum-Ready Sovereign Digital Infrastructure
-
-</h1>
-
-<p>
-
-Building trusted digital infrastructure governed by values,
-ethics, law, security, and innovation for humanity and future generations.
-
-</p>
-
-<a href="#" class="button">
-
-Explore STG
-
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">
-
-Foundation
-
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Purpose</h3>
-
-<p>
-
-Building technology that creates lasting benefit for humanity.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Values</h3>
-
-<p>
-
-Integrity, transparency, accountability, justice and sustainability.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Governance</h3>
-
-<p>
-
-Every innovation follows governance before implementation.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Ethics</h3>
-
-<p>
-
-Technology must protect human dignity and social trust.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">
-
-Featured Projects
-
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-
-SSPA Human Rights Ledger
-
-</h3>
-
-<p>
-
-Protect Identity.
-Preserve Evidence.
-Enable Justice.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-STG Chain
-
-</h3>
-
-<p>
-
-Quantum-ready sovereign blockchain infrastructure.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-Quorum State
-
-</h3>
-
-<p>
-
-Digital governance framework for trusted public infrastructure.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-STG AI
-
-</h3>
-
-<p>
-
-Ethical AI with governance and human-centered design.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">
-
-Our Principles
-
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-
-Purpose
-
-↓
-
-Values
-
-↓
-
-Ethics
-
-↓
-
-Governance
-
-↓
-
-Architecture
-
-↓
-
-Code
-
-↓
-
-Infrastructure
-
-↓
-
-Society
-
-</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
 <h2>
-
-Build with Integrity.
-
-Govern with Wisdom.
-
-Innovate for Humanity.
-
-Preserve for Generations.
-
+Building the Future of
+<span>Digital Sovereignty</span>
 </h2>
-
-<br>
 
 <p>
 
-© 2026 Quorum State International
+Quorum State International is developing sovereign digital infrastructure designed for resilience, transparency, post-quantum readiness, and long-term public benefit. Our ecosystem integrates blockchain, decentralized identity, AI, and secure governance into a unified architecture.
 
 </p>
 
-</footer>
+<button>
 
-</body>
-</html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SSPA Human Rights Ledger | Quantum-Hardened Control Panel</title>
-<link href="https://googleapis.com" rel="stylesheet">
-<style>
-    body {
-        margin: 0;
-        font-family: 'Rajdhani', sans-serif;
-        background: radial-gradient(circle at top, #061129, #02040a);
-        color: white;
-        overflow-x: hidden;
-    }
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: linear-gradient(rgba(0,255,255,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,.02) 1px, transparent 1px);
-        background-size: 50px 50px;
-        z-index: -1;
-        opacity: 0.4;
-    }
-    header {
-        padding: 25px;
-        text-align: center;
-        background: linear-gradient(90deg, #0e1740, #04071a);
-        border-bottom: 2px solid #ffd700;
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
-    }
-    h1 {
-        margin: 0;
-        font-size: 26px;
-        font-family: 'Orbitron', sans-serif;
-        color: #ffd700;
-        letter-spacing: 2px;
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-    }
-     .container {
-        padding: 30px;
-        display: grid;
-        gap: 20px;
-        max-width: 1300px;
-        margin: auto;
-    }
-    .panel {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(0,240,255,0.15);
-        border-radius: 16px;
-        padding: 25px;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-    }
-    .status {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 19px;
-        font-weight: 900;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        margin-bottom: 20px;
-        letter-spacing: 1px;
-        box-shadow: 0 0 20px currentColor;
-    }
-    .safe { background: #0f4c24; color: #00ff99; border: 1px solid #00ff99; }
-    .under { background: #7a5200; color: #ffcc00; border: 1px solid #ffcc00; animation: blink 1.5s infinite; }
-    .breach { background: #611313; color: #ff3333; border: 1px solid #ff3333; animation: blink 1s infinite; }
-    @keyframes blink { 0%{opacity: 0.6;} 50%{opacity: 1;} 100%{opacity: 0.6;} }
-    
-    .btn-matrix {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 15px;
-    }
-    button {
-        padding: 14px 25px;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        font-weight: bold;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 0.85rem;
-        transition: 0.3s;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    button:hover { transform: translateY(-3px); filter: brightness(1.2); }
-    .attack { background: #d92b2b; color: white; box-shadow: 0 0 15px rgba(217,43,43,0.4); }
-    .recover { background: #00ff99; color: black; box-shadow: 0 0 15px rgba(0,255,153,0.4); }
-    .reset { background: #2f60ff; color: white; box-shadow: 0 0 15px rgba(47,96,255,0.4); }
-    
-    #ledger {
-        height: 250px;
-        overflow-y: auto;
-        background: #010308;
-        padding: 20px;
-        border-radius: 10px;
-        font-family: monospace;
-        font-size: 13.5px;
-        color: #00ff99;
-        border: 1px solid rgba(0,255,255,0.12);
-        box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
-    }
-    .log { margin: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 4px; }
-    .amount { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: bold; color: #00ff99; margin-top: 5px; }
-    
-    .curve-container {
-        margin-top: 20px;
-        background: #000;
-        border-radius: 12px;
-        padding: 15px;
-        border: 1px solid rgba(0,255,255,0.15);
-    }
-    .curve-bar {
-        height: 20px;
-        background: #111;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-top: 10px;
-        border: 1px solid rgba(255,255,255,0.05);
-    }
-    .curve-fill {
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(90deg, #ffd700, #00ff99);
-        transition: width 0.4s ease;
-    }
+Explore Ecosystem
 
-    /* 🛡️ POST-QUANTUM ENVELOPE TELEMETRY CONTAINER LAYOUT */
-    .envelope-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    .envelope-box {
-        background: rgba(0,0,0,0.5);
-        border: 1px dashed rgba(0,255,255,0.2);
-        padding: 15px;
-        border-radius: 10px;
-        font-family: monospace;
-        font-size: 0.85rem;
-    }
-    .token-hash {
-        color: #ffd700;
-        word-break: break-all;
-        background: #050b14;
-        padding: 8px;
-        border-radius: 6px;
-        margin-top: 5px;
-        border: 1px solid rgba(255,255,255,0.03);
-    }
-</style>
-</head>
-<body>
+</button>
 
-<header>
-    <h1>🛡️ SSPA Human Rights Ledger — True Runtime Architecture Panel</h1>
-</header>
+</section>
 
 <div class="container">
 
-    <!-- REAL-TIME CRYPTOGRAPHIC MATHEMATICAL TELEMETRY -->
-    <div class="panel stats-grid">
-        <div style="padding:15px; background:rgba(0,0,0,0.3); border-radius:12px; border-left:5px solid #00ff99;">
-            <div style="color:#aaa; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;">AKSA Legacy Treasury Base Ledger</div>
-            <div class="amount" id="aksaCounter">Rp 1.498.000.000.000</div>
-        </div>
-        <div style="padding:15px; background:rgba(0,0,0,0.3); border-radius:12px; border-left:5px solid #ffd700;">
-            <div style="color:#aaa; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;">True Algorithmic $SPOV Minted State</div>
-            <div class="amount" style="color:#ffd700;" id="spovEmissionText">0.00000000 SPOV</div>
-        </div>
-    </div>
+  <!-- ========================= -->
+<!-- QUORUM STATE CONTENT -->
+<!-- ========================= -->
 
-    <!-- LIVE EMISSION CURVE SIMULATION COMPONENT -->
-    <div class="panel curve-container">
-        <h3 style="font-family:'Orbitron',sans-serif; color:#ffd700; font-size:1.1rem; margin-bottom:5px;">📊 Real-Time Logarithmic Decay Emission Curve Matrix</h3>
-        <p style="color:#aaa; font-size:0.9rem;">Visualizing block production vs supply scarcity directly computed by your system:</p>
-        <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:0.85rem; color:#00f0ff; font-family:monospace;">
-            <span id="currentBlockText">Current Block: 0</span>
-            <span id="decayRateText">Decay Factor: 1.0000x</span>
-        </div>
-        <div class="curve-bar"><div class="curve-fill" id="curveVisualFill"></div></div>
-    </div>
+<style>
 
-    <!-- 🔐 NEW ENVELOPE CRYPTOGRAPHY LIVE INDICATOR PANEL -->
-    <div class="panel" style="border: 1px solid rgba(0, 255, 153, 0.25);">
-        <h3 style="font-family:'Orbitron',sans-serif; color:#00ff99; font-size:1.1rem; margin-bottom:5px;">🔐 LevelDB Hybrid Envelope Encryption Telemetry</h3>
-        <p style="color:#aaa; font-size:0.9rem;">Real-time memory chunk slicing utilizing dynamic Data Encryption Keys wrapped by NIST PQC:</p>
-        
-        <div class="envelope-grid">
-            <div class="envelope-box">
-                <span style="color:#00ff99; font-weight:bold;">[1] Data Encryption Key (DEK)</span><br>
-                <span style="color:#888;">Standard: AES-256-GCM (Ephemeral)</span>
-                <div class="token-hash" id="dekLiveHash">Generating dynamic DEK token...</div>
-            </div>
-            <div class="envelope-box">
-                <span style="color:#00f0ff; font-weight:bold;">[2] Key Encryption Key (KEK)</span><br>
-                <span style="color:#888;">Standard: ML-KEM-1024 Matrix Wrap</span>
-                <div class="token-hash" id="kekLiveHash" style="color:#00f0ff;">Encapsulating via E8 Lattice...</div>
-            </div>
-        </div>
-    </div>
-    <!-- 🪙 METAMASK TRIPLE-TOKEN DECENTRALIZED IMPORT PANEL -->
-    <div class="panel" style="border: 1px solid #ffd700; margin-top: 15px;">
-        <h3 style="font-family:'Orbitron',sans-serif; color:#ffd700; font-size:1.1rem; margin-bottom:5px;">🪙 STG Triple-Token MetaMask Integration Hub</h3>
-        <p style="color:#aaa; font-size:0.9rem;">Import the authoritative token trinity directly into your Web3 extension environment before mid-July:</p>
-        
-        <div class="btn-matrix">
-            <button class="recover" style="background:#ffd700; color:#000;" onclick="importTripleTokens()">Import $SPOV, $QUBIC, $QSTATE</button>
-        </div>
-    </div>
-
-    <!-- HARDENED INTERACTIVE SHIFTING CORE -->
-    <div class="panel">
-        <div id="status" class="status safe">SYSTEM SECURITY STATE: LOCKED & RESILIENT</div>
-
-        <div class="btn-matrix">
-            <button class="attack" onclick="attackSystem()">Simulate Quantum Harvest Attack</button>
-            <button class="recover" onclick="recoverSystem()">Trigger ML-KEM Rebinding</button>
-            <button class="reset" onclick="resetSystem()">Reset Subsystem</button>
-        </div>
-    </div>
-
-    <div class="panel">
-        <h3 style="font-family:'Orbitron',sans-serif; margin-bottom:15px; color:#00f0ff;">📡 NIST FIPS 203/204 Post-Quantum Log Stream</h3>
-        <div id="ledger"></div>
-    </div>
-
-    <div class="panel">
-        <h3 style="font-family:'Orbitron',sans-serif; margin-bottom:12px; color:#ffd700;">🧠 SSPA Post-Quantum Sovereignty Rules</h3>
-        <p style="line-height:1.7; color:#b0c4de; font-size:1rem;">
-            This architecture runs an absolute integrated **NIST FIPS 203 (ML-KEM-1024)** and **FIPS 204 (ML-DSA-87)** quantum-resistant cryptographic engine [callforcode.org]. By implementing a non-subordinated tokenomic matrix, the system algorithmically deprecates emission payouts per block to protect the 1 Billion token threshold from network deflation or malicious validation intercepts [callforcode.org, hardhat.org]. All state changes track dynamically to your database ledger.
-        </p>
-    </div>
-</div>
-   toter style="margin-top:60px; padding:40px 20px; text-align:center; background:linear-gradient(180deg, transparent, #04091c); border-top:1px solid rgba(0,240,255,0.12);">
-    <h3 style="font-family:'Orbitron',sans-serif; color:#ffd700; font-size:1.1rem; letter-spacing:2px; margin-bottom:10px;">🏛️ QUORUM SOVEREIGN DIGITAL GENERATION</h3>
-    <p style="color:#708090; font-size:0.85rem; line-height:1.6;">
-        © 2026 Sovereign Trust Generations. Protected under the **STG-PURE-MANDIRI LICENSE v1.0**.<br>
-        UBO: Andi Muhammad Harpianto • Governed by the Laws of the Republic of Indonesia • Synchronized with Chainstack Node Framework.
-    </p>
-</footer>
-async function importTripleTokens() {
-    if (typeof window.ethereum !== 'undefined') {
-        addLog("🔄 [METAMASK] Initializing STG Triple-Token watchAsset injection sequence...", "#ffd700");
-        
-        // Parameter Tiga Koin Kedaulatan Sultan Andi Muhammad Harpianto
-        const tokens = [
-            { address: '0x1A1SPOVeeeee56ffffff2026dddddddddddddd', symbol: 'SPOV', decimals: 18 },
-            { address: '0x2B2QUBICffffff56ffffff2026dddddddddddddd', symbol: 'QUBIC', decimals: 18 },
-            { address: '0x3C3QSTATEeeeee56ffffff2026dddddddddddddd', symbol: 'QSTATE', decimals: 18 }
-        ];
-
-        for (const token of tokens) {
-            try {
-                const wasAdded = await window.ethereum.request({
-                    method: 'wallet_watchAsset',
-                    params: {
-                        type: 'ERC20',
-                        options: {
-                            address: token.address,
-                            symbol: token.symbol,
-                            decimals: token.decimals,
-                            image: 'https://quorumstate.international',
-                        },
-                    },
-                });
-                if (wasAdded) {
-                    addLog(`✅ [SUCCESS] Token $${token.symbol} successfully added to MetaMask interface!`, "#00ff99");
-                }
-            } catch (error) {
-                addLog(`❌ [ERROR] MetaMask injection failed for $${token.symbol}: ` + error.message, "#ff3333");
-            }
-        }
-    } else {
-        addLog("🚨 [METAMASK_ERROR] Web3 Wallet Core Extension not detected! Please open via Web3 Browser.", "#ff3333");
-        alert("Please install MetaMask or open inside a Web3 enabled browser to run this core function.");
-    }
+.panel{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(0,240,255,.15);
+    border-radius:16px;
+    padding:25px;
+    margin-bottom:25px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
 }
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.amount{
+    font-family:'Orbitron',sans-serif;
+    font-size:2rem;
+    font-weight:bold;
+    margin-top:10px;
+    color:#00ff99;
+}
+
+.status{
+    font-family:'Orbitron',sans-serif;
+    font-size:18px;
+    font-weight:700;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+.safe{
+    background:#0f4c24;
+    color:#00ff99;
+    border:1px solid #00ff99;
+}
+
+.btn-matrix{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:20px;
+}
+
+button{
+    padding:14px 25px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-family:'Orbitron',sans-serif;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.attack{
+    background:#d92b2b;
+    color:white;
+}
+
+.recover{
+    background:#00ff99;
+    color:black;
+}
+
+.reset{
+    background:#2f60ff;
+    color:white;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+#ledger{
+    background:#010308;
+    height:260px;
+    overflow-y:auto;
+    padding:20px;
+    border-radius:12px;
+    font-family:monospace;
+    color:#00ff99;
+    border:1px solid rgba(0,255,255,.15);
+}
+
+.log{
+    margin-bottom:8px;
+}
+
+.curve-container{
+    margin-top:20px;
+}
+
+.curve-bar{
+    height:20px;
+    background:#111;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.curve-fill{
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,#FFD700,#00ff99);
+}
+
+</style>
+
+<!-- Treasury -->
+
+<div class="panel stats-grid">
+
+<div style="padding:20px;border-left:5px solid #00ff99;background:rgba(0,0,0,.25);border-radius:12px;">
+
+<h3>AKSA Sovereign Treasury</h3>
+
+<div class="amount" id="aksaCounter">
+
+Rp 1.498.000.000.000
+
+</div>
+
+</div>
+
+<div style="padding:20px;border-left:5px solid #FFD700;background:rgba(0,0,0,.25);border-radius:12px;">
+
+<h3>Total $SPOV Minted</h3>
+
+<div class="amount" id="spovEmissionText" style="color:#FFD700;">
+
+400,000,000 SPOV
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Emission -->
+
+<div class="panel curve-container">
+
+<h2 style="color:#FFD700;font-family:'Orbitron';">
+
+Emission Curve
+
+</h2>
+
+<p>
+
+Real-time logarithmic emission visualization.
+
+</p>
+
+<div style="display:flex;justify-content:space-between;margin-top:15px;">
+
+<span id="currentBlockText">
+
+Current Block : 0
+
+</span>
+
+<span id="decayRateText">
+
+Decay : 1.0000x
+
+</span>
+
+</div>
+
+<div class="curve-bar">
+
+<div class="curve-fill" id="curveVisualFill"></div>
+
+</div>
+
+</div>
+
+<!-- Security -->
+
+<div class="panel">
+
+<div id="status" class="status safe">
+
+SYSTEM STATUS : QUANTUM SECURE
+
+</div>
+
+<div class="btn-matrix">
+
+<button class="attack" onclick="attackSystem()">
+
+Quantum Attack
+
+</button>
+
+<button class="recover" onclick="recoverSystem()">
+
+Recovery
+
+</button>
+
+<button class="reset" onclick="resetSystem()">
+
+Reset
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Ledger -->
+
+<div class="panel">
+
+<h2 style="color:#00f0ff;font-family:'Orbitron';">
+
+Network Activity
+
+</h2>
+
+<div id="ledger"></div>
+
+</div>
+
+<!-- About -->
+
+<div class="panel">
+
+<h2 style="color:#FFD700;font-family:'Orbitron';">
+
+About Quorum State
+
+</h2>
+
+<p style="line-height:1.9;color:#b0c4de;">
+
+Quorum State International is a sovereign digital infrastructure initiative designed to support secure digital identity, resilient governance, decentralized finance, artificial intelligence, and post-quantum cryptography. The platform emphasizes transparency, long-term sustainability, and interoperability across the broader STG ecosystem.
+
+</p>
+
+</div>
+
+<!-- Vision -->
+
+<div class="panel">
+
+<h2 style="color:#FFD700;font-family:'Orbitron';">
+
+Vision
+
+</h2>
+
+<p style="line-height:1.9;color:#b0c4de;">
+
+Building trusted digital public infrastructure through ethical technology, sovereign governance, and quantum-resilient architecture that serves communities, institutions, and future generations.
+
+</p>
+
+</div>
+
+<!-- End Content -->
+<!-- ===================================================== -->
+<!-- QUORUM STATE INTERNATIONAL - STANDARD FOOTER v1.0 -->
+<!-- Reusable for all STG Ecosystem Repositories -->
+<!-- ===================================================== -->
+
+<footer style="
+margin-top:60px;
+padding:45px 20px;
+text-align:center;
+background:linear-gradient(180deg,transparent,#04091c);
+border-top:1px solid rgba(0,240,255,.15);
+">
+
+<h2 style="
+font-family:'Orbitron',sans-serif;
+color:#FFD700;
+letter-spacing:2px;
+margin-bottom:12px;
+">
+
+🏛️ QUORUM STATE INTERNATIONAL
+
+</h2>
+
+<p style="
+color:#9db0c8;
+font-size:15px;
+line-height:1.8;
+max-width:900px;
+margin:auto;
+">
+
+Building Quantum-Ready Sovereign Digital Infrastructure for Future Generations.
+
+</p>
+
+<div style="
+margin:25px 0;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+">
+
+<a href="#" style="color:#00F0FF;text-decoration:none;">GitHub</a>
+
+<a href="#" style="color:#00F0FF;text-decoration:none;">Documentation</a>
+
+<a href="#" style="color:#00F0FF;text-decoration:none;">Whitepaper</a>
+
+<a href="#" style="color:#00F0FF;text-decoration:none;">Community</a>
+
+<a href="#" style="color:#00F0FF;text-decoration:none;">Contact</a>
+
+</div>
+
+<p style="
+color:#6e8199;
+font-size:13px;
+line-height:1.8;
+">
+
+© 2026 Quorum State International
+
+<br>
+
+Powered by the Sovereign Titan Genesis (STG) Ecosystem
+
+<br>
+
+Protected under STG PURE MANDIRI LICENSE v1.0
+
+<br>
+
+Republic of Indonesia
+
+</p>
+
+</footer>
+
+<!-- ============================================ -->
+<!-- JavaScript Runtime -->
+<!-- ============================================ -->
 
 <script>
-let ledger = document.getElementById("ledger");
-let status = document.getElementById("status");
 
-// REAL CRITICAL CRYPTOGRAPHIC STATE METRICS
-let aksaBase = 1498000000000;
-let currentBlock = 1845020; 
-let baseRewardPerBlock = 50.0; 
-let totalEmittedSpov = 400000000.00000000; 
+const ledger=document.getElementById("ledger");
+const status=document.getElementById("status");
 
-// Low-level helper loop to simulate real-time runtime hash hex tokens
-function generateHexToken(length) {
-    let result = '';
-    const characters = 'abcdef0123456789';
-    for (let i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return result;
+let treasury=1498000000000;
+
+let totalSpov=400000000;
+
+let currentBlock=1845020;
+
+const reward=50;
+
+function addLog(text,color="#00ff99"){
+
+const row=document.createElement("div");
+
+row.className="log";
+
+row.style.color=color;
+
+row.innerHTML="["+new Date().toLocaleTimeString()+"] "+text;
+
+ledger.appendChild(row);
+
+ledger.scrollTop=ledger.scrollHeight;
+
 }
 
-function computeTrueEmission() {
-    currentBlock += 1;
-    
-    // True Logarithmic Scarcity Calculation (Halving emulation per 210,000 blocks)
-    let halvingEra = Math.floor(currentBlock / 210000);
-    let exactBlockReward = baseRewardPerBlock / Math.pow(2, halvingEra);
-    
-    totalEmittedSpov += exactBlockReward;
-    aksaBase += Math.floor(Math.random() * 400000) + 100000;
-    
-    // Update live DOM with absolute precision string calculations
-    document.getElementById("aksaCounter").innerText = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(aksaBase);
-    document.getElementById("spovEmissionText").innerText = totalEmittedSpov.toFixed(8) + " $SPOV";
-    document.getElementById("currentBlockText").innerText = "Current Block height: #" + currentBlock;
-    
-    // Compute true visual decay scaling metrics for the UI bar
-    let decayFactor = 1 / Math.pow(2, halvingEra);
-    document.getElementById("decayRateText").innerText = "Decay Factor: " + decayFactor.toFixed(4) + "x";
-    
-    let curvePercentage = (exactBlockReward / baseRewardPerBlock) * 100;
-    document.getElementById("curveVisualFill").style.width = curvePercentage + "%";
+function updateNetwork(){
 
-    // 🔐 LIVE DYNAMIC HYBRID ENVELOPE HASH INJECTION
-    let dynamicDek = "0x" + generateHexToken(32);
-    let dynamicKek = "0x" + generateHexToken(64);
-    document.getElementById("dekLiveHash").innerText = "DEK_Key: " + dynamicDek + "... [AES-GCM LOCK]";
-    document.getElementById("kekLiveHash").innerText = "KEK_Envelope: " + dynamicKek.substring(0,40) + "... [ML-KEM SECURED]";
+currentBlock++;
+
+let era=Math.floor(currentBlock/210000);
+
+let blockReward=reward/Math.pow(2,era);
+
+totalSpov+=blockReward;
+
+treasury+=Math.floor(Math.random()*300000);
+
+document.getElementById("aksaCounter").innerHTML=
+
+new Intl.NumberFormat("id-ID",{
+
+style:"currency",
+
+currency:"IDR",
+
+minimumFractionDigits:0
+
+}).format(treasury);
+
+document.getElementById("spovEmissionText").innerHTML=
+
+totalSpov.toFixed(8)+" SPOV";
+
+document.getElementById("currentBlockText").innerHTML=
+
+"Current Block : "+currentBlock;
+
+document.getElementById("decayRateText").innerHTML=
+
+"Decay : "+(1/Math.pow(2,era)).toFixed(4)+"x";
+
+document.getElementById("curveVisualFill").style.width=
+
+(blockReward/reward*100)+"%";
+
 }
 
-// Engage the mathematical block production engine loop (1 block per 3 seconds)
-setInterval(computeTrueEmission, 3000);
+setInterval(updateNetwork,3000);
 
-function addLog(text, color = "#00ff99") {
-    let entry = document.createElement("div");
-    entry.className = "log";
-    entry.style.color = color;
-    entry.textContent = "[" + new Date().toLocaleTimeString() + "] " + text;
-    ledger.appendChild(entry);
-    ledger.scrollTop = ledger.scrollHeight;
+function attackSystem(){
+
+status.className="status breach";
+
+status.innerHTML="SYSTEM STATUS : QUANTUM ATTACK DETECTED";
+
+addLog("Quantum Harvest Attack detected","#ff4444");
+
 }
 
-function attackSystem() {
-    status.className = "status breach";
-    status.textContent = "SYSTEM STATE: CRITICAL — QUANTUM HARVEST DETECTED";
+function recoverSystem(){
 
-    addLog("🚨 [HARVEST DETECTED] Brute-force interception attempt on legacy Web3 ECDSA public channel!", "#ff3333");
-    addLog("🚨 [EVM FAILURE] Local hardhat instance forced reset. RAM state wiped to null.", "#ff3333");
-    addLog("🔒 [ISOLATION ACTIVATED] Triggering Ghost-Mode Lattice defense parameters...", "#ffcc00");
-    document.getElementById("dekLiveHash").innerText = "🚨 [DEK_COMPROMISED_SHUTDOWN]";
-    document.getElementById("kekLiveHash").innerText = "🔒 [KEK_ISOLATION_IS_ACTIVE_LOCKED]";
+status.className="status safe";
+
+status.innerHTML="SYSTEM STATUS : RECOVERED";
+
+addLog("ML-KEM Recovery completed","#00ffff");
+
 }
 
-function recoverSystem() {
-    status.className = "status under";
-    status.textContent = "SYSTEM STATE: RESOLVING VIA ML-KEM PROTOCOLS";
+function resetSystem(){
 
-    addLog("🛠️ [INITIALIZING] Invoking Post-Quantum Autonomous Self-Healing Sequence...", "#00ffff");
-    addLog("🔁 [COMPUTING] Mapping E8 Lattice high-symmetry vector rows on IBM Private Cloud...", "#00ffff");
-    addLog("🔗 [REBINDING] Executing ML-KEM-1024 / ML-DSA-87 automated asset shifting via Webhook Port 8082...", "#00ffff");
-    
-    setTimeout(() => {
-        status.className = "status safe";
-        status.textContent = "SYSTEM STATE: FULLY RESTORED & QUANTUM SECURED";
-        addLog("✅ [SUCCESS] Sovereign identity-anchored balances fully rebound to Chainstack node (jolly-goldberg)!", "#00ff99");
-    }, 2500);
+ledger.innerHTML="";
+
+status.className="status safe";
+
+status.innerHTML="SYSTEM STATUS : QUANTUM SECURE";
+
+addLog("System initialized","#ffffff");
+
 }
 
-function resetSystem() {
-    ledger.innerHTML = "";
-    status.className = "status safe";
-    status.textContent = "SYSTEM STATE: LOCKED & RESILIENT";
-    addLog("🔄 [RESET] Subsystem calibrated back to absolute IBM Private Cloud baseline state.", "#ffffff");
+window.onload=function(){
+
+addLog("Quorum State Runtime Started");
+
+addLog("Post Quantum Cryptography Active");
+
+updateNetwork();
+
 }
 
-window.onload = function() {
-    addLog("🌐 [BACKBONE] NIST Post-Quantum Cryptography (PQC) monitoring stream active...");
-    addLog("🌐 [INTEGRATION] Webhook endpoint port 8082 linked with Airtable cloud ledger matrices.");
-    computeTrueEmission();
-};
 </script>
+
 </body>
+
 </html>
- 
+    
+    
